@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300');
+
 root {
 	--primary: #EBEBD3;
 }
-
 
 body {
 	height: 100%;
@@ -35,10 +36,15 @@ form {
 	margin: 0px;
 	padding: 0px;
 }
+
 .headerbar {
 	height: 10%;
 	padding: 0px;
-	background: #grey;
+	background: #EBEBD3;
+	position: fixed;
+	z-index: 100;
+	top:0;
+	left: 0;
 }
 
 .contentbox {
@@ -110,10 +116,33 @@ nav > a {
 	width: 60px;
 	background: #003565;
 	text-decoration: none;
+	font-family: 'Open Sans Condensed', sans-serif;
 	color: white;
+	transition: 0.3s;
 }
+
+nav > a:hover {
+	color: #B0D8FC;
+}
+
 nav {
 	background: #003565;
 	height: 25px;
 	text-align: center;
+}
+
+.sb {
+	margin: 25px 0px 0px 25px;
+	border: 1px solid #003565;
+	border-radius: 5px;
+	height: auto;
+	width: 200px;
+}
+
+.sbh {
+	background: #003565;
+	border-radius: 4px 4px 0 0;
+	text-align: center;
+	color: white;
+	font-family: 'Open Sans Condensed', sans-serif;
 }
