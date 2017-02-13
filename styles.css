@@ -1,3 +1,8 @@
+root {
+	--primary: #EBEBD3;
+}
+
+
 body {
 	height: 100%;
 	width: 100%;
@@ -95,4 +100,20 @@ ul {
 ul li:hover {
 	cursor: pointer;
 	color: #003565;
+}
+
+nav > a {
+	float: left;
+	padding: 0 50px 0 50px;
+	height: 25px;
+	line-height: 25px;
+	width: 60px;
+	background: #003565;
+	text-decoration: none;
+	color: white;
+}
+nav {
+	background: #003565;
+	height: 25px;
+	text-align: center;
 }
