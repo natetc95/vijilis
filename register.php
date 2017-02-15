@@ -15,9 +15,10 @@
   <div id="bar"></div>
 	<div id="loginbox"></br>
 		<form action="login.php" method="post">
-		Username / Email:<input type="text" name="name"></br></br>
-		Password:<input type="password" name="email"></br><a class="pa" href="./forgotpass.php">Forgot Password?</a>&nbsp;<a class="pa" href="./register.php">Register</a></br></br>
-		<input value="Log In ➤" type="submit">
+    First Name:<input type="text" name="firstName"><br></br>
+    Last Name:<input type="text" name="lastName"><br></br>
+		Email:<input type="text" name="email"></br></br>
+		<input value="Register ➤" type="submit">
 		</form>
 	</div>
 </body>
