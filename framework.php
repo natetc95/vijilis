@@ -11,12 +11,19 @@
 <body>
   <div class="headerbar">
 		<a href="./index.php"><img src="logo_rn.png" height="80%" style="padding-top: 8px; padding-left: 5px;"></a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Requests</a>
+      <a href="#">Account</a>
+      <a href="#">Vendors</a>
+    </nav>
 	</div>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Requests</a>
-    <a href="#">Account</a>
-    <a href="#">Vendors</a>
-  </nav>
+  <br/><br/><br/><br/><br/>
+  <div class="sb">
+    <div class="sbh">
+      Header Bar
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  </div>
 </body>
 </html>
