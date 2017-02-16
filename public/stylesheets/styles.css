@@ -29,10 +29,11 @@ form {
 }
 
 .fa-entry {
-	padding: 9px 0px 11px 2px;
+	padding: 9px 2px 11px 2px;
 	width: 30px;
-	color: var(--divider-color);
+	color: var(--dark-primary-color);
 	border: 1px solid var(--divider-color);
+	background: #EBEBEB;
 	border-width: 1px 0px 1px 1px;
 }
 
@@ -76,8 +77,8 @@ form {
 #registerbox {
 	margin: 0 auto;
 	width: 268px;
-	height: 420px;
-	margin-top: 10%;
+	height: 455px;
+	margin-top: 5%;
 	background: var(--text-primary-color);
 	box-shadow: 0px 5px 25px 10px var(--divider-color);
 	border-radius: 4px;
@@ -87,7 +88,7 @@ form {
 #registerbox h1 {
 	padding: 0px 0px 10px 0px;
 	border-bottom: 1px solid var(--divider-color);
-	margin: 0px 0px 10px 0px;
+	margin: 0px;
 	text-align: center;
 	cursor: default;
 }

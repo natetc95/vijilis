@@ -31,7 +31,7 @@ function passwordMatch() {
     if(document.getElementById("pw-error")) {
       document.getElementById("pw-error").remove();
       numErrors--;
-      document.getElementById("registerbox").style = "height: " + (425 + numErrors*30) + "px";
+      document.getElementById("registerbox").style = "height: " + (455 + numErrors*32) + "px";
     }
     return true;
   } else {
@@ -42,7 +42,7 @@ function passwordMatch() {
       newDiv.setAttribute("id", "pw-error");
       newDiv.innerHTML = "Passwords do not match!"
       numErrors++;
-      document.getElementById("registerbox").style = "height: " + (425 + numErrors*30) + "px";
+      document.getElementById("registerbox").style = "height: " + (455 + numErrors*32) + "px";
       $(newDiv).insertAfter(document.getElementById("pw2"));
     }
     return false;
@@ -57,7 +57,7 @@ function phoneNumber() {
       if(document.getElementById("tel-error")) {
       document.getElementById("tel-error").remove();
       numErrors-= 3;
-      document.getElementById("registerbox").style = "height: " + (425 + numErrors*30) + "px";
+      document.getElementById("registerbox").style = "height: " + (455 + numErrors*32) + "px";
     }
       return true;
     }
@@ -69,7 +69,7 @@ function phoneNumber() {
         newDiv.setAttribute("id", "tel-error");
         newDiv.innerHTML = "Invalid Phone Number!<br/>XXX-XXX-XXXX<br/>XXX.XXX.XXXX<br/>XXX XXX XXXX<br/>"
         numErrors+= 3;
-        document.getElementById("registerbox").style = "height: " + (425 + numErrors*30) + "px";
+        document.getElementById("registerbox").style = "height: " + (455 + numErrors*32) + "px";
         $(newDiv).insertAfter(document.getElementById("tel"));
       }
       return false;

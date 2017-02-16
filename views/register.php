@@ -23,6 +23,7 @@
 	<div id="registerbox"></br>
     <h1>Account Registry</h1>
     <center>
+      <span class="fa fa-user-circle-o fa-entry"></span><input require id="fname" type="text" placeholder="Username" onkeypress="handle(event)"/>
   	  <span class="fa fa-user-circle-o fa-entry"></span><input require id="fname" type="text" placeholder="First Name" onkeypress="handle(event)"/>
   	  <span class="fa fa-users fa-entry"></span><input id="lname" type="text" placeholder="Last Name" onkeypress="handle(event)"/>
       <span class="fa fa-envelope fa-entry"></span><input id="email" type="text" placeholder="Email" onkeypress="handle(event)"/>
