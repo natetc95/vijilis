@@ -32,7 +32,7 @@ function submitLogin() {
         // errors.innerHTML = handleError(JSON.parse(success).error);
         // document.getElementById("loginbox").insertBefore(errors, document.getElementById("la"));
       } else if (JSON.parse(success).loginstat == "SUCC") {
-        window.location = "framework.php";
+        window.location = "portal.php";
       }
     },
     error: function(failure) {
@@ -53,5 +53,13 @@ function handle(e){
 }
 
 function Logout() {
-
+  $.ajax({
+    url: 'controllers/logout.php',
+    type: 'POST',
+    dataType: 'text',
+    success: function(success) {
+      console.log("Logged Out!");
+      window.location = "index.php";
+    }
+  });
 }

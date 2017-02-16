@@ -29,7 +29,7 @@ form {
 }
 
 .fa-entry {
-	padding: 8px 0px 11px 10px;
+	padding: 9px 0px 11px 10px;
 	color: var(--divider-color);
 	border: 1px solid var(--divider-color);
 	border-width: 1px 0px 1px 1px;
@@ -37,19 +37,66 @@ form {
 
 #loginbox {
 	margin: 0 auto;
-	width: 248px;
-	height: 254px;
-	padding: 8px;
+	width: 268px;
+	height: 264px;
 	margin-top: 10%;
 	background: var(--text-primary-color);
 	box-shadow: 0px 5px 25px 10px var(--divider-color);
 	border-radius: 4px;
 }
 #loginbox h1 {
-	padding: 0px;
-	margin: 0px;
+	padding: 0px 0px 10px 0px;
+	border-bottom: 1px solid var(--divider-color);
+	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
+}
+
+#portalbox {
+	margin: auto;
+	position: relative;
+	 top: 30%;
+	 transform: translateY(-50%);
+	width: 268px;
+	height: 310px;
+	background: var(--text-primary-color);
+	box-shadow: 0px 5px 25px 10px var(--divider-color);
+	border-radius: 4px;
+}
+
+#portalbox h1 {
+	padding: 0px 0px 10px 0px;
+	border-bottom: 1px solid var(--divider-color);
+	margin: 0px 0px 10px 0px;
+	text-align: center;
+	cursor: default;
+}
+.portal-link {
+	border: 1px solid var(--divider-color);
+	border-radius: 2px;
+	width: 220px;
+	height: 32px;
+	line-height: 32px;
+	padding: 10px;
+	color: var(--dark-primary-color);
+	transition: 0.3s;
+}
+.portal-link:hover {
+	color: var(--divider-color);
+	border: 1px solid var(--dark-primary-color);
+}
+
+.portal-div{
+	margin-top: 10px;
+}
+ .portal-text {
+	padding-left: 20px;
+	font-size: 20px;
+	height: 32px;
+	line-height: 32px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	float: left;
 }
 
 #bar {
@@ -104,7 +151,7 @@ input[type=text], input[type=number], input[type=password] {
 	color: var(--dark-primary-color);
 	border: 1px solid var(--divider-color);
 	border-width: 1px 1px 1px 0px;
-	padding: 10px 10px 10px 10px;
+	padding: 11px 10px 10px 10px;
 	transition: 0.3s;
 	margin-top: 10px;
 }
