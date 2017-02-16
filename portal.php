@@ -13,7 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/loginpage.js"></script>
   <title>Portals</title>
-  <?php require('controllers/SessionHandler.php'); echo($_SESSION['name']);?>
+  <?php require('controllers/SessionHandler.php');?>
 </head>
 <body>
 	<div class="headerbar">
@@ -21,7 +21,7 @@
     <br/>
     <div id="bar"></div>
   </div>
-	<div id="portalbox" style="height: 380px"></br>
+	<div id="portalbox" style="height: 420px"></br>
     <h1>Available Portals</h1>
     <center>
       <a class="portal-div" href="vendor">
@@ -49,6 +49,8 @@
         </div>
       </a>
     </center>
+    <button style="float: left; margin: 12px;" onclick="Logout()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Log Out</button>
+    <button style="float: right; margin: 12px;" onclick="">Preferences&nbsp;<i class="fa fa-cogs" aria-hidden="true"></i></button>
 	</div>
 </body>
 </html>

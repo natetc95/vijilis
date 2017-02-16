@@ -29,7 +29,8 @@ form {
 }
 
 .fa-entry {
-	padding: 9px 0px 11px 10px;
+	padding: 9px 0px 11px 2px;
+	width: 30px;
 	color: var(--divider-color);
 	border: 1px solid var(--divider-color);
 	border-width: 1px 0px 1px 1px;
@@ -71,6 +72,26 @@ form {
 	text-align: center;
 	cursor: default;
 }
+
+#registerbox {
+	margin: 0 auto;
+	width: 268px;
+	height: 420px;
+	margin-top: 10%;
+	background: var(--text-primary-color);
+	box-shadow: 0px 5px 25px 10px var(--divider-color);
+	border-radius: 4px;
+	transition: 0.1s;
+}
+
+#registerbox h1 {
+	padding: 0px 0px 10px 0px;
+	border-bottom: 1px solid var(--divider-color);
+	margin: 0px 0px 10px 0px;
+	text-align: center;
+	cursor: default;
+}
+
 .portal-link {
 	border: 1px solid var(--divider-color);
 	border-radius: 2px;
@@ -88,15 +109,16 @@ form {
 
 .portal-div{
 	margin-top: 10px;
+	text-decoration: none;
 }
  .portal-text {
-	padding-left: 20px;
+	width: 190px;
 	font-size: 20px;
 	height: 32px;
 	line-height: 32px;
 	margin-bottom: 10px;
-	text-decoration: none;
-	float: left;
+	text-align: center;
+	margin-left: 30px;
 }
 
 #bar {
@@ -131,7 +153,7 @@ form {
 }
 
 input[type=submit], button {
-	border: 2px solid var(--divider-color);
+	border: 1px solid var(--divider-color);
 	border-radius: 4px;
 	padding: 4px 8px 4px 8px;
 	font-weight: bold;
@@ -141,11 +163,11 @@ input[type=submit], button {
 
 input[type=submit]:hover, button:hover {
 	cursor: pointer;
-	color: var(--dark-primary-color);
-	border: 2px solid var(--dark-primary-color);
+	color: var(--divider-color);
+	border: 1px solid var(--dark-primary-color);
 }
 
-input[type=text], input[type=number], input[type=password] {
+input[type=text], input[type=number], input[type=password], input[type=tel] {
 	width: 200px;
 	background: none;
 	color: var(--dark-primary-color);
@@ -155,10 +177,10 @@ input[type=text], input[type=number], input[type=password] {
 	transition: 0.3s;
 	margin-top: 10px;
 }
-input[type=text]:hover, input[type=number]:hover, input[type=password]:hover {
+input[type=text]:hover, input[type=tel]:hover, input[type=number]:hover, input[type=password]:hover {
 	border-bottom: 1px solid var(--dark-primary-color);
 }
-input[type=text]:active, input[type=number]:active, input[type=password]:active {
+input[type=text]:active, input[type=tel]:active, input[type=number]:active, input[type=password]:active {
 	border-bottom: 1px solid var(--dark-primary-color);
 }
 
@@ -232,4 +254,8 @@ nav {
 	text-align: center;
 	color: white;
 	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.reg-error {
+	margin-top: 10px;
 }
