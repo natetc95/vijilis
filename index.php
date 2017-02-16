@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link type='text/css' href='public/stylesheets/styles.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel='icon' href='public/images/icon.ico'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -21,8 +22,8 @@
   </div>
 	<div id="loginbox"></br>
     <h1>Login</h1><hr/>
-  	<input id="_uname" type="text" name="name" placeholder="Username" onkeypress="handle(event)"/><br/>
-  	<input id="_pwd" type="password" name="email" placeholder="Password" onkeypress="handle(event)"/><br/>
+  	<span class="fa fa-user-circle-o fa-entry"></span><input id="_uname" type="text" name="name" placeholder="Username" onkeypress="handle(event)"/><br/>
+  	<span class="fa fa-key fa-entry"></span><input id="_pwd" type="password" name="email" placeholder="Password" onkeypress="handle(event)"/><br/>
     <center>
       <a class="pa" href="views/forgotpass.php">Forgot Password?</a>&nbsp;<a class="pa" href="views/register.php">Register</a><br/><br/>
       <button id="la" onClick="submitLogin()">Log In ➤</button>

@@ -28,9 +28,16 @@ form {
 	font-size: 14pt;
 }
 
+.fa-entry {
+	padding: 8px 0px 11px 10px;
+	color: var(--divider-color);
+	border: 1px solid var(--divider-color);
+	border-width: 1px 0px 1px 1px;
+}
+
 #loginbox {
 	margin: 0 auto;
-	width: 224px;
+	width: 248px;
 	height: 254px;
 	padding: 8px;
 	margin-top: 10%;
@@ -96,6 +103,7 @@ input[type=text], input[type=number], input[type=password] {
 	background: none;
 	color: var(--dark-primary-color);
 	border: 1px solid var(--divider-color);
+	border-width: 1px 1px 1px 0px;
 	padding: 10px 10px 10px 10px;
 	transition: 0.3s;
 	margin-top: 10px;
