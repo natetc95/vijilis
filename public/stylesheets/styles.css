@@ -2,13 +2,10 @@
 
 :root {
 	--dark-primary-color: #193864;
-	--default-primary-color: #E64C3C;
+	--default-primary-color: #EBEBEB;
 	--light-primary-color: #E0D8D7;
-	--text-primary-color: #FFFFFF;
-	--accent-color: #d1ccca;
-	--primary-text-color: #212121;
-	--secondary-text-color: #757575;
-	--divider-color: #BDBDBD;
+	--foreground-color: #FFFFFF;
+	--border-color: #BDBDBD;
 	--header-font: 'Open Sans Condensed', sans-serif;
 	--text-font: 'Open Sans Condensed', sans-serif;
 }
@@ -22,6 +19,7 @@ body {
 	color: var(--dark-primary-color);
 	background: var(--light-primary-color);
 	font-family: var(--text-font);
+	overflow: hidden;
 }
 
 form {
@@ -32,8 +30,9 @@ form {
 	padding: 9px 2px 11px 2px;
 	width: 30px;
 	color: var(--dark-primary-color);
-	border: 1px solid var(--divider-color);
-	background: #EBEBEB;
+	border: 1px solid var(--border-color);
+	border-radius: 2px 0px 0px 2px;
+	background: var(--default-primary-color);
 	border-width: 1px 0px 1px 1px;
 }
 
@@ -42,13 +41,13 @@ form {
 	width: 268px;
 	height: 264px;
 	margin-top: 10%;
-	background: var(--text-primary-color);
-	box-shadow: 0px 5px 25px 10px var(--divider-color);
+	background: var(--foreground-color);
+	box-shadow: 0px 5px 25px 10px var(--border-color);
 	border-radius: 4px;
 }
 #loginbox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--divider-color);
+	border-bottom: 1px solid var(--border-color);
 	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
@@ -61,14 +60,14 @@ form {
 	 transform: translateY(-50%);
 	width: 268px;
 	height: 310px;
-	background: var(--text-primary-color);
-	box-shadow: 0px 5px 25px 10px var(--divider-color);
+	background: var(--foreground-color);
+	box-shadow: 0px 5px 25px 10px var(--border-color);
 	border-radius: 4px;
 }
 
 #portalbox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--divider-color);
+	border-bottom: 1px solid var(--border-color);
 	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
@@ -79,22 +78,22 @@ form {
 	width: 268px;
 	height: 455px;
 	margin-top: 5%;
-	background: var(--text-primary-color);
-	box-shadow: 0px 5px 25px 10px var(--divider-color);
+	background: var(--foreground-color);
+	box-shadow: 0px 5px 25px 10px var(--border-color);
 	border-radius: 4px;
 	transition: 0.1s;
 }
 
 #registerbox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--divider-color);
+	border-bottom: 1px solid var(--border-color);
 	margin: 0px;
 	text-align: center;
 	cursor: default;
 }
 
 .portal-link {
-	border: 1px solid var(--divider-color);
+	border: 1px solid var(--border-color);
 	border-radius: 2px;
 	width: 220px;
 	height: 32px;
@@ -104,7 +103,7 @@ form {
 	transition: 0.3s;
 }
 .portal-link:hover {
-	color: var(--divider-color);
+	color: var(--border-color);
 	border: 1px solid var(--dark-primary-color);
 }
 
@@ -127,7 +126,7 @@ form {
 	height: 10px;
 	background: var(--light-primary-color);;
 	font-size: 1px;
-	color: var(--divider-color);
+	color: var(--border-color);
 	margin: 0px;
 	padding: 0px;
 }
@@ -154,35 +153,38 @@ form {
 }
 
 input[type=submit], button {
-	border: 1px solid var(--divider-color);
-	border-radius: 4px;
+	border: 1px solid var(--border-color);
+	border-radius: 2px;
 	padding: 4px 8px 4px 8px;
 	font-weight: bold;
 	transition: 0.3s;
-	background: var(--text-primary-color);
+	background: var(--foreground-color);
 }
 
 input[type=submit]:hover, button:hover {
 	cursor: pointer;
-	color: var(--divider-color);
+	color: var(--border-color);
 	border: 1px solid var(--dark-primary-color);
 }
 
 input[type=text], input[type=number], input[type=password], input[type=tel] {
-	width: 200px;
+	width: 190px;
 	background: none;
 	color: var(--dark-primary-color);
-	border: 1px solid var(--divider-color);
+	border: 1px solid var(--border-color);
 	border-width: 1px 1px 1px 0px;
+	border-radius: 0px 2px 2px 0px;
 	padding: 11px 10px 10px 10px;
 	transition: 0.3s;
 	margin-top: 10px;
 }
 input[type=text]:hover, input[type=tel]:hover, input[type=number]:hover, input[type=password]:hover {
-	border-bottom: 1px solid var(--dark-primary-color);
+	border: 1px solid var(--dark-primary-color);
+	border-width: 1px 1px 1px 0px;
 }
 input[type=text]:active, input[type=tel]:active, input[type=number]:active, input[type=password]:active {
-	border-bottom: 1px solid var(--dark-primary-color);
+	border: 1px solid var(--dark-primary-color);
+	border-width: 1px 1px 1px 0px;
 }
 
 .pa {
@@ -259,4 +261,58 @@ nav {
 
 .reg-error {
 	margin-top: 10px;
+}
+
+#menubar {
+	width: 100%;
+	background: var(--border-color);
+	height: 32px;
+	padding: 15px;
+	z-index: 10;
+}
+
+#menubar i {
+	cursor: pointer;
+}
+
+#content {
+	width: 100%;
+}
+
+#sidebar-menu {
+	float: left;
+	width: 300px;
+	height: 100%;
+	background: var(--foreground-color);
+	transition: 0.3s;
+	margin-left: -300px;
+}
+
+#sidebar-content {
+	width: 298px;
+	height: 100%;
+}
+
+.sidebar-entry {
+	width: 238px;
+	height: 50px;
+	line-height: 50px;
+	font-size: 36px;
+	border-bottom: 1px solid var(--border-color);
+	margin: 5px;
+	padding: 15px;
+	cursor: pointer;
+}
+
+.sidebar-entry i {
+	height: 50px;
+	width: 32px;
+	margin-right: 20px;
+	line-height: 50px;
+	font-size: 36px;
+	float: left;
+}
+
+.no-border {
+	border: none;
 }
