@@ -37,29 +37,35 @@
         }
       });
     }
+    function openMenu(type) {
+      document.getElementById("request-icon").setAttribute("class", "fa fa-handshake-o fa-rotate-90")
+    }
   </script>
   <title>Login</title>
 </head>
 <body>
   <div id="sidebar-menu">
     <div id="sidebar-content">
-      <div class="sidebar-entry">
-        <i class="fa fa-users" aria-hidden="true"></i>Spoofing
+      <div class="sidebar-entry" onclick="openMenu('request')">
+        <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Requests
+        <ul id="request-under-nav" class="under-nav open" style="display: none;">
+          <li>Stuff</li>
+        </ul>
       </div>
       <div class="sidebar-entry">
-        <i class="fa fa-code" aria-hidden="true"></i>Request Codes
+        <i class="fa fa-id-card-o" aria-hidden="true"></i>Profile
+      </div>
+      <div class="sidebar-entry">
+        <i class="fa fa-truck" aria-hidden="true"></i>Resources
+      </div>
+      <div class="sidebar-entry">
+        <i class="fa fa-street-view" aria-hidden="true"></i>Check In
       </div>
       <div class="sidebar-entry">
         <i class="fa fa-usd" aria-hidden="true"></i>Billing
       </div>
       <div class="sidebar-entry">
-        <i class="fa fa-line-chart" aria-hidden="true"></i>Analytics
-      </div>
-      <div class="sidebar-entry">
         <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
-      </div>
-      <div class="sidebar-entry">
-        <i class="fa fa-question" aria-hidden="true"></i>About
       </div>
       <div class="sidebar-entry" onClick="window.location='portal.php'">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>Portals
@@ -70,7 +76,7 @@
     </div>
   </div>
   <div id="menubar">
-    <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" height="32px" style="float: right; margin-right: 30px;"></a>
+    <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><div height="32px" style="float: right; margin-right: 30px;font-size: 24px; line-height: 32px">Vendor Portal</div>
   </div>
   <div id="content">
     insert content here

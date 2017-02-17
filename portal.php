@@ -24,7 +24,7 @@
 	<div id="portalbox" style="height: 420px"></br>
     <h1>Available Portals</h1>
     <center>
-      <a class="portal-div" href="vendor">
+      <a class="portal-div" href="views/vendor/index.php">
     	  <div class="portal-link">
           <i class="fa fa-truck fa-2x" style="float: left" aria-hidden="true"></i>
           <div class="portal-text">Vendor Portal</div>

@@ -26,16 +26,6 @@ form {
 	font-size: 14pt;
 }
 
-.fa-entry {
-	padding: 9px 2px 11px 2px;
-	width: 30px;
-	color: var(--dark-primary-color);
-	border: 1px solid var(--border-color);
-	border-radius: 2px 0px 0px 2px;
-	background: var(--default-primary-color);
-	border-width: 1px 0px 1px 1px;
-}
-
 #loginbox {
 	margin: 0 auto;
 	width: 268px;
@@ -76,7 +66,7 @@ form {
 #registerbox {
 	margin: 0 auto;
 	width: 268px;
-	height: 455px;
+	height: 465px;
 	margin-top: 5%;
 	background: var(--foreground-color);
 	box-shadow: 0px 5px 25px 10px var(--border-color);
@@ -87,7 +77,7 @@ form {
 #registerbox h1 {
 	padding: 0px 0px 10px 0px;
 	border-bottom: 1px solid var(--border-color);
-	margin: 0px;
+	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
 }
@@ -167,16 +157,34 @@ input[type=submit]:hover, button:hover {
 	border: 1px solid var(--dark-primary-color);
 }
 
+.fa-entry {
+	padding: 10px 2px 10px 2px;
+	width: 30px;
+	height: 16px;
+	color: var(--dark-primary-color);
+	border: 1px solid var(--border-color);
+	border-radius: 2px 0px 0px 2px;
+	background: var(--default-primary-color);
+  box-shadow: inset 0px 0px 3px rgba(0,0,0,0.1);
+	margin-left: 12px;
+}
+
+.fa2 {
+	float: left;
+	margin-bottom: 10px;
+}
+
 input[type=text], input[type=number], input[type=password], input[type=tel] {
 	width: 190px;
+	height: 16px;
 	background: none;
 	color: var(--dark-primary-color);
 	border: 1px solid var(--border-color);
 	border-width: 1px 1px 1px 0px;
 	border-radius: 0px 2px 2px 0px;
-	padding: 11px 10px 10px 10px;
+	padding: 10px;
 	transition: 0.3s;
-	margin-top: 10px;
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
 }
 input[type=text]:hover, input[type=tel]:hover, input[type=number]:hover, input[type=password]:hover {
 	border: 1px solid var(--dark-primary-color);
@@ -268,8 +276,8 @@ nav {
 	background: var(--border-color);
 	height: 32px;
 	padding: 15px;
-	z-index: 10;
 	position: fixed;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
 }
 
 #menubar i {
@@ -279,17 +287,19 @@ nav {
 #content {
 	width: 100%;
 	margin-top: 77px;
-	padding-left: 15px
+
 }
 
 #sidebar-menu {
 	float: left;
-	width: 300px;
+	width: 280px;
 	height: 100%;
 	background: var(--foreground-color);
 	transition: 0.3s;
 	margin-left: -300px;
 	margin-top: 62px;
+	z-index: 0;
+	position: relative;
 }
 
 #sidebar-content {
@@ -316,13 +326,23 @@ nav {
 
 .sidebar-entry i {
 	height: 50px;
-	width: 32px;
-	margin-right: 20px;
+	width: 50px;
+	margin-right: 15px;
 	line-height: 50px;
 	font-size: 36px;
 	float: left;
+	text-align: center;
 }
 
 .no-border {
 	border: none;
+}
+
+#about {
+	width: 238px;
+	height: 32px;
+	margin: 5px;
+	margin-top: 120px;
+	padding: 15px;
+	text-align: center;
 }
