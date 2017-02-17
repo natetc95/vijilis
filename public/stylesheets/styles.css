@@ -19,7 +19,7 @@ body {
 	color: var(--dark-primary-color);
 	background: var(--light-primary-color);
 	font-family: var(--text-font);
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 form {
@@ -269,6 +269,7 @@ nav {
 	height: 32px;
 	padding: 15px;
 	z-index: 10;
+	position: fixed;
 }
 
 #menubar i {
@@ -277,6 +278,8 @@ nav {
 
 #content {
 	width: 100%;
+	margin-top: 77px;
+	padding-left: 15px
 }
 
 #sidebar-menu {
@@ -286,6 +289,7 @@ nav {
 	background: var(--foreground-color);
 	transition: 0.3s;
 	margin-left: -300px;
+	margin-top: 62px;
 }
 
 #sidebar-content {
@@ -299,9 +303,15 @@ nav {
 	line-height: 50px;
 	font-size: 36px;
 	border-bottom: 1px solid var(--border-color);
+	color: var(--border-color);
 	margin: 5px;
 	padding: 15px;
 	cursor: pointer;
+	transition: 0.3s;
+}
+
+.sidebar-entry:hover {
+	color: var(--dark-primary-color);
 }
 
 .sidebar-entry i {

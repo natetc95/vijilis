@@ -16,22 +16,32 @@
     function test() {
       if(!open) {
         document.getElementById("sidebar-menu").style="margin-left: 0px;"
-        document.getElementById("burger").style="display: none";
+        document.getElementById("burger").setAttribute("class", "fa fa-times fa-2x");
+        //document.getElementById("burger").style="display: none";
         open = true;
       } else {
         document.getElementById("sidebar-menu").style="margin-left: -300px;"
-        document.getElementById("burger").style="display: inline";
+        document.getElementById("burger").setAttribute("class", "fa fa-bars fa-2x");
+        //document.getElementById("burger").style="display: inline";
         open = false;
       }
+    }
+    function Logout() {
+      $.ajax({
+        url: 'controllers/logout.php',
+        type: 'POST',
+        dataType: 'text',
+        success: function(success) {
+          console.log("Logged Out!");
+          window.location = "index.php";
+        }
+      });
     }
   </script>
   <title>Login</title>
 </head>
 <body>
   <div id="sidebar-menu">
-    <div id="menubar">
-      <i class="fa fa-times fa-2x" aria-hidden="true" onClick="test()"></i>
-    </div>
     <div id="sidebar-content">
       <div class="sidebar-entry">
         <i class="fa fa-users" aria-hidden="true"></i>Spoofing
@@ -48,15 +58,19 @@
       <div class="sidebar-entry">
         <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
       </div>
-      <div class="sidebar-entry no-border">
+      <div class="sidebar-entry">
         <i class="fa fa-question" aria-hidden="true"></i>About
+      </div>
+      <div class="sidebar-entry no-border" onClick="Logout()">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>Log Out
       </div>
     </div>
   </div>
+  <div id="menubar">
+    <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" height="32px" style="float: right; margin-right: 30px;"></a>
+  </div>
   <div id="content">
-  	<div id="menubar">
-      <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" height="32px" style="float: right; margin-right: 30px;"></a>
-    </div>
+    insert content here
   </div>
 </body>
 </html>
