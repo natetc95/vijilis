@@ -34,3 +34,21 @@ function openMenu(type) {
     })
     $("#" + type + "-under-menu").toggleClass('open');
 }
+
+function contentLoader(s) {
+    var req = $.ajax('controllers/vendor.php', {
+        method: 'POST',
+        dataType: 'html',
+        data: {
+            page: "vendor/" + s
+        }    
+    });
+    req.done(function( msg ) {
+        $("#content").html(msg);
+    });
+    test()
+}
+
+function selectBox(s) {
+    $("#" + s + "box").toggleClass("hidden");  
+}

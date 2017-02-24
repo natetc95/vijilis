@@ -1,4 +1,11 @@
 function geoFindMe() {
+
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
   if (!navigator.geolocation){
     document.getElementById("locbox_y").value = "Geolocation is not supported by your browser";
     return;
@@ -11,7 +18,7 @@ function geoFindMe() {
   }
 
   function error() {
-    output.innerHTML = "Unable to retrieve your location";
+    return alert("Unable to retrieve your location");
   }
-  navigator.geolocation.getCurrentPosition(success, error);
+  navigator.geolocation.getCurrentPosition(success, error, options);
 }

@@ -18,13 +18,20 @@
     </div>
 </div>
 <div class="contentvhr">
-    <div class="description">
+    <div class="description" onChange="selectBox('car')">
         <h2>Incident Type</h2><br/>
         <select class="wew">
+            <option selected hidden> -- Choose One -- </option>
             <option>Car Crash</option>
             <option>Debris Cleanup</option>
             <option>Dom</option>
         </select>
+    </div>
+</div>
+<div class="contentvhr hidden" id="carbox">
+    <div class="description">
+        <h2>Incident Description</h2><br/>
+        <textarea></textarea>
     </div>
 </div>
 <div class="contentvhr">

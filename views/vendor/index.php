@@ -45,14 +45,14 @@
   </div>
   <div id="request-under-menu" class="under-menu">
     <div class="under-menu-content">
-      <div class="under-menu-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>My Requests
+      <div class="under-menu-entry" onClick="contentLoader('requests/create_request')">
+        <i class="fa fa-rss" aria-hidden="true"></i>My Requests
       </div>
-      <div class="under-menu-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Open Requests
+      <div class="under-menu-entry" onClick="contentLoader('requests/local_requests')">
+        <i class="fa fa-newspaper-o" aria-hidden="true"></i>In My Area
       </div>
-      <div class="under-menu-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Find Request
+      <div class="under-menu-entry" onClick="contentLoader('requests/lookup_request')">
+        <i class="fa fa-search" aria-hidden="true"></i>Find Request
       </div>
     </div>
   </div>
@@ -83,7 +83,7 @@
     <i id="burger" class="fa fa-bars" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" class="barlogo" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
-    <?php require('requests.php') ?>
+    <?php require('news.php') ?>
   </div>
 </body>
 </html>

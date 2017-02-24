@@ -293,7 +293,7 @@ nav {
 	position: fixed;
 	top: 0;
 	left: 0;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	z-index: 10;
 }
 
@@ -320,7 +320,7 @@ nav {
 	position: relative;
 	user-select: none;
 	position: fixed;
-	box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.4);
+	box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #sidebar-content {
@@ -467,7 +467,7 @@ nav {
 
 .under-menu {
 	float: left;
-	width: 220px;
+	width: 190px;
 	height: 100%;
 	background: var(--foreground-color);
 	color: #6D6D6D;
@@ -482,13 +482,13 @@ nav {
 }
 
 .under-menu-content {
-	width: 220px;
+	width: 190px;
 	height: 100%;
 }
 
 .under-menu-entry {
 	float: right;
-	width: 196px;
+	width: 166px;
 	height: auto;
 	line-height: 36px;
 	font-size: 28px;
@@ -500,11 +500,12 @@ nav {
 }
 
 .under-menu-entry:hover {
-	width: 191px;
+	width: 161px;
 	color: #363636;
+	text-shadow: 1px 1px rgba(109, 109, 109, 0.8);
 	background: var(--foreground-color);
 	box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2) inset;
-	border-left: 9px solid #363636;
+	border-left: 5px solid #363636;
 }
 
 .under-menu-entry i {
@@ -538,5 +539,19 @@ nav {
 
 .wew {
 	width: 310px;
+	background: white;
+	color: var(--dark-primary-color);
+	border: 1px solid var(--border-color);
+	border-radius: 2px 2px 2px 2px;
 	padding: 5px;
+	transition: 0.3s;
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+option .title {
+	font-weight: bold;
+}
+
+.contentvhr.hidden {
+	display: none
 }
