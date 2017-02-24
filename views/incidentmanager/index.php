@@ -43,13 +43,13 @@
   <div id="request-under-menu" class="under-menu">
     <div class="under-menu-content">
       <div class="under-menu-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Create Request
+        <i class="fa fa-cogs" aria-hidden="true"></i>Create
       </div>
       <div class="under-menu-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>View/Edit Requests
+        <i class="fa fa-cogs" aria-hidden="true"></i>View/Edit
       </div>
       <div class="under-menu-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Open Requests
+        <i class="fa fa-cogs" aria-hidden="true"></i>Open
       </div>
     </div>
   </div>

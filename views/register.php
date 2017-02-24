@@ -15,11 +15,10 @@
   <title>Login</title>
 </head>
 <body>
-	<div class="headerbar">
-		<a href="index.php"><img src="public/images/logo_rn.png" height="80%" style="padding-top: 8px; padding-left: 5px;"></a>
-    <br/>
-    <div id="bar"></div>
+  <div class="headerbar">
+		<a href="index.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px"></a>
   </div>
+  <br></br>
 	<div id="registerbox"></br>
     <h1>Account Registry</h1>
     <center>
