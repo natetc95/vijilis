@@ -13,6 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/viewcontroller.js"></script>
   <title>Login</title>
+  <meta name="viewport" content="width=device-width, target-densityDpi=device-dpi">
 </head>
 <body>
   <div id="sidebar-menu">
@@ -58,6 +59,7 @@
   </div>
   <div id="profile-under-menu" class="under-menu">
     <div class="under-menu-content">
+      <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-entry">
         <i class="fa fa-user" aria-hidden="true"></i>My Profile
       </div>
@@ -68,6 +70,8 @@
   </div>
   <div id="resource-under-menu" class="under-menu">
     <div class="under-menu-content">
+      <div class="under-menu-empty">&nbsp;</div>
+      <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-entry">
         <i class="fa fa-list" aria-hidden="true"></i>My Resources
       </div>

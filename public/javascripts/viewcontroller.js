@@ -52,3 +52,15 @@ function contentLoader(s) {
 function selectBox(s) {
     $("#" + s + "box").toggleClass("hidden");  
 }
+
+function opensub(s) {
+    $(".subreq").each(function () {
+        $(this).removeClass("open");
+    });
+    $("#subreq" + s).addClass("open");
+
+    $(".tab").each(function () {
+        $(this).removeClass("selected");
+    });
+    $("#tab" + s).addClass("selected");
+}

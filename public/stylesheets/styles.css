@@ -18,7 +18,7 @@ body {
 	position: absolute;
 	color: var(--dark-primary-color);
 	/* background: var(--light-primary-color); */
-	background-image: url(../images/bg5.jpg);
+	background: var(--border-color);
 	background-size: cover;
 	font-family: var(--text-font);
 	overflow-x: hidden;
@@ -486,7 +486,7 @@ nav {
 	float: left;
 	width: 190px;
 	height: 100%;
-	background: var(--foreground-color);
+	background: none;
 	color: #6D6D6D;
 	transition: 0.3s;
 	margin:  0px 0px 0px -220px;
@@ -495,7 +495,6 @@ nav {
 	position: relative;
 	user-select: none;
 	position: fixed;
-	box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.4);
 }
 
 .under-menu-content {
@@ -509,11 +508,24 @@ nav {
 	height: auto;
 	line-height: 36px;
 	font-size: 28px;
+	background: var(--foreground-color);
 	border-bottom: 1px solid rgb(109, 109, 109, 0.8);
 	color: #6D6D6D;
 	padding: 12px;
 	cursor: pointer;
 	transition: 0.1s;
+}
+
+.under-menu-empty {
+	float: right;
+	width: 166px;
+	height: auto;
+	line-height: 36px;
+	font-size: 28px;
+	border-bottom: 1px solid rgb(109, 109, 109, 0.8);
+	color: #6D6D6D;
+	padding: 12px;
+	cursor: default;
 }
 
 .under-menu-entry:hover {
@@ -541,7 +553,7 @@ nav {
 
 .description textarea{
 	resize:vertical;
-	width: 305px;
+	width: 291px;
 	height: 150px;
 }
 
@@ -555,7 +567,7 @@ nav {
 }
 
 .wew {
-	width: 310px;
+	width: 296px;
 	background: white;
 	color: var(--dark-primary-color);
 	border: 1px solid var(--border-color);
@@ -571,4 +583,70 @@ option .title {
 
 .contentvhr.hidden {
 	display: none
+}
+
+#map {
+    height: 310px;
+    width: 310px;
+	border: 1px solid var(--dark-primary-color);
+}
+
+.tabholder {
+	width: 310px;
+	height: 26px;
+	border-bottom: 1px solid var(--dark-primary-color);
+}
+
+.tab {
+	padding: 0px 15px;
+	line-height: 25px;
+	height: 25px;
+	float: left;
+	color: var(--dark-primary-color);
+	border: 2px solid var(--dark-primary-color);
+	border-width: 1px 1px 0px 1px;
+	border-radius: 2px 2px 0px 0px;
+	text-decoration: none;
+	transition: 0.3s;
+	margin-right: 2px;
+}
+.tab:hover {
+	color: orangered;
+	border-color: orangered;
+	transition: 0.3s;
+}
+.tab:visited {
+	color: blue;
+}
+
+.tab.plus {
+	float: right;
+	padding: 0px 10px;
+}
+
+.tab.selected {
+	background: var(--border-color);
+}
+
+.contentvhr h2 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 18px;
+	height: 18px;
+	line-height: 18px;
+	float: left;
+}
+
+.subreq {
+	width: 303px;
+	height: auto;
+	border: 1px solid var(--dark-primary-color);
+	border-width: 0px 1px 1px 1px;
+	border-radius: 0px 0px 2px 2px;
+	padding-left: 5px;
+	display: none;
+}
+
+.subreq.open {
+	display: block;
 }
