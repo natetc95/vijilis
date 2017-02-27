@@ -110,5 +110,10 @@
     </div>
 </div>
 <div class="contentvhr">
+<<<<<<< HEAD
     <button style="float: left">Cancel</button><button style="float: right">Submit</button>
 </div>
+=======
+    <button style="float: left" onClick="window.location='/vijilis/views/incidentmanager/index.php'">Cancel</button><button style="float: right">Submit</button>
+</div>
+>>>>>>> origin/master
