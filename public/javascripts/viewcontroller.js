@@ -41,7 +41,21 @@ function contentLoader(s) {
         dataType: 'html',
         data: {
             page: "vendor/" + s
-        }    
+        }
+    });
+    req.done(function( msg ) {
+        $("#content").html(msg);
+    });
+    test()
+}
+
+function contentLoaderIM(s) {
+    var req = $.ajax('controllers/vendor.php', {
+        method: 'POST',
+        dataType: 'html',
+        data: {
+            page: "incidentmanager/" + s
+        }
     });
     req.done(function( msg ) {
         $("#content").html(msg);
@@ -50,7 +64,7 @@ function contentLoader(s) {
 }
 
 function selectBox(s) {
-    $("#" + s + "box").toggleClass("hidden");  
+    $("#" + s + "box").toggleClass("hidden");
 }
 
 function opensub(s) {

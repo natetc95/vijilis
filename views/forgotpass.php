@@ -23,6 +23,7 @@
     <center>
       <br><span class="fa fa-user-circle-o fa-entry fa2"></span><input require id="fname" class="fa2 inputicon" type="text" placeholder="Username/Email" onkeypress="handle(event)"/>
     </center>
+
     <button style="float: left; margin: 10px;" onclick="Logout()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back</button>
     <button id="relevant" style="float: right; margin: 10px;" onClick="submitLogin()">Reset&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
     <!- I pulled these buttons from the register page, so the onClick stuff hasn't been changed yet ->

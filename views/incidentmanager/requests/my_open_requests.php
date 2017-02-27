@@ -43,13 +43,13 @@
   <div id="request-under-menu" class="under-menu">
     <div class="under-menu-content">
       <div class="under-menu-entry" onClick="contentLoaderIM('requests/create_request')">
-        <i class="fa fa-plus" aria-hidden="true"></i>Create
+        <i class="fa fa-cogs" aria-hidden="true"></i>Create
       </div>
       <div class="under-menu-entry" onClick="contentLoaderIM('requests/view_edit_requests')">
-        <i class="fa fa-wrench" aria-hidden="true"></i>View/Edit
+        <i class="fa fa-cogs" aria-hidden="true"></i>View/Edit
       </div>
       <div class="under-menu-entry" onClick="contentLoaderIM('requests/my_open_requests')">
-        <i class="fa fa-folder-o" aria-hidden="true"></i>Open
+        <i class="fa fa-cogs" aria-hidden="true"></i>Open
       </div>
     </div>
   </div>
@@ -69,10 +69,10 @@
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-entry" onClick="contentLoaderIM('vendors/find_vendor')">
-        <i class="fa fa-search" aria-hidden="true"></i>Find Vendor
+        <i class="fa fa-user" aria-hidden="true"></i>Find Vendor
       </div>
       <div class="under-menu-entry" onClick="contentLoaderIM('vendors/vendor_profiles')">
-        <i class="fa fa-address-book-o" aria-hidden="true"></i>Profiles
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Profiles
       </div>
     </div>
   </div>
@@ -80,7 +80,7 @@
     <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
-      Welcome to the Incident Manager Home Portal page!
+      Welcome to the Incident Manager myOpen Requests page!
   </div>
 </body>
 </html>
