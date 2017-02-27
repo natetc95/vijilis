@@ -84,7 +84,7 @@
     </div>
   </div>
   <div id="menubar">
-    <i id="burger" class="fa fa-bars" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" class="barlogo" height="24px" style="float: right; margin-right: 30px;"></a>
+    <i id="burger" class="fa fa-bars" aria-hidden="true" onClick="test()"></i><a href="portal.php"><img src="public/images/logo_rn.png" class="barlogo" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
     <?php require('news.php') ?>
