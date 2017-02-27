@@ -40,7 +40,7 @@
           <div class="portal-text">Admin Portal</div>
         </div>
       </a><br/>
-      <a class="portal-div" href="vendor">
+      <a class="portal-div" href="views/billing/index.php">
     	  <div class="portal-link">
           <i class="fa fa-usd fa-2x" style="float: left" aria-hidden="true"></i>
           <div class="portal-text">Billing Portal</div>

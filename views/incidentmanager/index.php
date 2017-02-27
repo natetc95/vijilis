@@ -17,6 +17,9 @@
 <body>
   <div id="sidebar-menu">
     <div id="sidebar-content">
+      <div class="sidebar-entry" onClick="window.location='/vijilis/views/incidentmanager/'">
+        <i class="fa fa-home" aria-hidden="true"></i>Home
+      </div>
       <div class="sidebar-entry" onclick="openMenu('request')">
         <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Requests
       </div>
@@ -42,6 +45,7 @@
   </div>
   <div id="request-under-menu" class="under-menu">
     <div class="under-menu-content">
+      <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-entry" onClick="contentLoaderIM('requests/create_request')">
         <i class="fa fa-plus" aria-hidden="true"></i>Create
       </div>
@@ -56,6 +60,7 @@
   <div id="profile-under-menu" class="under-menu">
     <div class="under-menu-content">
       <div class="under-menu-empty">&nbsp;</div>
+      <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-entry" onClick="contentLoaderIM('profile/my_profile')">
         <i class="fa fa-user" aria-hidden="true"></i>My Profile
       </div>
@@ -68,6 +73,7 @@
     <div class="under-menu-content">
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
+      <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-entry" onClick="contentLoaderIM('vendors/find_vendor')">
         <i class="fa fa-search" aria-hidden="true"></i>Find Vendor
       </div>
@@ -77,7 +83,7 @@
     </div>
   </div>
   <div id="menubar">
-    <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
+    <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="/vijilis/views/incidentmanager/"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
     <div class="contentvhr">

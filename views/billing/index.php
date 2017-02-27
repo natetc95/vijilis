@@ -12,12 +12,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/viewcontroller.js"></script>
-  <title>View/Edit Requests</title>
+  <title>Login</title>
 </head>
 <body>
+  <div id="sidebar-menu">
+      <div class="sidebar-entry" onClick="window.location='/vijilis/views/billing/index.php'">
+        <i class="fa fa-home" aria-hidden="true"></i>Home
+      </div>
+      <div class="sidebar-entry" onClick="window.location='portal.php'">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>Portals
+      </div>
+      <div class="sidebar-entry no-border" onClick="Logout()">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>Log Out
+      </div>
+    </div>
+  </div>
+  <div id="menubar">
+    <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
+  </div>
   <div id="content">
     <div class="contentvhr">
-      Welcome to the Incident Manager View/Edit Requests page!
-    </div>  </div>
+      Welcome to the Billing Portal Home page!
+    </div>
+  </div>
 </body>
 </html>

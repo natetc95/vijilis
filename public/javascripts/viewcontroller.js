@@ -63,6 +63,20 @@ function contentLoaderIM(s) {
     test()
 }
 
+function contentLoaderBilling(s) {
+    var req = $.ajax('controllers/vendor.php', {
+        method: 'POST',
+        dataType: 'html',
+        data: {
+            page: "billing/" + s
+        }
+    });
+    req.done(function( msg ) {
+        $("#content").html(msg);
+    });
+    test()
+}
+
 function selectBox(s) {
     $("#" + s + "box").toggleClass("hidden");
 }
