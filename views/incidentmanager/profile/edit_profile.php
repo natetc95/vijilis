@@ -16,7 +16,8 @@
 </head>
 <body>
   <div id="content">
+    <div class="contentvhr">
       Welcome to the Incident Manager Edit Profile page!
-  </div>
+    </div>  </div>
 </body>
 </html>

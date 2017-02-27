@@ -80,7 +80,9 @@
     <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="index.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
-      Welcome to the Incident Manager Preferences page!
+      <div class="contentvhr">
+        Welcome to the Incident Manager Preferences page!
+      </div>
   </div>
 </body>
 </html>
