@@ -18,7 +18,7 @@ body {
 	position: absolute;
 	color: var(--dark-primary-color);
 	/* background: var(--light-primary-color); */
-	background: var(--border-color);
+	background-image: url(../images/bg5.jpg);
 	background-size: cover;
 	font-family: var(--text-font);
 	overflow-x: hidden;
