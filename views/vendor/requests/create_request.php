@@ -36,7 +36,6 @@
                 <option selected hidden> -- Choose One -- </option>
                 <option>Car Crash</option>
                 <option>Debris Cleanup</option>
-                <option>Dom</option>
             </select>
             <div class="description"><br/>
                 <h2>Incident Description</h2><br/>

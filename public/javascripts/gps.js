@@ -12,6 +12,13 @@ function initMap(lati, long) {
           title:"Hello World!",
           icon: 'public/images/logo_icon_tr.png'
         });
+    
+    var trafficLayer = new google.maps.TrafficLayer(
+      {
+        map: map
+      }
+    );
+
     marker.addListener('mouseup', function() {
       document.getElementById("locbox_x").value = marker.getPosition().lat();
       document.getElementById("locbox_y").value = marker.getPosition().lng();

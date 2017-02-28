@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <script src="public/javascripts/gps.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=geoFindMe" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=geoFindMe&language=ru" async defer></script>
 <div class="contentvhr">
     <h1>Create A Request</h1>
     <div class="reqinfo">
