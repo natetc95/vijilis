@@ -74,11 +74,11 @@
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('vendors/find_vendor')">
-        <i class="fa fa-search" aria-hidden="true"></i>Find Vendor
-      </div>
       <div class="under-menu-entry" onClick="contentLoaderIM('vendors/vendor_profiles')">
         <i class="fa fa-address-book-o" aria-hidden="true"></i>Profiles
+      </div>
+      <div class="under-menu-entry" onClick="contentLoaderIM('vendors/find_vendor')">
+        <i class="fa fa-search" aria-hidden="true"></i>Find Vendor
       </div>
     </div>
   </div>
@@ -86,9 +86,21 @@
     <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="portal.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
-    <div class="contentvhr">
+    <br>
+    <div class="contentIMpage">
+      <h1>Welcome to the Incident Manager Home Portal page!</h1>
+    </div>
+    <br><br>
+    <div class="contentIMpageSPLIT">
+      <h1>Recent News</h1>
+      <br>
       Welcome to the Incident Manager Home Portal page!
     </div>
+      <div class="contentIMpageSPLIT">
+        <h1>Other News idk</h1>
+        <br>
+        Welcome to the Incident Manager Home Portal page!
+      </div>
   </div>
 </body>
 </html>
