@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <base href="../../">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link type='text/css' href='public/stylesheets/styles.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-  <link rel="stylesheet" href="public/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel='icon' href='public/images/icon.ico'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="public/javascripts/viewcontroller.js"></script>
-  <title>Login</title>
-</head>
 <body>
   <div id="content">
-    <div class="contentvhr">
-      Welcome to the Incident Manager About page!
-    </div>  </div>
+    <br><br><br><br><br><br>
+    <div class="contentIMaboutpageSHELL">
+      <div class="contentIMaboutpage">
+        <img src="/vijilis/public/images/about_img00.jpg" style="width:800px;height:260px;">
+      </div><br><br><br><br><br><br><br><!- I want to try to make this be one of those pages where this is the only thing on the page, then when you scroll down it skips to the rest of the page to scroll normally -->
+      <div class="contentIMaboutpage">
+        <img src="/vijilis/public/images/about_img02.jpg" style="width:800px;height:600px;">
+      </div>
+      <div class="contentIMaboutpage">
+        <img src="/vijilis/public/images/about_img04.jpg" style="width:800px;height:650px;">
+      </div>
+      <div class="contentIMaboutpageSPLIT">
+        <img src="/vijilis/public/images/about_img01.jpg" style="width:100%;height:300px;">
+      </div>
+      <div class="contentIMaboutpageSPLIT">
+        <img src="/vijilis/public/images/about_img05.jpg" style="width:100%;height:300px;">
+      </div>
+      <div class="contentIMaboutpage">
+        <img src="/vijilis/public/images/about_img03.jpg" style="width:800px;height:180px;">
+      </div>
+    </div>
+  </div>
 </body>
 </html>

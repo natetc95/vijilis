@@ -12,7 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/viewcontroller.js"></script>
-  <title>Login</title>
+  <title>Incident Manager Portal</title>
 </head>
 <body>
   <div id="sidebar-menu">
@@ -88,19 +88,31 @@
   <div id="content">
     <br>
     <div class="contentIMpage">
-      <h1>Welcome to the Incident Manager Home Portal page!</h1>
+      <h1>Welcome to the Incident Manager Portal Home Page!</h1>
     </div>
-    <br><br>
     <div class="contentIMpageSPLIT">
       <h1>Recent News</h1>
-      <br>
-      Welcome to the Incident Manager Home Portal page!
+      ...Content...
     </div>
-      <div class="contentIMpageSPLIT">
-        <h1>Other News idk</h1>
-        <br>
-        Welcome to the Incident Manager Home Portal page!
-      </div>
+    <div class="contentIMpageSPLIT">
+      <h1>Other News idk</h1>
+      ...Content...
+    </div>
+    <div class="contentIMpage">
+      <h1>content</h1>
+    </div>
+    <div class="contentIMpage">
+      <h1>content</h1>
+    </div>
+    <div class="contentIMpage">
+      <h1>content</h1>
+    </div>
+    <div class="contentIMpage">
+      <h1>content</h1>
+    </div>
+    <div class="contentIMpage">
+      <h1>wanted to check the scroll</h1>
+    </div>
   </div>
 </body>
 </html>
