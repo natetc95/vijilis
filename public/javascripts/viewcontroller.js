@@ -54,7 +54,7 @@ function contentLoaderIM(s) {
         method: 'POST',
         dataType: 'html',
         data: {
-            page: "incidentmanager/" + s 
+            page: "incidentmanager/" + s
         }
     });
     req.done(function( msg ) {
