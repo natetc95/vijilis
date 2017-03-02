@@ -26,6 +26,9 @@
       <div class="sidebar-entry" onclick="openMenu('profile')">
         <i class="fa fa-id-card-o" aria-hidden="true"></i>Profile
       </div>
+      <div class="sidebar-entry" onclick="contentLoaderIM('district/findme')">
+        <i class="fa fa-map-o" aria-hidden="true"></i>My District
+      </div>
       <div class="sidebar-entry" onclick="openMenu('vendor')">
         <i class="fa fa-users" aria-hidden="true"></i>Vendors
       </div>

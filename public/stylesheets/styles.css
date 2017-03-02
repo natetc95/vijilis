@@ -650,3 +650,8 @@ option .title {
 .subreq.open {
 	display: block;
 }
+
+#Bigmap {
+	width: 100%;
+	height: 100%;
+}
