@@ -17,17 +17,14 @@
 <body>
   <div id="sidebar-menu">
     <div id="sidebar-content">
-      <div class="sidebar-entry" onClick="window.location='/vijilis/views/incidentmanager/'">
+      <div class="sidebar-entry" onClick="window.location='/vijilis/dev/views/incidentmanager/index.php'">
         <i class="fa fa-home" aria-hidden="true"></i>Home
       </div>
       <div class="sidebar-entry" onclick="openMenu('request')">
         <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Requests
       </div>
-      <div class="sidebar-entry" onclick="openMenu('profile')">
-        <i class="fa fa-id-card-o" aria-hidden="true"></i>Profile
-      </div>
-      <div class="sidebar-entry" onclick="contentLoaderIM('district/findme')">
-        <i class="fa fa-map-o" aria-hidden="true"></i>My District
+      <div class="sidebar-entry" onclick="openMenu('district')">
+        <i class="fa fa-building-o" aria-hidden="true"></i>My District
       </div>
       <div class="sidebar-entry" onclick="openMenu('vendor')">
         <i class="fa fa-users" aria-hidden="true"></i>Vendors
@@ -60,12 +57,12 @@
       </div>
     </div>
   </div>
-  <div id="profile-under-menu" class="under-menu">
+  <div id="district-under-menu" class="under-menu">
     <div class="under-menu-content">
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('profile/my_profile')">
-        <i class="fa fa-user" aria-hidden="true"></i>My Profile
+      <div class="under-menu-entry" onClick="contentLoaderIM('district/findme')">
+        <i class="fa fa-map-o" aria-hidden="true"></i>District Map
       </div>
       <div class="under-menu-entry" onClick="contentLoaderIM('profile/edit_profile')">
         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile

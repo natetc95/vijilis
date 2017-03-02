@@ -320,6 +320,8 @@ nav {
 }
 
 #content {
+	position: fixed;
+	height: 100%;
 	width: 100%;
 	margin: 62px 15px 0px 15px;
 }

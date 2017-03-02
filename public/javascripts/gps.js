@@ -12,11 +12,7 @@ function initMap(lati, long) {
           title:"Hello World!",
           icon: 'public/images/logo_icon_tr.png'
         });
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> origin/master
     var trafficLayer = new google.maps.TrafficLayer();
     trafficLayer.setMap(map);
 
@@ -52,7 +48,6 @@ function geoFindMe() {
   }
   navigator.geolocation.getCurrentPosition(success, error, options);
 }
-<<<<<<< HEAD
 
 function initBigMap(lati, long) {
     var options = {
@@ -91,5 +86,3 @@ function initBigMap(lati, long) {
     }
     navigator.geolocation.getCurrentPosition(success, error, options);
 }
-=======
->>>>>>> origin/master
