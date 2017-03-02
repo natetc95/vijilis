@@ -12,7 +12,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/viewcontroller.js"></script>
-  <title>Login</title>
+  <title>Incident Manager Portal</title>
 </head>
 <body>
   <div id="sidebar-menu">
@@ -77,11 +77,11 @@
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('vendors/find_vendor')">
-        <i class="fa fa-search" aria-hidden="true"></i>Find Vendor
-      </div>
       <div class="under-menu-entry" onClick="contentLoaderIM('vendors/vendor_profiles')">
         <i class="fa fa-address-book-o" aria-hidden="true"></i>Profiles
+      </div>
+      <div class="under-menu-entry" onClick="contentLoaderIM('vendors/find_vendor')">
+        <i class="fa fa-search" aria-hidden="true"></i>Find Vendor
       </div>
     </div>
   </div>
@@ -89,8 +89,32 @@
     <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="portal.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
-    <div class="contentvhr">
-      Welcome to the Incident Manager Home Portal page!
+    <br>
+    <div class="contentIMpage">
+      <h1>Welcome to the Incident Manager Portal Home Page!</h1>
+    </div>
+    <div class="contentIMpageSPLIT">
+      <h1>Recent News</h1>
+      ...Content...
+    </div>
+    <div class="contentIMpageSPLIT">
+      <h1>Other News idk</h1>
+      ...Content...
+    </div>
+    <div class="contentIMpage">
+      <h1>content</h1>
+    </div>
+    <div class="contentIMpage">
+      <h1>content</h1>
+    </div>
+    <div class="contentIMpage">
+      <h1>content</h1>
+    </div>
+    <div class="contentIMpage">
+      <h1>content</h1>
+    </div>
+    <div class="contentIMpage">
+      <h1>wanted to check the scroll</h1>
     </div>
   </div>
 </body>
