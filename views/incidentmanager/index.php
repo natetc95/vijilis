@@ -17,7 +17,7 @@
 <body>
   <div id="sidebar-menu">
     <div id="sidebar-content">
-      <div class="sidebar-entry" onClick="window.location='/vijilis/dev/views/incidentmanager/index.php'">
+      <div class="sidebar-entry" onClick="window.location='/vijilis/views/incidentmanager'">
         <i class="fa fa-home" aria-hidden="true"></i>Home
       </div>
       <div class="sidebar-entry" onclick="openMenu('request')">
@@ -29,11 +29,11 @@
       <div class="sidebar-entry" onclick="openMenu('vendor')">
         <i class="fa fa-users" aria-hidden="true"></i>Vendors
       </div>
-      <div class="sidebar-entry" onClick="contentLoaderIM('preferences')">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
-      </div>
       <div class="sidebar-entry" onClick="contentLoaderIM('about')">
         <i class="fa fa-question" aria-hidden="true"></i>About
+      </div>
+      <div class="sidebar-entry" onClick="contentLoaderIM('preferences')">
+        <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
       </div>
       <div class="sidebar-entry" onClick="window.location='portal.php'">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>Portals
@@ -53,7 +53,7 @@
         <i class="fa fa-wrench" aria-hidden="true"></i>View/Edit
       </div>
       <div class="under-menu-entry" onClick="contentLoaderIM('requests/my_open_requests')">
-        <i class="fa fa-folder-o" aria-hidden="true"></i>Open
+        <i class="fa fa-folder-o" aria-hidden="true"></i>Pending
       </div>
     </div>
   </div>
@@ -64,8 +64,8 @@
       <div class="under-menu-entry" onClick="contentLoaderIM('district/findme')">
         <i class="fa fa-map-o" aria-hidden="true"></i>District Map
       </div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('profile/edit_profile')">
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile
+      <div class="under-menu-entry" onClick="contentLoaderIM('district/district_info')">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>District Info
       </div>
     </div>
   </div>

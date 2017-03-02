@@ -3,7 +3,7 @@
 <body>
   <div id="content">
     <div class="contentvhr">
-      Welcome to the Incident Manager Edit Profile page!
+      Welcome to the Incident Manager District Info page!
     </div>
   </div>
 </body>

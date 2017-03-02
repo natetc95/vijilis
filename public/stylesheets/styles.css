@@ -320,7 +320,6 @@ nav {
 }
 
 #content {
-	position: fixed;
 	height: 100%;
 	width: 100%;
 	margin: 62px 15px 0px 15px;
@@ -791,6 +790,8 @@ option .title {
 }
 
 #Bigmap {
+	margin: -15px 0px 0px -17px;
+	position: fixed;
 	width: 100%;
 	height: 100%;
 }
