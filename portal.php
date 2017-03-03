@@ -48,7 +48,7 @@
       </a>
     </center>
     <button style="float: left; margin:  16px 10px 10px 12px" onclick="Logout()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Log Out</button>
-    <button style="float: right; margin: 16px 12px 10px 10px;" onclick="">Preferences&nbsp;<i class="fa fa-cogs" aria-hidden="true"></i></button>
+    <button style="float: right; margin: 16px 12px 10px 10px;" onclick="window.location='/vijilis/views/preferences.php'">Preferences&nbsp;<i class="fa fa-cogs" aria-hidden="true"></i></button>
 	</div>
 </body>
 </html>

@@ -33,9 +33,6 @@
       <div class="sidebar-entry" onclick="openMenu('billing')">
         <i class="fa fa-usd" aria-hidden="true"></i>Billing
       </div>
-      <div class="sidebar-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
-      </div>
       <div class="sidebar-entry" onClick="window.location='portal.php'">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>Portals
       </div>

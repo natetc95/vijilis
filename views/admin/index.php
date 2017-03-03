@@ -40,9 +40,6 @@
         <i class="fa fa-line-chart" aria-hidden="true"></i>Analytics
       </div>
       <div class="sidebar-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
-      </div>
-      <div class="sidebar-entry">
         <i class="fa fa-question" aria-hidden="true"></i>About
       </div>
       <div class="sidebar-entry" onClick="window.location='portal.php'">

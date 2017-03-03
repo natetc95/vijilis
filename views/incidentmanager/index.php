@@ -32,9 +32,6 @@
       <div class="sidebar-entry" onClick="contentLoaderIM('about')">
         <i class="fa fa-question" aria-hidden="true"></i>About
       </div>
-      <div class="sidebar-entry" onClick="contentLoaderIM('preferences')">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
-      </div>
       <div class="sidebar-entry" onClick="window.location='portal.php'">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>Portals
       </div>
