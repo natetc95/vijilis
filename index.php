@@ -23,7 +23,7 @@
     <center>
   	  <span class="fa fa-user-circle-o fa-entry fa2"></span><input id="_uname"  class="fa2 inputicon" type="text" name="name" placeholder="Username" onkeypress="handle(event)"/>
   	  <span class="fa fa-key fa-entry fa2"></span><input id="_pwd" class="fa2 inputicon" type="password" name="email" placeholder="Password" onkeypress="handle(event)"/><br/>
-      <a class="pa" href="views/forgotpass.php">Forgot Password?</a>&nbsp;<a class="pa" href="views/register.php">Register</a><br/><br/>
+      <a class="pa" href="forgotpass.php">Forgot Password?</a>&nbsp;<a class="pa" href="register.php">Register</a><br/><br/>
       <button id="la" onClick="submitLogin()" ondblclick="window.location='portal.php'">Log In <i class="fa fa-sign-in" aria-hidden="true"></i></button>
     </center>
 	</div>

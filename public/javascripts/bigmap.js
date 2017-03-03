@@ -1,5 +1,20 @@
-var map;
 var infowindow = -1;
+
+function initBig() {
+    var x = parseFloat(document.getElementById("locbox_x").value);
+    var y = parseFloat(document.getElementById("locbox_y").value);
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: x, lng: y},
+        zoom: 13
+    });
+    var marker = new google.maps.Marker({
+          position: {lat: x, lng: y},
+          map: map,
+          draggable:true,
+          icon: 'public/images/logo_icon_tr.png'
+        });
+}
+
 function initMap() {
 map = new google.maps.Map(document.getElementById('Bigmap'), {
     center: {lat: -34.397, lng: 150.644},
@@ -18,6 +33,24 @@ if (navigator.geolocation) {
         };
         map.setCenter(pos);
         trafficLayer.setMap(map);
+        var marker1 = new google.maps.Marker({
+            position: {lat: 32.25171658527061, lng: -111.04705810546875},
+            map: map,
+            draggable:true,
+            icon: 'public/images/logo_icon_tr.png'
+        });
+        var marker2 = new google.maps.Marker({
+            position: {lat: 32.22206813061224, lng: -110.94893992933044},
+            map: map,
+            draggable:true,
+            icon: 'public/images/logo_icon_tr.png'
+        });
+        var marker3 = new google.maps.Marker({
+            position: {lat: 32.258539603730426, lng: -110.88277816772461},
+            map: map,
+            draggable:true,
+            icon: 'public/images/logo_icon_tr.png'
+        });
         map.addListener('rightclick', function(event) {
             contentString = "<a href='javascript:makeReq(" + event.latLng.lat() + ", " + event.latLng.lng() + ")'>New Request</a>"
             if (infowindow != -1) {
@@ -55,7 +88,7 @@ function makeReq(x, y) {
         method: 'POST',
         dataType: 'html',
         data: {
-            page: "incidentmanager/requests/create_request",
+            page: "im/requests/create_request",
             x: x,
             y: y
         }

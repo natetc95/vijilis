@@ -22,19 +22,19 @@
 	<div id="portalbox" style="height: 420px"></br>
     <h1>Available Portals</h1>
     <center>
-      <a class="portal-div" href="views/vendor/index.php">
+      <a class="portal-div" href="v/index.php">
     	  <div class="portal-link">
           <i class="fa fa-truck fa-2x" style="float: left" aria-hidden="true"></i>
           <div class="portal-text">Vendor Portal</div>
         </div>
       </a><br/>
-      <a class="portal-div" href="views/incidentmanager">
+      <a class="portal-div" href="im/index.php">
     	  <div class="portal-link">
           <i class="fa fa-user-plus fa-2x" style="float: left" aria-hidden="true"></i>
           <div class="portal-text">Incident Manager Portal</div>
         </div>
       </a><br/>
-      <a class="portal-div" href="views/admin/index.php">
+      <a class="portal-div" href="a/index.php">
     	  <div class="portal-link">
           <i class="fa fa-user-secret fa-2x" style="float: left" aria-hidden="true"></i>
           <div class="portal-text">Admin Portal</div>

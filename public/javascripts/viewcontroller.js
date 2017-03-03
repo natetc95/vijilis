@@ -40,7 +40,7 @@ function contentLoader(s) {
         method: 'POST',
         dataType: 'html',
         data: {
-            page: "vendor/" + s
+            page: "v\\" + s
         }
     });
     req.done(function( msg ) {
@@ -54,7 +54,7 @@ function contentLoaderIM(s) {
         method: 'POST',
         dataType: 'html',
         data: {
-            page: "incidentmanager/" + s
+            page: "im\\" + s
         }
     });
     req.done(function( msg ) {
@@ -92,3 +92,38 @@ function opensub(s) {
     });
     $("#tab" + s).addClass("selected");
 }
+
+var reqs = 2;
+
+function addSub() {
+    var newTab = document.createElement("a");
+    newTab.setAttribute("href","javascript:void(0)");
+    newTab.setAttribute("class", "tab");
+    newTab.setAttribute("id", "tab" + reqs);
+    newTab.setAttribute("onClick", "opensub(\'" + reqs + "\')");
+    newTab.innerHTML = String(reqs);
+    document.getElementById("th").appendChild(newTab);
+    var newBox = document.createElement("div");
+    newBox.setAttribute("id", "subreq" + reqs);
+    newBox.setAttribute("class", "subreq");
+    newBox.innerHTML = `<br/>
+        <div class="description" onChange="selectBox('car')">
+            <h2>Incident Type</h2><br/>
+            <select class="wew">
+                <option selected hidden> -- Choose One -- </option>
+                <option>Car Crash</option>
+                <option>Debris Cleanup</option>
+            </select>
+            <div class="description"><br/>
+                <h2>Incident Description</h2><br/>
+                <textarea></textarea>
+            </div>
+            <div class="description"><br/>
+                <h2>Special Instructions</h2><br/>
+                <textarea></textarea>
+            </div>
+        </div>`;
+    document.getElementById("sr").appendChild(newBox);
+    reqs++;
+}
+
