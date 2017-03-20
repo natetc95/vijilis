@@ -13,6 +13,7 @@ function handleError(code) {
 function submitLogin() {
   var un = document.getElementById("_uname");
   var pw = document.getElementById("_pwd");
+  var newPW = pw.value;
   if(document.getElementById("errors")) {
     document.getElementById("loginbox").removeChild(document.getElementById("errors"));
   }
@@ -25,22 +26,16 @@ function submitLogin() {
       'pw': pw.value
     },
     success: function(success) {
+      console.log(success);
       if(JSON.parse(success).loginstat == "FAIL") {
         $( "#loginbox" ).effect( "shake" );
-        // var errors = document.createElement("div");
-        // errors.id = "errors";
-        // errors.innerHTML = handleError(JSON.parse(success).error);
-        // document.getElementById("loginbox").insertBefore(errors, document.getElementById("la"));
       } else if (JSON.parse(success).loginstat == "SUCC") {
         window.location = "portal.php";
       }
     },
     error: function(failure) {
       $( "#loginbox" ).effect( "shake" );
-      var errors = document.createElement("div");
-      errors.id = "errors";
-      errors.innerHTML = "Could not authenticate user.<br/>Unable to connect to authentication controller.";
-      document.getElementById("loginbox").insertBefore(errors, document.getElementById("la"));
+      console.log(failure);
     }
   })
 }

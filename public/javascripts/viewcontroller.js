@@ -1,4 +1,7 @@
 var open = false;
+var currPage = 'news';
+var wew = false;
+
 function test() {
     if (!open) {
         document.getElementById("sidebar-menu").style = "margin-left: 0px;"
@@ -15,6 +18,7 @@ function test() {
         $(this).removeClass('open');
     })
 }
+
 function Logout() {
     $.ajax({
         url: 'controllers/logout.php',
@@ -35,7 +39,17 @@ function openMenu(type) {
     $("#" + type + "-under-menu").toggleClass('open');
 }
 
-function contentLoader(s) {
+function refresh() {
+    $('#refresh').toggleClass('fa-spin');
+    $('#content').innerHTML = "";
+    contentLoader(currPage, false);
+    setTimeout(function() {
+        $('#refresh').toggleClass('fa-spin');
+    }, 1000);
+}
+
+function contentLoader(s, menu=true) {
+    currPage = s;
     var req = $.ajax('controllers/vendor.php', {
         method: 'POST',
         dataType: 'html',
@@ -46,7 +60,9 @@ function contentLoader(s) {
     req.done(function( msg ) {
         $("#content").html(msg);
     });
-    test()
+    if (menu) {
+        test()
+    }
 }
 
 function contentLoaderIM(s) {

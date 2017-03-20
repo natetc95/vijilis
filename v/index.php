@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="../../">
+  <base href="../">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,7 +13,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/viewcontroller.js"></script>
   <title>Vendor Portal</title>
-  <meta name="viewport" content="width=device-width, target-densityDpi=device-dpi">
 </head>
 <body>
   <div id="sidebar-menu">
@@ -72,19 +71,16 @@
     <div class="under-menu-content">
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry">
+      <div class="under-menu-entry" onClick="contentLoader('resources/my_resources')">
         <i class="fa fa-list" aria-hidden="true"></i>My Resources
       </div>
-      <div class="under-menu-entry">
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Resource
-      </div>
-      <div class="under-menu-entry">
+      <div class="under-menu-entry" onClick="contentLoader('resources/add_resource')">
         <i class="fa fa-plus" aria-hidden="true"></i>Add Resource
       </div>
     </div>
   </div>
   <div id="menubar">
-    <i id="burger" class="fa fa-bars" aria-hidden="true" onClick="test()"></i><a href="portal.php"><img src="public/images/logo_rn.png" class="barlogo" height="24px" style="float: right; margin-right: 30px;"></a>
+    <i id="burger" class="fa fa-bars" aria-hidden="true" onClick="test()"></i><i id="refresh" class="fa fa-refresh" aria-hidden="true" onClick="refresh()"></i><a href="portal.php"><img src="public/images/logo_rn.png" class="barlogo" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
     <?php require('news.php') ?>

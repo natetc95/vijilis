@@ -18,8 +18,9 @@ body {
 	position: absolute;
 	color: var(--dark-primary-color);
 	/* background: var(--light-primary-color); */
-	background-image: url(../images/bg5.jpg);
-	background-size: cover;
+	/*background-image: url(../images/bg5.jpg);
+	background-size: cover;*/
+	background: lightslategrey;
 	font-family: var(--text-font);
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -39,6 +40,23 @@ form {
 	border-radius: 4px;
 }
 #loginbox h1 {
+	padding: 0px 0px 10px 0px;
+	border-bottom: 1px solid var(--border-color);
+	margin: 0px 0px 10px 0px;
+	text-align: center;
+	cursor: default;
+}
+
+#verifybox {
+	margin: 0 auto;
+	width: 268px;
+	height: 230px;
+	margin-top: 150px;
+	background: var(--foreground-color);
+	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);;
+	border-radius: 4px;
+}
+#verifybox h1 {
 	padding: 0px 0px 10px 0px;
 	border-bottom: 1px solid var(--border-color);
 	margin: 0px 0px 10px 0px;
@@ -98,7 +116,7 @@ form {
 	height: 465px;
 	margin-top: 5%;
 	background: var(--foreground-color);
-	box-shadow: 0px 5px 25px 10px var(--border-color);
+	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 	transition: 0.1s;
 }
@@ -120,6 +138,7 @@ form {
 	padding: 10px;
 	color: var(--dark-primary-color);
 	transition: 0.3s;
+	margin: 10px 0px 10px 0px;
 }
 .portal-link:hover {
 	color: var(--border-color);
@@ -301,6 +320,10 @@ nav {
 
 .reg-error {
 	margin-top: 10px;
+}
+
+.error {
+	margin: 10px 0px 15px 0px;
 }
 
 #menubar {
@@ -639,6 +662,7 @@ nav {
 .under-menu-content {
 	width: 190px;
 	height: 100%;
+	background: var(--foreground-color);
 }
 
 .under-menu-entry {
@@ -714,6 +738,22 @@ nav {
 	padding: 5px;
 	transition: 0.3s;
 	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+#refresh {
+	margin-left: 25px;
+	float: left;
+	transition: 0.3s;
+}
+
+#refresh:hover, #burger:hover {
+	color: lightslategray;
+	transition: 0.3s;
+}
+
+#burger {
+	float: left;
+	transition: 0.3s;
 }
 
 option .title {
@@ -794,4 +834,219 @@ option .title {
 	margin: 20px;
 	width: 100%;
 	height: 100%;
+}
+
+.resourceTitle {
+	float: left;
+	height: 32px;
+	margin-top: -5px;
+}
+
+.resourceIconDelete {
+	float: right;
+	height: 32px;
+	width: 32px;
+	line-height: 32px;
+	font-size: 20px;
+	margin-top: -5px;
+	color: white;
+	text-align: center;
+	background: lightcoral;
+	border-radius: 3px;
+	border: 1px solid lightgrey;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 1px 1px lightgrey;
+	overflow: hidden;
+	user-select: none;
+}
+
+.resourceIconDelete:hover {
+	background: red;
+	transition: 0.3s;
+	width: 84px;
+}
+
+.resourceIconEdit {
+	float: right;
+	height: 32px;
+	width: 32px;
+	line-height: 32px;
+	font-size: 20px;
+	margin-top: -5px;
+	margin-right: 5px;
+	color: white;
+	text-align: center;
+	background: lightblue;
+	border-radius: 3px;
+	border: 1px solid lightgrey;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 1px 1px lightgrey;
+	overflow: hidden;
+	user-select: none;
+}
+
+.resourceIconEdit:hover {
+	background: dodgerblue;
+	width: 72px;
+	transition: 0.3s; 	
+}
+
+.resourceImage {
+	float: left;
+	height: 100px;
+	width: 100px;
+	border-radius: 25px;
+	overflow: hidden;
+	border: 1px solid black;
+}
+
+.resourceInfo {
+	margin-left: 10px;
+	height: 100px;
+	width: 180px;
+	float: left;
+}
+
+.resourceIconAdd {
+	float: right;
+	height: 32px;
+	width: 32px;
+	line-height: 32px;
+	font-size: 20px;
+	margin-top: -5px;
+	color: white;
+	text-align: center;
+	background: lightgreen;
+	border-radius: 3px;
+	border: 1px solid lightgrey;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 1px 1px lightgrey;
+	overflow: hidden;
+	user-select: none;
+}
+
+.resourceIconAdd:hover {
+	background: limegreen;
+	transition: 0.3s;
+	width: 64px;
+}
+
+#promptBackground {
+	height: 300%;
+	width: 150%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: grey;
+	opacity: 0.5;
+	z-index: 100;
+}
+#promptDelete {
+	height: 160px;
+	width: 200px;
+	background: gainsboro;
+	border: 1px solid black;
+	border-radius: 5px;
+	left: 50%;
+	margin-left: -100px;
+	top: 25%;
+	position: absolute;
+	z-index: 101;
+	overflow: hidden;
+	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
+	text-align: center;
+}
+
+#promptTitle {
+	background: lightgrey;
+	border-bottom: 1px solid lightslategray;
+}
+
+#promptTitle h1 {
+	margin: 0;
+	padding: 0;
+}
+
+#promptDelete p {
+	margin: 5px;
+}
+
+.promptOptions {
+	width: 200px;
+	padding-top: 15px;
+}
+
+.promptAccept {
+	float: right;
+	margin-right: 10px;
+	height: 32px;
+	width: 78px;
+	line-height: 32px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	background: lightgreen;
+	border-radius: 3px;
+	border: 1px solid lightgrey;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 1px 1px lightgrey;
+	overflow: hidden;
+	user-select: none;
+}
+
+.promptAccept:hover {
+	background: limegreen;
+	transition: 0.3s;
+}
+
+.promptDecline {
+	float: left;
+	margin-left: 8px;
+	height: 32px;
+	width: 72px;
+	line-height: 32px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	background: lightcoral;
+	border-radius: 3px;
+	border: 1px solid lightgrey;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 1px 1px lightgrey;
+	overflow: hidden;
+	user-select: none;
+}
+
+.promptDecline:hover {
+	background: red;
+	transition: 0.3s;
+}
+
+.resourceInputBox {
+	width: 250px;
+	margin: 0 auto;
+	background: white;
+	color: var(--dark-primary-color);
+	border: 1px solid var(--border-color);
+	border-radius: 2px 2px 2px 2px;
+	padding: 5px;
+	transition: 0.3s;
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.resourceSelectBox {
+	width: 260px;
+}
+
+.resourceAddtInfo {
+	display: none;
+}
+
+.resourceAddtInfo.open {
+	display: inline;
 }

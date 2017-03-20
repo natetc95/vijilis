@@ -1,11 +1,10 @@
-<?php session_start(); ?>
 <script src="public/javascripts/gps.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=geoFindMe" async defer></script>
 <div class="contentvhr">
     <h1>Create A Request</h1>
     <div class="reqinfo">
         ID# <?php echo("000001AZ");?><br/>
-        IM: <?php echo($_SESSION['name']);?><br/>
+        IM: <?php echo("wew");?><br/>
         District: <?php echo("Tucson") ?>
     </div>
 </div>

@@ -20,17 +20,17 @@
   <br></br>
 	<div id="registerbox"></br>
     <h1>Account Registry</h1>
-    <center>
-      <span class="fa fa-user-circle-o fa-entry fa2"></span><input require id="fname" class="fa2 inputicon" type="text" placeholder="Username" onkeypress="handle(event)"/>
-  	  <span class="fa fa-user-circle-o fa-entry fa2"></span><input require id="fname" class="fa2 inputicon" type="text" placeholder="First Name" onkeypress="handle(event)"/>
-  	  <span class="fa fa-users fa-entry fa2"></span><input id="lname" type="text" class="fa2 inputicon" placeholder="Last Name" onkeypress="handle(event)"/>
-      <span class="fa fa-envelope fa-entry fa2"></span><input id="email" type="text" class="fa2 inputicon" placeholder="Email" onkeypress="handle(event)"/>
-      <span class="fa fa-phone fa-entry fa2"></span><input id="tel" type="tel" class="fa2 inputicon" placeholder="Mobile Phone Number" onkeyup="handle(event, 2)"/>
-      <span class="fa fa-key fa-entry fa2"></span><input id="pw1" type="password" class="fa2 inputicon" placeholder="Password" onkeyup="handle(event, 3)"/>
-      <span class="fa fa-key fa-entry fa2"></span><input id="pw2" type="password" class="fa2 inputicon" placeholder="Re-Enter Password" onkeyup="handle(event, 3)"/>
+    <center id="xxx">
+      <span class="fa fa-user-circle-o fa-entry fa2"></span><input require id="uname" class="fa2 inputicon" type="text" placeholder="Username" onkeyup="validateUsername()"/>
+  	  <span class="fa fa-user-circle-o fa-entry fa2"></span><input require id="fname" class="fa2 inputicon" type="text" placeholder="First Name"/>
+  	  <span class="fa fa-users fa-entry fa2"></span><input id="lname" type="text" class="fa2 inputicon" placeholder="Last Name"/>
+      <span class="fa fa-envelope fa-entry fa2"></span><input id="email" type="text" class="fa2 inputicon" placeholder="Email" onkeyup="validateEmail()"/>
+      <span class="fa fa-phone fa-entry fa2"></span><input id="tel" type="text" class="fa2 inputicon" placeholder="Mobile Phone Number" onkeyup="validatePhoneNumber()"/>
+      <span class="fa fa-key fa-entry fa2"></span><input id="pw1" type="password" class="fa2 inputicon" placeholder="Password" onkeyup="validatePasswords(); strengthTestPassword();"/>
+      <span class="fa fa-key fa-entry fa2"></span><input id="pw2" type="password" class="fa2 inputicon" placeholder="Re-Enter Password" onkeyup="validatePasswords(); strengthTestPassword();"/>
     </center>
     <button style="float: left; margin: 10px;" onclick="Logout()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back</button>
-    <button id="relevant" style="float: right; margin: 10px;" onClick="submitLogin()">Register&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
+    <button id="relevant" style="float: right; margin: 10px;" onClick="submitToRegistrar()">Register&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
 	</div>
 </body>
 </html>
