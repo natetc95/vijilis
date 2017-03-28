@@ -16,6 +16,7 @@
 </head>
 <?php
   session_start();
+  require('controllers/sessionHandler.php');
   $id = $_SESSION['acct'];
   $size = 0;
   if(($id & 1) == 1) {

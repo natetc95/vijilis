@@ -47,10 +47,11 @@ function deleteResource(uidOfResource) {
     });
     document.getElementById("pAid").addEventListener("click", function(e) {
         $.ajax({
-            url: 'controllers/deleteResource.php',
+            url: 'controllers/resources.php',
             type: 'POST',
             dataType: 'text',
             data: {
+                action: 'deleteResource',
                 resourceToDelete: uidOfResource
             }
         });
@@ -68,12 +69,14 @@ function addResource() {
     var title = document.getElementById("title").value;
     var type = document.getElementById("type").value;
     var desc = document.getElementById("desc").value;
+    console.log(title+type+desc);
     if(title.length > 0 && type > -1) {
         $.ajax({
-                url: 'controllers/addResource.php',
+                url: 'controllers/resources.php',
                 type: 'POST',
                 dataType: 'text',
                 data: {
+                    action: 'addResource',
                     title: title,
                     type: type,
                     desc: desc
@@ -111,10 +114,11 @@ function editResource(uid) {
     var desc = document.getElementById("desc").value;
     if(title.length > 0 && type > -1) {
         $.ajax({
-                url: 'controllers/editResource.php',
+                url: 'controllers/resources.php',
                 type: 'POST',
                 dataType: 'text',
                 data: {
+                    action: 'editResource',
                     uid: uid,
                     title: title,
                     type: type,
@@ -144,9 +148,18 @@ function vecHandler() {
     } else {
         document.getElementById("vec_info").setAttribute("class", "resourceAddtInfo");
     }
+    if (value == 0) {
+        document.getElementById("tow_info").setAttribute("class", "resourceAddtInfo open");
+    } else {
+        document.getElementById("tow_info").setAttribute("class", "resourceAddtInfo");
+    }
     if (value == 3) {
         document.getElementById("food_info").setAttribute("class", "resourceAddtInfo open");
     } else {
         document.getElementById("food_info").setAttribute("class", "resourceAddtInfo");
     }
 }
+
+document.getElementById("myRange").addEventListener('mousemove', function() {
+    document.getElementById("capacity").value = document.getElementById("myRange").value;
+});

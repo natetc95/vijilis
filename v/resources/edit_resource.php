@@ -1,6 +1,7 @@
 <?php
     session_start();
     require('../../controllers/configurator.php');
+    require('../../controllers/sessionHandler.php');
     $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
     if(isset($_POST['uid'])) {
         if($query = $mysqli->prepare("SELECT uid FROM vendor WHERE user_uid = ?")) {
@@ -25,6 +26,7 @@
         echo("<script>contentLoader('resources/my_resources',false);</script>");
     }
 ?>
+
 <script src="public/javascripts/myResources.js"></script>
 <div class="contentvhr">
     <div id="resourceHeader">

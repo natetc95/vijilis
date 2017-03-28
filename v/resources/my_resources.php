@@ -1,8 +1,10 @@
 <?php
-        session_start();
-        require('controllers/configurator.php');
-        $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
-    ?>
+    session_start();
+    require('controllers/configurator.php');
+    require('controllers/sessionHandler.php');
+    $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
+?>
+
 <script src="public/javascripts/myResources.js"></script>
 <div class="contentvhr">
     <h1><?=$_SESSION['name']?>'s Resources</h1>

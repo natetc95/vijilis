@@ -14,6 +14,18 @@
   <script src="public/javascripts/viewcontroller.js"></script>
   <title>Vendor Portal</title>
 </head>
+<?php
+  require('../controllers/sessionHandler.php');
+  if(isset($_GET['m'])) {
+    $_SESSION['mxs'] = $_GET['m'];
+    $_SESSION['mxr'] = $_SERVER['HTTP_REFERER'];
+    header("Location: index.php");
+  } 
+  else if (isset($_SESSION['mxs'])) {
+    echo("<script>FOBBY(\"" . $_SESSION['mxs'] . "\")</script>");
+    unset($_SESSION['mxs']);
+  }
+?>
 <body>
   <div id="sidebar-menu">
     <div id="sidebar-content">
@@ -26,7 +38,7 @@
       <div class="sidebar-entry" onclick="openMenu('resource')">
         <i class="fa fa-truck" aria-hidden="true"></i>Resources
       </div>
-      <div class="sidebar-entry">
+      <div class="sidebar-entry" onClick="FOBBY(null, true)">
         <i class="fa fa-street-view" aria-hidden="true"></i>Check In
       </div>
       <div class="sidebar-entry" onclick="openMenu('billing')">

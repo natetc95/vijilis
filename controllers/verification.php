@@ -1,8 +1,9 @@
 <?php
     require('PHPMailer/PHPMailerAutoload.php');
     require('configurator.php');
+
     function EVerify($email, $fname, $vhash) {
-        $verify_lnk = $redirectUri = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'] . "/verify.php?lnk=" . $vhash;
+        $verify_lnk = $redirectUri = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'] . $GLOBALS['ftr'] . "verify.php?lnk=" . $vhash;
         $msg = "
             <div id='center'>
                 <div id='header'>
@@ -54,15 +55,17 @@
                     <p>
                         This email is just to confirm the registration of your resource! Be aware it may take up to 2 weeks before your resource is approved for use within the VIJILIS system.
                         <br/><br/>
-                        $rname:$ruid<br/>
-                        $rtype<br/>
-                        $rdesc<br/><br/>
+                        <table>
+                            <tr><td><b>Name</b></td><td>&nbsp;$rname</td></tr>
+                            <tr><td><b>ID Number</b></td><td>&nbsp;$ruid</td></tr>
+                            <tr><td><b>Type</b></td><td>&nbsp;$rtype</td></tr>
+                            <tr><td><b>Description</b></td><td>&nbsp;$rdesc</td></tr>
+                        </table>
                     </p>
                     Thanks,<br/><br/>
                     <strong>VIJILIS Team</strong><br/><br/>
-                    <img style='height: 50px; text-align-' src='cid:logo_rn'/>
                 </div>
-            </center>";
+            </div>";
         $mail = new PHPMailer(); // create a new object
         $mail->IsSMTP(); // enable SMTP
         $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only

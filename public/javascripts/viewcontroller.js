@@ -7,16 +7,41 @@ function test() {
         document.getElementById("sidebar-menu").style = "margin-left: 0px;"
         document.getElementById("burger").setAttribute("class", "fa fa-times");
         //document.getElementById("burger").style="display: none";
+        createClicky();
         open = true;
     } else {
         document.getElementById("sidebar-menu").style = "margin-left: -200px;"
         document.getElementById("burger").setAttribute("class", "fa fa-bars");
+        removeClicky();
         //document.getElementById("burger").style="display: inline";
         open = false;
     }
     $(".under-menu").each(function() {
         $(this).removeClass('open');
     })
+}
+
+function createClicky() {
+    var l = document.getElementsByClassName('hidden-clicky').length;
+    if (l == 0) {
+        var box = document.createElement('div');
+        box.setAttribute('class', 'hidden-clicky');
+        box.addEventListener('click', clickyListener);
+        document.body.appendChild(box);
+    }
+}
+
+function clickyListener() {
+    test();
+    removeClicky();
+}
+
+function removeClicky() {
+    var l = document.getElementsByClassName('hidden-clicky');
+    if (l.length > 0) {
+        l[0].removeEventListener('click', clickyListener);
+        document.body.removeChild(l[0]);
+    }
 }
 
 function Logout() {
@@ -55,6 +80,17 @@ function contentLoader(s, menu=true) {
         dataType: 'html',
         data: {
             page: "v\\" + s
+        },
+       statusCode: {
+           403: function() {
+                window.location = "errors/403.php";
+           },
+           404: function() {
+               window.location = "errors/404.php";
+           },
+           418: function() {
+               window.location = "errors/418.php";
+           }
         }
     });
     req.done(function( msg ) {
@@ -71,6 +107,17 @@ function contentLoaderIM(s) {
         dataType: 'html',
         data: {
             page: "im\\" + s
+        },
+       statusCode: {
+           403: function() {
+                window.location = "errors/403.php";
+           },
+           404: function() {
+               window.location = "errors/404.php";
+           },
+           418: function() {
+               window.location = "errors/418.php";
+           }
         }
     });
     req.done(function( msg ) {
@@ -85,6 +132,17 @@ function contentLoaderBilling(s) {
         dataType: 'html',
         data: {
             page: "billing/" + s
+        },
+       statusCode: {
+           403: function() {
+                window.location = "errors/403.php";
+           },
+           404: function() {
+               window.location = "errors/404.php";
+           },
+           418: function() {
+               window.location = "errors/418.php";
+           }
         }
     });
     req.done(function( msg ) {
@@ -143,3 +201,19 @@ function addSub() {
     reqs++;
 }
 
+function FOBBY(uid, menu=false) {
+    currPage = 'resources/my_resources';
+    var req = $.ajax('v/checkins/addFob.php', {
+        method: 'POST',
+        dataType: 'html',
+        data: {
+            uid: uid
+        }
+    });
+    req.done(function( msg ) {
+        $("#content").html(msg);
+    });
+    if (menu) {
+        test();
+    }
+}

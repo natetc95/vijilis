@@ -9,6 +9,13 @@
       $query->bind_result($uid, $uname, $pw, $ver, $act);
       $query->fetch();
       if($uname == $_POST["un"] && password_verify($_POST["pw"], $pw) && $ver == 1) {
+        $query->fetch();
+        $time = time() + 3600;
+        $hSession = md5($uid . $_POST["un"] . $act . $time . session_id());
+        if($query = $mysqli->prepare("UPDATE user SET tSession = ?, hSession = ? WHERE username = ?")) {
+          $query->bind_param("iss", $time, $hSession, $_POST["un"]);
+          $query->execute();
+        }
         echo('{
          "loginstat": "SUCC",
          "username": "natetc95",

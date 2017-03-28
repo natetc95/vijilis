@@ -1,3 +1,7 @@
+<base href="../"/>
+
+<?php require('controllers/sessionHandler.php'); ?>
+
 <script src="public/javascripts/myResources.js"></script>
 <div class="contentvhr">
     <div id="resourceHeader">
@@ -19,7 +23,7 @@
         <optgroup label="Vehicles">
             <option value=0>Tow Truck</option>
             <option value=1>&nbsp;Ambulance</option>
-            <option value=2>&nbsp;Livery Car</option>
+            <option value=2>&nbsp;Snow Plow</option>
         <optgroup label="Supplies">
             <option value=3>&nbsp;Food Stuffs</option>
     </select></center><br/>
@@ -28,30 +32,40 @@
 
     <div id="vec_info" class="resourceAddtInfo">
         <h2>Vehicle Information</h2><br/>
-        <b>Make:</b>
+        &nbsp;<b>Make:</b>
         <center><input id="make" class="resourceInputBox" type="text"></input></center>
-        <b>Model:</b>
+        &nbsp;<b>Model:</b>
         <center><input id="model" class="resourceInputBox" type="text"></input></center>
-        <b>Year:</b>
+        &nbsp;<b>Year:</b>
         <center><select id="year" class="resourceInputBox resourceSelectBox"></select></center><br/>
     </div>
 
-    <!-- SURVIVAL INFORMATION BOX -->
+    <!-- TOWING INFORMATION BOX -->
+    <div id="tow_info" class="resourceAddtInfo">
+        <h2>Towing Information</h2><br/>
+        &nbsp;<b>Capacity (lbs):</b><br/>
+        <center>
+        <input type="range" id="myRange" width="290px" value="0" min="0" step="50" max="3500" style="width: 215px; margin-left: 15px; float: left; text-align: center;"/>
+        <input id="capacity" class="resourceInputBox" type="text" style="width: 30px; margin-left: 15px; float: left">
+        </center><br/><br/>
+    </div>
+
+    <!-- SUPPLIES INFORMATION BOX -->
 
     <div id="food_info" class="resourceAddtInfo">
-        <h2>Survial Gear Information</h2><br/>
-        <b>Expiration:</b>
+        <h2>Supplies Information</h2><br/>
+        &nbsp;<b>Expiration:</b>
         <center><input class="resourceInputBox" type="text" id="expiration"></center>
     </div>
 
     <h2>Resource Description:</h2><br/>
     <center><textarea id="desc" class="resourceInputBox" rows="5" maxlength="128"></textarea></center>
     <h2>Images:</h2><br/>
-    <b>License Plate:</b>
+    &nbsp;<b>License Plate:</b>
     <center><input id="title" class="resourceInputBox" type="file"></input></center><br/>
-    <b>License Plate:</b>
+    &nbsp;<b>License Plate:</b>
     <center><input id="title" class="resourceInputBox" type="file"></input></center><br/>
-    <b>License Plate:</b>
+    &nbsp;<b>License Plate:</b>
     <center><input id="title" class="resourceInputBox" type="file"></input></center><br/>
 </div>
 <div class="contentvhr">
