@@ -143,6 +143,33 @@ function editResource(uid) {
     var title = document.getElementById("title").value;
     var type = document.getElementById("type").value;
     var desc = document.getElementById("desc").value;
+    if (document.getElementById("vec_info").getAttribute("class") == "resourceAddtInfo open") {
+        var make = document.getElementById("make").value;
+        var model = document.getElementById("model").value;
+        var year = document.getElementById("year").value;
+    } else {
+        var make = "NULL";
+        var model = "NULL";
+        var year = 0;
+    }
+    if (document.getElementById("tow_info").getAttribute("class") == "resourceAddtInfo open") {
+        var tclass = "Z";
+        var val = parseInt(document.getElementById("capacity").value);
+        if (val <= 7000) {
+            tclass = "A";
+        } else if (val > 7000 && val <= 17000) {
+            tclass = "B";
+        } else {
+            tclass = "C";
+        }
+    } else {
+        var tclass = "Z";
+    }
+    if (document.getElementById("food_info").getAttribute("class") == "resourceAddtInfo open") {
+        var cxim = document.getElementById("expiration").value;
+    } else {
+        var cxim = "00/00/0000";
+    }
     if(title.length > 0 && type > -1) {
         $.ajax({
                 url: 'controllers/resources.php',
@@ -153,7 +180,12 @@ function editResource(uid) {
                     uid: uid,
                     title: title,
                     type: type,
-                    desc: desc
+                    desc: desc,
+                    make: make,
+                    model: model,
+                    year: year,
+                    class: tclass,
+                    cxim: cxim
                 },
                 success: function(e) {
                     if (e == "SUCC") {
@@ -194,3 +226,13 @@ function vecHandler() {
 document.getElementById("myRange").addEventListener('mousemove', function() {
     document.getElementById("capacity").value = document.getElementById("myRange").value;
 });
+
+function changeLocationSetting() {
+    if(!document.getElementById('cbox1').checked) {
+        document.getElementById('locdata').setAttribute("class", "open");
+        document.getElementById('forcbox1').innerHTML = "Resource Follows Vendor?&nbsp;<a href='javascript:console.log(\"jasdlfh\")'>Find Me!</a>";
+    } else {
+        document.getElementById('locdata').setAttribute("class", "");
+        document.getElementById('forcbox1').innerHTML = "Resource Follows Vendor?";
+    }
+}

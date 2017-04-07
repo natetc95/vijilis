@@ -140,9 +140,9 @@
                     $fileContent = file_get_contents($_FILES['file']['tmp_name']);
 
                     if($fileError == UPLOAD_ERR_OK){
-                        $upload = $GLOBALS['helpme'] . "userfiles/u" . $_SESSION['uid'] . "/v" . $vid . "/r" . $rid . "/" . $imagetype  . "." . explode('.', basename($_FILES['file']['name']), 2)[1];
+                        $upload = $GLOBALS['helpme'] . "userfiles/u" . $_SESSION['uid'] . "/v" . $vid . "/r" . $rid . "/" . $imagetype  . ".png";
                         echo($upload . "\n");
-                        if (move_uploaded_file($_FILES['file']['tmp_name'], $upload)) {
+                        if (imagepng(imagecreatefromstring($fileContent), $upload)) {
                             echo "File is valid, and was successfully uploaded.\n";
                         } else {
                             echo "Possible file upload attack!\n";
