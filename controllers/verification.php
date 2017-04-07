@@ -42,7 +42,7 @@
         } else {
             /// echo "Message has been sent";
         }
-    } 
+    }
 
     function AlertResource($email, $fname, $rname, $rtype, $rdesc, $ruid) {
         $msg = "

@@ -11,7 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/registerpage.js"></script>
-  <title>Login</title>
+  <title>Register</title>
 </head>
 <body>
   <div class="headerbar">
@@ -29,7 +29,7 @@
       <span class="fa fa-key fa-entry fa2"></span><input id="pw1" type="password" class="fa2 inputicon" placeholder="Password" onkeyup="validatePasswords(); strengthTestPassword();"/>
       <span class="fa fa-key fa-entry fa2"></span><input id="pw2" type="password" class="fa2 inputicon" placeholder="Re-Enter Password" onkeyup="validatePasswords(); strengthTestPassword();"/>
     </center>
-    <button style="float: left; margin: 10px;" onclick="Logout()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back</button>
+    <button style="float: left; margin: 10px;" onclick="window.location='index.php'"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back</button>
     <button id="relevant" style="float: right; margin: 10px;" onClick="submitToRegistrar()">Register&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
 	</div>
 </body>

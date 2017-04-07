@@ -10,7 +10,7 @@
   <link rel='icon' href='public/images/icon.ico'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script src="public/javascripts/registerpage.js"></script>
+  <script src="public/javascripts/resetpage.js"></script>
   <title>Forgot Password</title>
 </head>
 <body>
@@ -19,13 +19,12 @@
   </div>
   <div id="forgotpassbox"></br>
     <h1>Reset Password</h1>
-    <center>
-      <br><span class="fa fa-user-circle-o fa-entry fa2"></span><input require id="fname" class="fa2 inputicon" type="text" placeholder="Username/Email" onkeypress="handle(event)"/>
+    <center id="xxx">
+      <br><span class="fa fa-envelope fa-entry fa2"></span><input require id="email" class="fa2 inputicon" type="text" placeholder="Email" onkeyup="validateEmail()"/>
     </center>
 
-    <button style="float: left; margin: 10px;" onclick="Logout()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back</button>
-    <button id="relevant" style="float: right; margin: 10px;" onClick="submitLogin()">Reset&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
-    <!- I pulled these buttons from the register page, so the onClick stuff hasn't been changed yet ->
+    <button style="float: left; margin: 10px;" onclick="window.location='index.php'"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back</button>
+    <button id="relevant" style="float: right; margin: 10px;" onClick="submitToReset()">Reset&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
   </div>
 </body>
 </html>

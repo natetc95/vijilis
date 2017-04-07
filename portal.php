@@ -21,7 +21,7 @@
   $size = 0;
   if(($id & 1) == 1) {
     $size++;
-  } 
+  }
   if(($id & 2) == 2) {
     $size++;
   }
@@ -66,7 +66,7 @@
         </div>
       </a><?php } ?>
     </center>
-    <button style="float: left; margin:  12px 10px 10px 12px" onclick="Logout()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Log Out</button>
+    <button style="float: left; margin:  12px 10px 10px 12px" onclick=""><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Log Out</button>
     <button style="float: right; margin: 12px 12px 10px 10px;" onclick="">Preferences&nbsp;<i class="fa fa-cogs" aria-hidden="true"></i></button>
 	</div>
 </body>

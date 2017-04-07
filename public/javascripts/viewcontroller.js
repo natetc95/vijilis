@@ -79,7 +79,7 @@ function contentLoader(s, menu=true) {
         method: 'POST',
         dataType: 'html',
         data: {
-            page: "v\\" + s
+            page: "v/" + s
         },
        statusCode: {
            403: function() {
