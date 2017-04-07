@@ -61,12 +61,12 @@
     <h2>Resource Description:</h2><br/>
     <center><textarea id="desc" class="resourceInputBox" rows="5" maxlength="128"></textarea></center>
     <h2>Images:</h2><br/>
-    &nbsp;<b>License Plate:</b>
-    <center><input id="title" class="resourceInputBox" type="file"></input></center><br/>
-    &nbsp;<b>License Plate:</b>
-    <center><input id="title" class="resourceInputBox" type="file"></input></center><br/>
-    &nbsp;<b>License Plate:</b>
-    <center><input id="title" class="resourceInputBox" type="file"></input></center><br/>
+    &nbsp;<b>License Plate (2MB):</b>
+    <center><input id="img1" class="resourceInputBox" type="file"></input></center><br/>
+    &nbsp;<b>Front of Vehicle (2MB):</b>
+    <center><input id="img2" class="resourceInputBox" type="file"></input></center><br/>
+    &nbsp;<b>Side of Vehicle (2MB):</b>
+    <center><input id="img3" class="resourceInputBox" type="file"></input></center><br/>
 </div>
 <div class="contentvhr">
     <button style="float: left" onClick="contentLoader('resources/my_resources', false)">Cancel</button><button style="float: right" onClick="addResource()">Save</button>

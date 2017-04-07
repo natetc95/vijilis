@@ -1085,3 +1085,20 @@ option .title {
 	transition: 0.3s;
 	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.5);
 }
+
+.pi {
+	width: 155px;
+	height: 150px;
+}
+
+.pi-container {
+	height: 150px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}

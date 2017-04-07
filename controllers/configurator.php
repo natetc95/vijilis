@@ -18,5 +18,6 @@
     // so for me, it would be /vijilis/vijilis/
 
         $GLOBALS['ftr'] = '/vijilis/vijilis/';
+        $GLOBALS['helpme'] = 'C:/xampp/htdocs/vijilis/vijilis/'
 
 ?>

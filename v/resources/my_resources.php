@@ -29,7 +29,10 @@
                 $query->bind_param('i', $uid);
                 $query->execute();
                 $query->bind_result($uid2, $title, $description, $valid);
-                while($query->fetch()) { if ($valid == 0) {?>
+                while($query->fetch()) { 
+                    if ($valid == 0) {
+                        $pic = "userfiles/u" . $_SESSION['uid'] . "/v" . $uid . "/r" . $uid2 . "/img2.png";
+                ?>
                 <div class="contentvhr">
                     <div>
                         <div class="resourceTitle">
@@ -43,7 +46,9 @@
                         </div>
                     </div>
                     <div style="margin-top: 40px; height: 150px;">
-                        <div class="resourceImage"><img width="150px;" height="100px" style="margin-left: -50px;" src="public/images/towtruck1.jpg"></div>
+                        <div class="resourceImage">
+                            <img width="150px;" height="100px" style="margin-left: -50px;" src="<?=$pic?>">
+                        </div>
                         <div class="resourceInfo">
                             <b>Resource #: </b><?= $uid2 ?><br/>
                             <b>Resource Type: </b>Tow Truck<br/>
