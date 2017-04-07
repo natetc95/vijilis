@@ -2,9 +2,9 @@
 
     // DATABASE LOGIN INFORMATIN
 
-        $DB_HOST = '127.0.0.1';
-        $DB_UNME = 'test_root';
-        $DB_PWRD = 'wololo';
+        $DB_HOST = 'localhost';
+        $DB_UNME = 'root';
+        $DB_PWRD = 'travis';
         $DB_NAME = 'vijilis';
 
     // EMAIL LOGIN INFORMATION
@@ -17,6 +17,6 @@
     // else if in htdocs (XAMPP) make it the folder the site is in
     // so for me, it would be /vijilis/vijilis/
 
-        $GLOBALS['ftr'] = '/vijilis/vijilis/';
+        $GLOBALS['ftr'] = '/vijilis/';
 
 ?>
