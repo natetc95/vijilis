@@ -225,10 +225,12 @@ function submitToRegistrar() {
         fname: fname,
         lname: lname,
         email: email,
-        telnum: tel
+        telnum: tel,
+        action: 'registrationPage'
       },
       success: function(success) {
-        window.location = "index.php";
+        console.log(success);
+        // window.location = "index.php";
       }
     });
   }

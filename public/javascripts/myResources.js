@@ -82,7 +82,11 @@ function addResource() {
                     desc: desc
                 },
                 success: function(e) {
-                    if (e == "SUCC") {
+                    if (e != "FAIL") {
+                        console.log(e);
+                        addImage(e, 'img1');
+                        addImage(e, 'img2');
+                        addImage(e, 'img3');
                         contentLoader("resources/my_resources", false);
                     } else {
                         console.log(e);
@@ -91,6 +95,33 @@ function addResource() {
             });
     } else {
         console.log("FAILURE 2");
+    }
+}
+
+function addImage(id, imgtype) {
+    if($('#' + imgtype)[0].files[0] && $('#' + imgtype)[0].files[0].size <= 2097152) {
+        var formData = new FormData();
+        formData.append('file', $('#' + imgtype)[0].files[0]);
+        formData.append('action', 'img');
+        formData.append('uid', id);
+        formData.append('imgtype', imgtype);
+
+        console.log(formData);
+
+        $.ajax({
+            url : 'controllers/resources.php',
+            type : 'POST',
+            data : formData,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success : function(data) {
+                console.log(data);
+            }
+        });
+    } else if ($('#' + imgtype)[0].files[0].size > 2097152) {
+        alert("The file you attempted to upload (" + $('#' + imgtype)[0].files[0].name + ") was too large!");
+    } else {
+        alert("You didn't add a file to " + imgtype + "!");
     }
 }
 

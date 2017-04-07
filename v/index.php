@@ -71,7 +71,7 @@
   <div id="profile-under-menu" class="under-menu">
     <div class="under-menu-content">
       <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry">
+      <div class="under-menu-entry" onClick="contentLoader('profile/my_profile')">
         <i class="fa fa-user" aria-hidden="true"></i>My Profile
       </div>
       <div class="under-menu-entry">
