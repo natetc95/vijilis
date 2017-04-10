@@ -75,8 +75,8 @@
                 $query->fetch();
                 if(isset($vendorid)) {
                     $query->fetch();
-                    if($query = $mysqli->prepare("UPDATE resource SET resourceTitle=?, resourceType=?, resourceDescription=? WHERE uid = ?")) {
-                        $query->bind_param("sisi", $_POST["title"], $_POST["type"], $_POST["desc"], $_POST["uid"]);
+                    if($query = $mysqli->prepare("UPDATE resource SET resourceTitle=?, resourceType=?, resourceDescription=?, vehicleMake = ?, vehicleModel = ?, vehicleYear = ?, towingClass = ?, foodDate = ? WHERE uid = ?")) {
+                        $query->bind_param("sisssissi", $_POST["title"], $_POST["type"], $_POST["desc"], $_POST['make'], $_POST['model'], $_POST['year'], $_POST['class'], $_POST['cxim'], $_POST["uid"]);
                         $query->execute();
                         echo("SUCC");
                     } else {

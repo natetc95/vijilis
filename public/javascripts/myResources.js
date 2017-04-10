@@ -189,6 +189,7 @@ function editResource(uid) {
                 },
                 success: function(e) {
                     if (e == "SUCC") {
+                        console.log(e);
                         contentLoader("resources/my_resources", false);
                     } else {
                         console.log("FAILURE: " + e);
