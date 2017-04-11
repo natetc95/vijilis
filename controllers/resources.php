@@ -38,8 +38,8 @@
                         $query->fetch();
                         if(isset($email)) {
                             $query->fetch();
-                            if($query = $mysqli->prepare("INSERT INTO resource VALUES (0, ?, ?, ?, ?, '{}', 1, 0)")) {
-                                $query->bind_param("iiss", $vendorid, $_POST["type"], $_POST["title"], $_POST["desc"]);
+                            if($query = $mysqli->prepare("INSERT INTO resource VALUES (0, ?, ?, ?, ?, '{}', 1, 0, 0, ?, ?, ?, ?, ?)")) {
+                                $query->bind_param("iissssiss", $vendorid, $_POST["type"], $_POST["title"], $_POST["desc"], $_POST['make'], $_POST['model'], $_POST['year'], $_POST['class'], $_POST['cxim']);
                                 $query->execute();
                                 if($query = $mysqli->prepare("SELECT uid FROM resource WHERE resourceTitle = ?")) {
                                     $query->bind_param("s", $_POST['title']);
@@ -58,6 +58,8 @@
                                 echo("FAIL");
                             }
                         }
+                    } else {
+                        echo ("FAIL");
                     }
                 }
             } else {

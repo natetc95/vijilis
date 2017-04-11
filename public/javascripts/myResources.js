@@ -66,35 +66,76 @@ function deleteResource(uidOfResource) {
 }
 
 function addResource() {
-    var title = document.getElementById("title").value;
-    var type = document.getElementById("type").value;
-    var desc = document.getElementById("desc").value;
-    console.log(title+type+desc);
-    if(title.length > 0 && type > -1) {
-        $.ajax({
-                url: 'controllers/resources.php',
-                type: 'POST',
-                dataType: 'text',
-                data: {
-                    action: 'addResource',
-                    title: title,
-                    type: type,
-                    desc: desc
-                },
-                success: function(e) {
-                    if (e != "FAIL") {
-                        console.log(e);
-                        addImage(e, 'img1');
-                        addImage(e, 'img2');
-                        addImage(e, 'img3');
-                        contentLoader("resources/my_resources", false);
-                    } else {
-                        console.log(e);
+    var A = document.getElementById('img1') != undefined && $('#img1')[0].files[0];
+    var B = document.getElementById('img2') != undefined && $('#img2')[0].files[0];
+    var C = document.getElementById('img3') != undefined && $('#img3')[0].files[0];
+    if (A && B && C) {
+        var title = document.getElementById("title").value;
+        var type = document.getElementById("type").value;
+        var desc = document.getElementById("desc").value;
+        if (document.getElementById("vec_info").getAttribute("class") == "resourceAddtInfo open") {
+        var make = document.getElementById("make").value;
+        var model = document.getElementById("model").value;
+        var year = document.getElementById("year").value;
+        } else {
+            var make = "NULL";
+            var model = "NULL";
+            var year = 0;
+        }
+        if (document.getElementById("tow_info").getAttribute("class") == "resourceAddtInfo open") {
+            var tclass = "Z";
+            var val = parseInt(document.getElementById("capacity").value);
+            if (val <= 7000) {
+                tclass = "A";
+            } else if (val > 7000 && val <= 17000) {
+                tclass = "B";
+            } else {
+                tclass = "C";
+            }
+        } else {
+            var tclass = "Z";
+        }
+        if (document.getElementById("food_info").getAttribute("class") == "resourceAddtInfo open") {
+            var cxim = document.getElementById("expiration").value;
+        } else {
+            var cxim = "00/00/0000";
+        }
+        console.log(title+type+desc);
+        if(title.length > 0 && type > -1) {
+            $.ajax({
+                    url: 'controllers/resources.php',
+                    type: 'POST',
+                    dataType: 'text',
+                    data: {
+                        action: 'addResource',
+                        title: title,
+                        type: type,
+                        desc: desc,
+                        make: make,
+                        model: model,
+                        year: year,
+                        class: tclass,
+                        cxim: cxim
+                    },
+                    success: function(e) {
+                        if (e != "FAIL") {
+                            console.log(e);
+                            addImage(e, 'img1');
+                            addImage(e, 'img2');
+                            addImage(e, 'img3');
+                            setTimeout(function() {
+                                contentLoader("resources/my_resources", false);
+                            }, 100);
+                        } else {
+                            console.log(e);
+                        }
                     }
-                }
-            });
+                });
+        } else {
+            console.log("FAILURE 2");
+        }
     } else {
-        console.log("FAILURE 2");
+        console.log('No Images Submitted!');
     }
 }
 
@@ -115,7 +156,7 @@ function addImage(id, imgtype) {
             processData: false,  // tell jQuery not to process the data
             contentType: false,  // tell jQuery not to set contentType
             success : function(data) {
-                console.log(data);
+                // console.log(data);
             }
         });
     } else if ($('#' + imgtype)[0].files[0].size > 2097152) {
@@ -140,74 +181,118 @@ function openEditor(uid) {
 }
 
 function editResource(uid) {
-    var title = document.getElementById("title").value;
-    var type = document.getElementById("type").value;
-    var desc = document.getElementById("desc").value;
-    if (document.getElementById("vec_info").getAttribute("class") == "resourceAddtInfo open") {
-        var make = document.getElementById("make").value;
-        var model = document.getElementById("model").value;
-        var year = document.getElementById("year").value;
-    } else {
-        var make = "NULL";
-        var model = "NULL";
-        var year = 0;
-    }
-    if (document.getElementById("tow_info").getAttribute("class") == "resourceAddtInfo open") {
-        var tclass = "Z";
-        var val = parseInt(document.getElementById("capacity").value);
-        if (val <= 7000) {
-            tclass = "A";
-        } else if (val > 7000 && val <= 17000) {
-            tclass = "B";
+    $('body').css({'overflow':'hidden'});
+    $(document).bind('scroll',function () { 
+        window.scrollTo(0,document.body.scrollTop); 
+    });
+    var hgt = $(window).height();
+    var bg = document.createElement("div");
+    var prompt = document.createElement("div");
+    bg.setAttribute("id", "promptBackground");
+    bg.setAttribute("style", "top: " + document.body.scrollTop + "px;");
+    bg.addEventListener("click", function(e) {
+        var m = document.getElementById("promptBackground");
+        document.body.removeChild(m);
+        var y = document.getElementById("promptDelete");
+        document.body.removeChild(y);
+        $(document).unbind('scroll'); 
+        $('body').css({'overflow':'visible'});
+    });
+    prompt.setAttribute("id", "promptDelete");
+    prompt.setAttribute("style", "top: " + (document.body.scrollTop + hgt/3) + "px;");
+    prompt.innerHTML = `<div id='promptTitle'><h1>Confirm Edit</h1></div>
+                        <p>Are you sure you would like to edit this resource? This resource will need to be reapproved!</p>
+                        <div class="promptoptions">
+                            <div class="promptAccept" id="pAid" title="Edit"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Ok</div>
+                            <div class="promptDecline" id="pDid" title="Edit"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancel</div>
+                        </div>`;
+    document.body.appendChild(prompt);
+    document.body.appendChild(bg);
+    document.getElementById("pDid").addEventListener("click", function(e) {
+        var m = document.getElementById("promptBackground");
+        document.body.removeChild(m);
+        var y = document.getElementById("promptDelete");
+        document.body.removeChild(y);
+        $(document).unbind('scroll'); 
+        $('body').css({'overflow':'visible'});
+    });
+    document.getElementById("pAid").addEventListener("click", function(e) {
+        var title = document.getElementById("title").value;
+        var type = document.getElementById("type").value;
+        var desc = document.getElementById("desc").value;
+        if (document.getElementById("vec_info").getAttribute("class") == "resourceAddtInfo open") {
+            var make = document.getElementById("make").value;
+            var model = document.getElementById("model").value;
+            var year = document.getElementById("year").value;
         } else {
-            tclass = "C";
+            var make = "NULL";
+            var model = "NULL";
+            var year = 0;
         }
-    } else {
-        var tclass = "Z";
-    }
-    if (document.getElementById("food_info").getAttribute("class") == "resourceAddtInfo open") {
-        var cxim = document.getElementById("expiration").value;
-    } else {
-        var cxim = "00/00/0000";
-    }
-    if(title.length > 0 && type > -1) {
-        if (document.getElementById('img1') != undefined && $('#img1')[0].files[0]) {
-            addImage(uid, 'img1');
+        if (document.getElementById("tow_info").getAttribute("class") == "resourceAddtInfo open") {
+            var tclass = "Z";
+            var val = parseInt(document.getElementById("capacity").value);
+            if (val <= 7000) {
+                tclass = "A";
+            } else if (val > 7000 && val <= 17000) {
+                tclass = "B";
+            } else {
+                tclass = "C";
+            }
+        } else {
+            var tclass = "Z";
         }
-        if (document.getElementById('img2') != undefined && $('#img2')[0].files[0]) {
-            addImage(uid, 'img2');
+        if (document.getElementById("food_info").getAttribute("class") == "resourceAddtInfo open") {
+            var cxim = document.getElementById("expiration").value;
+        } else {
+            var cxim = "00/00/0000";
         }
-        if (document.getElementById('img3') != undefined && $('#img3')[0].files[0]) {
-            addImage(uid, 'img3');
-        }
-        $.ajax({
-                url: 'controllers/resources.php',
-                type: 'POST',
-                dataType: 'text',
-                data: {
-                    action: 'editResource',
-                    uid: uid,
-                    title: title,
-                    type: type,
-                    desc: desc,
-                    make: make,
-                    model: model,
-                    year: year,
-                    class: tclass,
-                    cxim: cxim
-                },
-                success: function(e) {
-                    if (e == "SUCC") {
-                        console.log(e);
-                        contentLoader("resources/my_resources", false);
-                    } else {
-                        console.log("FAILURE: " + e);
+        if(title.length > 0 && type > -1) {
+            if (document.getElementById('img1') != undefined && $('#img1')[0].files[0]) {
+                addImage(uid, 'img1');
+            }
+            if (document.getElementById('img2') != undefined && $('#img2')[0].files[0]) {
+                addImage(uid, 'img2');
+            }
+            if (document.getElementById('img3') != undefined && $('#img3')[0].files[0]) {
+                addImage(uid, 'img3');
+            }
+            $.ajax({
+                    url: 'controllers/resources.php',
+                    type: 'POST',
+                    dataType: 'text',
+                    data: {
+                        action: 'editResource',
+                        uid: uid,
+                        title: title,
+                        type: type,
+                        desc: desc,
+                        make: make,
+                        model: model,
+                        year: year,
+                        class: tclass,
+                        cxim: cxim
+                    },
+                    success: function(e) {
+                        if (e == "SUCC") {
+                            console.log(e);
+                            contentLoader("resources/my_resources", false);
+                        } else {
+                            console.log("FAILURE: " + e);
+                        }
                     }
-                }
-            });
-    } else {
-        console.log("FAILURE");
-    }
+                });
+        } else {
+            console.log("FAILURE");
+        }
+        var m = document.getElementById("promptBackground");
+        document.body.removeChild(m);
+        var y = document.getElementById("promptDelete");
+        document.body.removeChild(y);
+        refresh();
+        $(document).unbind('scroll'); 
+        $('body').css({'overflow':'visible'});
+    });
 }
 
 function vecHandler() {

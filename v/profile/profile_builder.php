@@ -1,5 +1,5 @@
 <div class="contentvhr">
     <div class="resourceTitle">
-        <h1>I'm Gay</h1>
+        <h1>Profile Builder</h1><hr/>
     </div>
 </div>

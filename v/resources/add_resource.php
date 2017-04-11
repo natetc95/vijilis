@@ -45,8 +45,8 @@
         <h2>Towing Information</h2><br/>
         &nbsp;<b>Capacity (lbs):</b><br/>
         <center>
-        <input type="range" id="myRange" width="290px" value="0" min="0" step="50" max="3500" style="width: 215px; margin-left: 15px; float: left; text-align: center;"/>
-        <input id="capacity" class="resourceInputBox" type="text" style="width: 30px; margin-left: 15px; float: left">
+        <input type="range" id="myRange" width="290px" value="0" min="0" step="100" max="20000" style="width: 205px; margin-left: 15px; float: left; text-align: center;"/>
+        <input id="capacity" class="resourceInputBox" type="text" style="width: 40px; margin-left: 15px; float: left">
         </center><br/><br/>
     </div>
 
