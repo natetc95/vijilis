@@ -171,6 +171,15 @@ function editResource(uid) {
         var cxim = "00/00/0000";
     }
     if(title.length > 0 && type > -1) {
+        if (document.getElementById('img1') != undefined && $('#img1')[0].files[0]) {
+            addImage(uid, 'img1');
+        }
+        if (document.getElementById('img2') != undefined && $('#img2')[0].files[0]) {
+            addImage(uid, 'img2');
+        }
+        if (document.getElementById('img3') != undefined && $('#img3')[0].files[0]) {
+            addImage(uid, 'img3');
+        }
         $.ajax({
                 url: 'controllers/resources.php',
                 type: 'POST',
@@ -223,10 +232,11 @@ function vecHandler() {
         document.getElementById("food_info").setAttribute("class", "resourceAddtInfo");
     }
 }
-
-document.getElementById("myRange").addEventListener('mousemove', function() {
-    document.getElementById("capacity").value = document.getElementById("myRange").value;
-});
+if(document.getElementById("myRange") != undefined) {
+    document.getElementById("myRange").addEventListener('mousemove', function() {
+        document.getElementById("capacity").value = document.getElementById("myRange").value;
+    });
+}
 
 function changeLocationSetting() {
     if(!document.getElementById('cbox1').checked) {
