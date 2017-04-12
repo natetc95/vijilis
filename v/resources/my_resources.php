@@ -71,7 +71,7 @@
                             <b>Resource #: </b><?= $uid2 ?><br/>
                             <b>Resource Type: </b><?=resourceType($type)?><br/>
                             <b>Owner: </b><?= $_SESSION['name'] ?><br/>
-                            <b>Description: </b><?= $description ?>
+                            <b>Description: </b><xmp><?= $description ?></xmp>
                         </div>
                     </div>
                 </div>

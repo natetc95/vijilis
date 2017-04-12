@@ -6,9 +6,9 @@
 
     function base_user_register($mysqli, $uname, $pword, $fname, $lname, $email, $telnum) {
         $hash = password_hash($pword, PASSWORD_BCRYPT);
-        $vhash = md5(rand(0,5000));
+        $vhash = md5($uname . rand(0,5000));
         if(password_verify($pword, $hash)) {
-            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 0, ?, 1, 0, 0, 0, 0, 0);')) {
+            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 0, 0, ?, 1, 0, 0, 0, 0, 0);')) {
                 $query->bind_param('sssssss', $uname, $email, $hash, $fname, $lname, $telnum, $vhash);
                 $query->execute();
                 if($query = $mysqli->prepare('SELECT uid FROM user WHERE username = ?;')) {

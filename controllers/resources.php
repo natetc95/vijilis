@@ -1,5 +1,23 @@
 <?php
 
+    /* resources.php
+     * Handles all resource related requests
+     * Included Functions:
+     * - resourceType()
+     * - addResource()
+     * - editResource()
+     * - deleteResource()
+     * - addImage()
+     * 
+     * VIJILIS: Emergency Response System
+     *
+     * Senior Design Team 16040
+     * University of Arizona
+     * Nathaniel Christianson & Travis Roser
+     */
+
+
+
     session_start();
     require('configurator.php');
     require('verification.php');
