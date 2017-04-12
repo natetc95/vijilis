@@ -948,7 +948,7 @@ option .title {
 	z-index: 100;
 }
 #promptDelete {
-	height: 160px;
+	min-height: 160px;
 	width: 200px;
 	background: gainsboro;
 	border: 1px solid black;
@@ -956,6 +956,7 @@ option .title {
 	left: 50%;
 	margin-left: -100px;
 	top: 25%;
+	padding-bottom: 5px;
 	position: absolute;
 	z-index: 101;
 	overflow: hidden;
@@ -1185,4 +1186,30 @@ xmp {
 	background: grey;
 	opacity: 0.5;
 	z-index: 9;
+}
+
+.promptAck {
+	height: 32px;
+	width: 78px;
+	line-height: 32px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	background: lightgreen;
+	border-radius: 3px;
+	border: 1px solid lightgrey;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 1px 1px lightgrey;
+	overflow: hidden;
+	user-select: none;
+}
+
+.promptAck:hover {
+	background: limegreen;
+	transition: 0.3s;
+}
+
+.codes {
+	padding: 5px;
 }

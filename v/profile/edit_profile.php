@@ -21,10 +21,10 @@
     }
 ?>
 <script src="public/javascripts/profile.js"/>
-<div class="contentvhr">
+<div id="head" class="contentvhr">
     <div id="resourceHeader">
         <h1><?=$_SESSION['name']?>'s Profile</h1>
-        <div class="resourceIconAdd" title="Save" onClick="confirmation('You acknowledge that your profile will be <b>suspended</b> temporarily based on this edit.', 'Edit', editProfile)" style="margin-top: -32px;">
+        <div class="resourceIconAdd" title="Save" onClick="confirmation('You acknowledge that your profile could be <b>suspended</b> temporarily based on submitted information.', 'Edit', editProfile)" style="margin-top: -32px;">
             <i class="fa fa-save" aria-hidden="true"></i>&nbsp;Save
         </div>
         <div class="resourceIconDelete" title="Cancel" onClick="contentLoader('profile/my_profile', false)" style="margin-top: -32px; margin-right: 10px;">
@@ -40,10 +40,10 @@
     <center><input id="fname" class="resourceInputBox" type="text" value="<?=$fname?>"></input></center>
     <b>Last Name: </b><br/>
     <center><input id="lname" class="resourceInputBox" type="text" value="<?=$lname?>"></input></center>
-    <b>eMail: </b><br/>
-    <center><input id="email" class="resourceInputBox" type="text" value="<?=$email?>"></input></center>
-    <b>Telephone Number: </b><br/>
-    <center><input id="telnu" class="resourceInputBox" type="text" value="<?=$telnum?>"></input></center>
+    <b id="emV">eMail: </b><br/>
+    <center><input id="email" class="resourceInputBox" type="text" value="<?=$email?>" onkeyup="validateEmail()"></input></center>
+    <b id="tuV">Telephone Number: </b><br/>
+    <center><input id="telnu" class="resourceInputBox" type="text" value="<?=$telnum?>"onkeyup="validatePhone()"></input></center>
 </div>
 <div class="contentvhr">
     <h1>Profile Image:</h1><hr/>
