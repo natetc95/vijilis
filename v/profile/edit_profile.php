@@ -50,6 +50,6 @@
     <center><img src="<?=$profimg?>" width='260'/></center>
     <center><input id="img2" class="resourceInputBox" type="file"></input></center>
 </div>
-<div class="contentvhr">
+<div id='foot' class="contentvhr">
     <center><button onClick="contentLoader('profile/my_profile', false)">AYY LMAO</button></center>
 </div>

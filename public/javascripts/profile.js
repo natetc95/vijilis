@@ -141,6 +141,7 @@ function editProfile() {
         });
     } else {
         $('#head').effect( "shake" );
+        $('#foot').effect( "shake" );
     }
 }
 
@@ -193,4 +194,8 @@ function validatePhone() {
     }
     document.getElementById('tuV').innerHTML = 'Telephone Number (Currently Invalid): ';
     return false;
+}
+
+function addAllEvents() {
+    
 }
