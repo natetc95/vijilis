@@ -146,9 +146,6 @@ function addImage(id, imgtype) {
         formData.append('action', 'img');
         formData.append('uid', id);
         formData.append('imgtype', imgtype);
-
-        console.log(formData);
-
         $.ajax({
             url : 'controllers/resources.php',
             type : 'POST',
@@ -242,11 +239,19 @@ function editResource(uid) {
         } else {
             var tclass = "Z";
         }
+
         if (document.getElementById("food_info").getAttribute("class") == "resourceAddtInfo open") {
             var cxim = document.getElementById("expiration").value;
         } else {
             var cxim = "00/00/0000";
         }
+
+        if(document.getElementById('cbox1').checked) {
+            var rfv = 1;
+        } else {
+            var rfv = 0;
+        }
+
         if(title.length > 0 && type > -1) {
             if (document.getElementById('img1') != undefined && $('#img1')[0].files[0]) {
                 addImage(uid, 'img1');
@@ -268,6 +273,7 @@ function editResource(uid) {
                         type: type,
                         desc: desc,
                         make: make,
+                        rfv: rfv,
                         model: model,
                         year: year,
                         class: tclass,

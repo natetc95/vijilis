@@ -95,8 +95,8 @@
                 $query->fetch();
                 if(isset($vendorid)) {
                     $query->fetch();
-                    if($query = $mysqli->prepare("UPDATE resource SET resourceTitle=?, resourceType=?, resourceDescription=?, vehicleMake = ?, vehicleModel = ?, vehicleYear = ?, towingClass = ?, foodDate = ? WHERE uid = ?")) {
-                        $query->bind_param("sisssissi", $_POST["title"], $_POST["type"], $_POST["desc"], $_POST['make'], $_POST['model'], $_POST['year'], $_POST['class'], $_POST['cxim'], $_POST["uid"]);
+                    if($query = $mysqli->prepare("UPDATE resource SET resourceFollowsVendor = ?, resourceTitle=?, resourceType=?, resourceDescription=?, vehicleMake = ?, vehicleModel = ?, vehicleYear = ?, towingClass = ?, foodDate = ? WHERE uid = ?")) {
+                        $query->bind_param("isisssissi", $_POST['rfv'], $_POST["title"], $_POST["type"], $_POST["desc"], $_POST['make'], $_POST['model'], $_POST['year'], $_POST['class'], $_POST['cxim'], $_POST["uid"]);
                         $query->execute();
                         echo("SUCC");
                     } else {
@@ -148,11 +148,8 @@
             if(isset($vid)) {
                 $query->fetch();
                 $fileName = $_FILES['file']['name'];
-                echo $fileName . "\n";
                 $fileType = $_FILES['file']['type'];
-                echo $fileType . "\n";
                 $fileError = $_FILES['file']['error'];
-                echo $fileError . "\n";
                 echo $_FILES['file']['tmp_name']  . "\n";
 
                 if ($_FILES['file']['size'] != 0) {

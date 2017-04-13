@@ -1213,3 +1213,16 @@ xmp {
 .codes {
 	padding: 5px;
 }
+
+#clock {
+	position: fixed;
+	text-align: center;
+	top: 0;
+	left: 50%;
+	width: 100px;
+	height: 24px;
+	padding-top: 5px;
+	margin-left: -60px;
+	z-index: 100;
+	font-size: 14px;
+}
