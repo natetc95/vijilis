@@ -29,6 +29,35 @@ function writeErrors(obj, id, parent, n=1, pxMod=32) {
   document.getElementById("forgotpassbox").style="height: " + (200 + numErrors*pxMod) + "px";
 }
 
+function writeErrors2(obj, id, parent, n=1, pxMod=32) {
+  if (!obj.result) {
+    var arr = document.getElementsByClassName("error");
+    Array.prototype.forEach.call(arr, function(it) {
+      if(it.id == id) {
+            document.getElementById("xxx").removeChild(it);
+            numErrors -= n;
+            if(numErrors < 0) {numErrors = 0;}
+      }
+    });
+    var error = document.createElement("div");
+    error.setAttribute("class", "error");
+    error.setAttribute("id", id)
+    error.innerHTML = obj.error;
+    insertAfter(document.getElementById(parent), error);
+    numErrors += n;
+  } else {
+    var arr = document.getElementsByClassName("error");
+    Array.prototype.forEach.call(arr, function(it) {
+      if(it.id == id) {
+            document.getElementById("xxx").removeChild(it);
+            numErrors -= n;
+            if(numErrors < 0) {numErrors = 0;}
+      }
+    });
+  }
+  document.getElementById("resetbox").style="height: " + (285 + numErrors*pxMod) + "px";
+}
+
 function insertAfter( referenceNode, newNode ) {
     referenceNode.parentNode.insertBefore( newNode, referenceNode.nextSibling );
 }
@@ -44,7 +73,7 @@ function validatePasswords() {
     obj.error = "Passwords Do Not Match!";
     obj.result = false;
   }
-  writeErrors(obj, "pwerror", "pw2");
+  writeErrors2(obj, "pwerror", "pw2");
   return obj;
 }
 
@@ -73,32 +102,33 @@ function strengthTestPassword() {
         else if(aSpecial.test(p[i]))
             numSpecials++;
     }
+    obj.error += "<br><br>";
     if(numUpper > 0) {
-      obj.error += "<b>1 Upper Case Letter</b><br/>";
+      obj.error += "<b>&#10004; 1 Upper Case Letter</b><br/>";
     } else {
       obj.error += "1 Upper Case Letter<br/>";
       obj.result = false;
     }
     if(numNums > 1) {
-      obj.error += "<b>2 Numbers</b><br/>";
+      obj.error += "<b>&#10004; 2 Numbers</b><br/>";
     } else {
       obj.error += "2 Numbers<br/>";
       obj.result = false;
     }
     if(numSpecials > 0) {
-      obj.error += "<b>1 Special Character</b><br/>";
+      obj.error += "<b>&#10004; 1 Special Character</b><br/>";
     } else {
       obj.error += "1 Special Character<br/>";
       obj.result = false;
     }
     obj2.error = obj.error;
     obj2.result = false;
-    writeErrors(obj2, "pcerror", "pw1", 3, 28);
+    writeErrors2(obj2, "pcerror", "pw1", 3, 28);
   } else {
     obj.error = "Password Too Short!"
     obj2.error = obj.error;
     obj2.result = false;
-    writeErrors(obj2, "pcerror", "pw1", 1, 36);
+    writeErrors2(obj2, "pcerror", "pw1", 1, 36);
   }
   return obj;
 }
@@ -150,6 +180,10 @@ function fullValidation() {
   return validateEmail().valid;
 }
 
+function resetPassValidation() {
+  return validatePasswords().result && strengthTestPassword().result;
+}
+
 function submitToReset() {
   var email = document.getElementById("email").value;
   if (fullValidation()) {
@@ -159,6 +193,24 @@ function submitToReset() {
       dataType: 'text',
       data: {
         email: email
+      },
+      success: function(success) {
+        window.location = "index.php";
+      }
+    });
+  }
+}
+
+function resetPassword() {
+  var pword = document.getElementById("pw1").value;
+  if (resetPassValidation()) {
+    $.ajax({
+      url: 'controllers/resetp2.php',
+      type: 'POST',
+      dataType: 'text',
+      data: {
+        email: email
+        pword: pword;
       },
       success: function(success) {
         window.location = "index.php";

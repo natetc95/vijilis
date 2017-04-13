@@ -30,7 +30,7 @@
       <span class="fa fa-key fa-entry fa2"></span><input id="pw2" type="password" class="fa2 inputicon" placeholder="Re-Enter Password" onkeyup="validatePasswords(); strengthTestPassword();"/>
     </center>
     <button style="float: left; margin: 10px;" onclick="window.location='index.php'"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back</button>
-    <button id="relevant" style="float: right; margin: 10px;" onClick="submitToRegistrar()">Register&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
+    <button id="relevant" style="float: right; margin: 10px;" onClick="submitToRegistrar()">Register&nbsp;</i></button>
 	</div>
 </body>
 </html>

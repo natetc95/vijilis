@@ -74,6 +74,7 @@ function refresh() {
 }
 
 function contentLoader(s, menu=true) {
+    createLoader();
     currPage = s;
     var req = $.ajax('controllers/vendor.php', {
         method: 'POST',
@@ -95,6 +96,7 @@ function contentLoader(s, menu=true) {
     });
     req.done(function( msg ) {
         $("#content").html(msg);
+        removeLoader();
     });
     if (menu) {
         test()
@@ -215,5 +217,19 @@ function FOBBY(uid, menu=false) {
     });
     if (menu) {
         test();
+    }
+}
+
+function createLoader() {
+    var bg = document.createElement('div');
+    bg.setAttribute('id', 'loaderBackground');
+    bg.innerHTML = '<i id="loader" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw" aria-hidden="true"></i>';
+    document.body.appendChild(bg);
+}
+
+function removeLoader() {
+    var x = document.getElementById('loaderBackground');
+    if (x != undefined) {
+        document.body.removeChild(x);
     }
 }

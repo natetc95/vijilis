@@ -1,5 +1,23 @@
 <?php
 
+    /* resources.php
+     * Handles all resource related requests
+     * Included Functions:
+     * - resourceType()
+     * - addResource()
+     * - editResource()
+     * - deleteResource()
+     * - addImage()
+     * 
+     * VIJILIS: Emergency Response System
+     *
+     * Senior Design Team 16040
+     * University of Arizona
+     * Nathaniel Christianson & Travis Roser
+     */
+
+
+
     session_start();
     require('configurator.php');
     require('verification.php');
@@ -38,8 +56,8 @@
                         $query->fetch();
                         if(isset($email)) {
                             $query->fetch();
-                            if($query = $mysqli->prepare("INSERT INTO resource VALUES (0, ?, ?, ?, ?, '{}', 1, 0)")) {
-                                $query->bind_param("iiss", $vendorid, $_POST["type"], $_POST["title"], $_POST["desc"]);
+                            if($query = $mysqli->prepare("INSERT INTO resource VALUES (0, ?, ?, ?, ?, '{}', 1, 0, 0, ?, ?, ?, ?, ?)")) {
+                                $query->bind_param("iissssiss", $vendorid, $_POST["type"], $_POST["title"], $_POST["desc"], $_POST['make'], $_POST['model'], $_POST['year'], $_POST['class'], $_POST['cxim']);
                                 $query->execute();
                                 if($query = $mysqli->prepare("SELECT uid FROM resource WHERE resourceTitle = ?")) {
                                     $query->bind_param("s", $_POST['title']);
@@ -58,6 +76,8 @@
                                 echo("FAIL");
                             }
                         }
+                    } else {
+                        echo ("FAIL");
                     }
                 }
             } else {
@@ -75,8 +95,8 @@
                 $query->fetch();
                 if(isset($vendorid)) {
                     $query->fetch();
-                    if($query = $mysqli->prepare("UPDATE resource SET resourceTitle=?, resourceType=?, resourceDescription=? WHERE uid = ?")) {
-                        $query->bind_param("sisi", $_POST["title"], $_POST["type"], $_POST["desc"], $_POST["uid"]);
+                    if($query = $mysqli->prepare("UPDATE resource SET resourceTitle=?, resourceType=?, resourceDescription=?, vehicleMake = ?, vehicleModel = ?, vehicleYear = ?, towingClass = ?, foodDate = ? WHERE uid = ?")) {
+                        $query->bind_param("sisssissi", $_POST["title"], $_POST["type"], $_POST["desc"], $_POST['make'], $_POST['model'], $_POST['year'], $_POST['class'], $_POST['cxim'], $_POST["uid"]);
                         $query->execute();
                         echo("SUCC");
                     } else {
@@ -140,43 +160,18 @@
                     $fileContent = file_get_contents($_FILES['file']['tmp_name']);
 
                     if($fileError == UPLOAD_ERR_OK){
-                        $upload = $GLOBALS['helpme'] . "userfiles/u" . $_SESSION['uid'] . "/v" . $vid . "/r" . $rid . "/" . $imagetype  . "." . explode('.', basename($_FILES['file']['name']), 2)[1];
+                        $upload = $GLOBALS['helpme'] . "userfiles/u" . $_SESSION['uid'] . "/v" . $vid . "/r" . $rid . "/" . $imagetype  . ".png";
+                        if(file_exists($upload)) {
+                            unlink($upload);
+                        }
                         echo($upload . "\n");
-                        if (move_uploaded_file($_FILES['file']['tmp_name'], $upload)) {
+                        if (imagepng(imagecreatefromstring($fileContent), $upload)) {
                             echo "File is valid, and was successfully uploaded.\n";
                         } else {
                             echo "Possible file upload attack!\n";
                         }
-                    } else{
-                    switch($fileError){
-                        case UPLOAD_ERR_INI_SIZE:   
-                            $message = 'Error al intentar subir un archivo que excede el tamaño permitido.';
-                            break;
-                        case UPLOAD_ERR_FORM_SIZE:  
-                            $message = 'Error al intentar subir un archivo que excede el tamaño permitido.';
-                            break;
-                        case UPLOAD_ERR_PARTIAL:    
-                            $message = 'Error: no terminó la acción de subir el archivo.';
-                            break;
-                        case UPLOAD_ERR_NO_FILE:    
-                            $message = 'Error: ningún archivo fue subido.';
-                            break;
-                        case UPLOAD_ERR_NO_TMP_DIR: 
-                            $message = 'Error: servidor no configurado para carga de archivos.';
-                            break;
-                        case UPLOAD_ERR_CANT_WRITE: 
-                            $message= 'Error: posible falla al grabar el archivo.';
-                            break;
-                        case  UPLOAD_ERR_EXTENSION: 
-                            $message = 'Error: carga de archivo no completada.';
-                            break;
-                        default: $message = 'Error: carga de archivo no completada.';
-                                break;
-                        }
-                        echo json_encode(array(
-                                'error' => true,
-                                'message' => $message
-                                ));
+                    } else {
+                        echo 'FAIL';   
                     }
                 }
             }

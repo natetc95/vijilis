@@ -49,6 +49,23 @@ form {
 	cursor: default;
 }
 
+#resetbox {
+	margin: 0 auto;
+	width: 268px;
+	height: 285px;
+	margin-top: 150px;
+	background: var(--foreground-color);
+	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);;
+	border-radius: 4px;
+}
+#resetbox h1 {
+	padding: 0px 0px 10px 0px;
+	border-bottom: 1px solid var(--border-color);
+	margin: 0px 0px 10px 0px;
+	text-align: center;
+	cursor: default;
+}
+
 #verifybox {
 	margin: 0 auto;
 	width: 268px;
@@ -893,7 +910,7 @@ option .title {
 .resourceIconEdit:hover {
 	background: dodgerblue;
 	width: 72px;
-	transition: 0.3s; 	
+	transition: 0.3s;
 }
 
 .resourceImage {
@@ -948,7 +965,7 @@ option .title {
 	z-index: 100;
 }
 #promptDelete {
-	height: 160px;
+	min-height: 160px;
 	width: 200px;
 	background: gainsboro;
 	border: 1px solid black;
@@ -956,6 +973,7 @@ option .title {
 	left: 50%;
 	margin-left: -100px;
 	top: 25%;
+	padding-bottom: 5px;
 	position: absolute;
 	z-index: 101;
 	overflow: hidden;
@@ -1032,7 +1050,7 @@ option .title {
 
 .resourceInputBox {
 	width: 250px;
-	margin: 0 auto;
+	margin: 5px 0;
 	background: white;
 	color: var(--dark-primary-color);
 	border: 1px solid var(--border-color);
