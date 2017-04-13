@@ -209,8 +209,7 @@ function resetPassword() {
       type: 'POST',
       dataType: 'text',
       data: {
-        email: email
-        pword: pword;
+        pword: pword
       },
       success: function(success) {
         window.location = "index.php";
