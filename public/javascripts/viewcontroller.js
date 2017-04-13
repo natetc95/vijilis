@@ -1,3 +1,36 @@
+
+/* viewcontroller.js
+* Handles all visuals for the site :P
+* Included Functions:
+* - test()
+* - createClicky()
+* - clickyListener()
+* - removeClicky()
+* - Logout()
+* - openMenu(type)
+* - refresh()
+* - contentLoader(s, menu=true)
+* - contentLoaderIM(s)
+* - selectBox(s)
+* - opensub(s)
+* - addSub()
+* - FOBBY(uid, menu=false)
+* - createLoader()
+* - removeLoader()
+* - confirmation(message, header, callback)
+* - alerter(message, header)
+* - days(d)
+* - clock()
+*
+* Also start the center clock on the index.php page
+* 
+* VIJILIS: Emergency Response System
+*
+* Senior Design Team 16040
+* University of Arizona
+* Nathaniel Christianson & Travis Roser
+*/
+
 var open = false;
 var currPage = 'news';
 var wew = false;
@@ -64,23 +97,24 @@ function openMenu(type) {
     $("#" + type + "-under-menu").toggleClass('open');
 }
 
-function refresh() {
+function refresh(q='v') {
     $('#refresh').toggleClass('fa-spin');
     $('#content').innerHTML = "";
-    contentLoader(currPage, false);
+    contentLoader(currPage, false, q);
     setTimeout(function() {
         $('#refresh').toggleClass('fa-spin');
     }, 1000);
 }
 
-function contentLoader(s, menu=true) {
+function contentLoader(s, menu=true, q='v') {
     createLoader();
     currPage = s;
+    console.log(q + "/" + s);
     var req = $.ajax('controllers/vendor.php', {
         method: 'POST',
         dataType: 'html',
         data: {
-            page: "v/" + s
+            page: q + "/" + s
         },
        statusCode: {
            403: function() {
@@ -328,14 +362,46 @@ function alerter(message, header) {
     });
 }
 
+function days(d) {
+    switch(d) {
+        case 0:
+            return 'Mon';
+        case 1:
+            return 'Tue';
+        case 2:
+            return 'Wed';
+        case 3:
+            return 'Thu';
+        case 4:
+            return 'Fri';
+        case 5:
+            return 'Sat';
+        case 6:
+            return 'Sun';
+    }
+}
+
+var clk = null;
+
+function clock_stop() {
+    clearTimeout(clk);
+}
+
 function clock() {
-    setTimeout(function() {
+    clk = setTimeout(function() {
         var dt = new Date();
-        var utcDate = dt.toUTCString();
-        document.getElementById('clock').innerHTML = utcDate;
+        var q = (dt.getHours() < 12) ? "AM":"PM";
+        var v = (Math.round(dt.getTimezoneOffset()/60) < 0) ? "-":"+";
+        var s = (dt.getSeconds() < 10) ? ("0" + dt.getSeconds()):dt.getSeconds();
+        var m = (dt.getMinutes() < 10) ? ("0" + dt.getMinutes()):dt.getMinutes();
+        var clockface = days(dt.getDay()) + ' ' + dt.getMonth() + '/' + dt.getDate() + '/' + dt.getFullYear();
+        clockface += '<br/>' + dt.getHours()%12 + ':' + m + ':' + s + ' '  + q + ' GMT' + v + Math.round(dt.getTimezoneOffset()/60);
+        document.getElementById('clock').innerHTML = clockface;
+        dt = null;
         clock();
     }, 1);
 }
+
 window.onload = function() {
     clock();
 }

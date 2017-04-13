@@ -1,10 +1,9 @@
 <?php
 
-    /* profile.php
-     * Handles all profile related requests
+    /* checkin.php
+     * Handles all check in related requests
      * Included Functions:
-     * - editProfile()
-     * - editImage()
+     * - locateVendor()
      * 
      * VIJILIS: Emergency Response System
      *

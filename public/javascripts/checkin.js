@@ -1,3 +1,16 @@
+
+/* checkin.js
+* Handles all check in related requests for geolocation & AJAX
+* Included Functions:
+* - geoFindMe()
+* 
+* VIJILIS: Emergency Response System
+*
+* Senior Design Team 16040
+* University of Arizona
+* Nathaniel Christianson & Travis Roser
+*/
+
 function geoFindMe() {
 
   var options = {
@@ -23,13 +36,13 @@ function geoFindMe() {
             action: 'locate',
             json: json
         }, success: function(e) {
-            alert(e.code);
+            alerter(e.code, 'Thank you!');
         }
     });
   }
 
   function error() {
-    return alert("Unable to retrieve your location");
+    return alerter(e.code, 'SOON');
   }
   navigator.geolocation.getCurrentPosition(success, error, options);
 

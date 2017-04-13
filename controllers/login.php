@@ -1,4 +1,15 @@
 <?php
+
+    /* login.php
+     * Handles the login process for a user
+     * 
+     * VIJILIS: Emergency Response System
+     *
+     * Senior Design Team 16040
+     * University of Arizona
+     * Nathaniel Christianson & Travis Roser
+     */
+
   session_start();
   require('configurator.php');
   $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);

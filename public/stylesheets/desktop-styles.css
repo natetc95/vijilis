@@ -49,23 +49,6 @@ form {
 	cursor: default;
 }
 
-#resetbox {
-	margin: 0 auto;
-	width: 268px;
-	height: 285px;
-	margin-top: 150px;
-	background: var(--foreground-color);
-	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);;
-	border-radius: 4px;
-}
-#resetbox h1 {
-	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--border-color);
-	margin: 0px 0px 10px 0px;
-	text-align: center;
-	cursor: default;
-}
-
 #verifybox {
 	margin: 0 auto;
 	width: 268px;
@@ -449,16 +432,14 @@ nav {
 }
 
 .contentvhr {
-	position: relative;
-	width: 310px;
+	width: 900px;
 	min-height: 25px;
 	background: var(--default-primary-color);
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 	border: 1px solid var(--dark-primary-color);
-	left: 50%;
-	margin-bottom: 10px;
-	margin-left: -180px;
+	margin: 0 auto;
+	margin-bottom: 15px;
 	padding: 10px;
 }
 
@@ -913,7 +894,7 @@ option .title {
 .resourceIconEdit:hover {
 	background: dodgerblue;
 	width: 72px;
-	transition: 0.3s;
+	transition: 0.3s; 	
 }
 
 .resourceImage {
@@ -1124,7 +1105,6 @@ option .title {
 	float: right;
 }
 
-
 .edimg {
 	width: 250px;
 	margin: 5px 0px;
@@ -1195,7 +1175,7 @@ xmp {
 	left: 50%;
 	margin-top: -64px;
 	margin-left: -16px;
-	color: white;
+	color: white;	
 }
 
 #loaderBackground {
@@ -1243,7 +1223,7 @@ xmp {
 	width: 100px;
 	height: 24px;
 	padding-top: 5px;
-	margin-left: -50px;
+	margin-left: -40px;
 	z-index: 100;
 	font-size: 14px;
 }
@@ -1268,14 +1248,16 @@ xmp {
 }
 
 .nomargin {
-	margin: 0;
+	margin: 5px;
 }
 
 .interiorvhr {
+	position: relative;
 	width: 280px;
 	min-height: 100px;
-	margin-right: 5px;
-	padding: 5px;
+	float: left;
+	margin: 5px;
+	margin-right: 10px;
 }
 
 .interiorcontainer {
@@ -1287,5 +1269,5 @@ xmp {
 }
 
 .half {
-	width: 150px;
+	width: 120px;
 }
