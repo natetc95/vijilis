@@ -1120,3 +1120,114 @@ option .title {
 .right {
 	float: right;
 }
+
+
+.edimg {
+	width: 250px;
+	margin: 5px 0px;
+	padding: 5px;
+	border: 1px ridge black;
+}
+
+#locdata {
+	display: none;
+}
+
+#locdata.open {
+	display: block;
+}
+
+.hoveroo {
+	position: relative;
+	padding: 120px 5px 0px 5px;
+	float: left;
+	color: white;
+	opacity: 0.0;
+	z-index: 12;
+	height: 25px;
+	width: 135px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.hoveroo p {
+	padding: 0;
+	margin: 0;
+	width: 20px;
+	transition: 0.3s;
+}
+
+.hoveroo p:hover {
+	text-decoration: underline;
+	transition: 0.3s;
+}
+
+.hoveroo:hover {
+	opacity: 1;
+	transition: 0.3s;
+}
+
+.hoverimg {
+	float: left;
+	z-index: 10;
+}
+
+xmp {
+	display: inline;
+	font-family: var(--text-font);
+}
+
+.imghider {
+	height: 145px;
+	width: 145px;
+	overflow: hidden;
+	border-radius: 10px;
+	margin-top: -145px;
+	float: left;
+}
+
+#loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -64px;
+	margin-left: -16px;
+	color: white;
+}
+
+#loaderBackground {
+	height: 100vh;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 48px;
+	background: grey;
+	opacity: 0.5;
+	z-index: 9;
+}
+
+.promptAck {
+	height: 32px;
+	width: 78px;
+	line-height: 32px;
+	font-size: 20px;
+	color: white;
+	text-align: center;
+	background: lightgreen;
+	border-radius: 3px;
+	border: 1px solid lightgrey;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 1px 1px lightgrey;
+	overflow: hidden;
+	user-select: none;
+}
+
+.promptAck:hover {
+	background: limegreen;
+	transition: 0.3s;
+}
+
+.codes {
+	padding: 5px;
+}
