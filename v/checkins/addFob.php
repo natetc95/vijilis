@@ -12,6 +12,16 @@
         if(isset($uid)) {
             $query->fetch();
             $x = md5($uid . $uname . $email);
+            if($query = $mysqli->prepare("SELECT lastLoggedLocation FROM vendor WHERE user_uid = ?")) {
+                $query->bind_param("i", $_SESSION['uid']);
+                $query->execute();
+                $query->bind_result($lll);
+                $query->fetch();
+                if(isset($lll)) {
+                    $query->fetch();
+                    $json = json_decode($lll, TRUE);
+                }
+            }
         }
     }
     if(isset($_POST['uid']) && $_POST['uid'] != null) {
@@ -22,23 +32,23 @@
         $scannedVeri = "No Tag Scanned!";
     }
 ?>
-
+<script src="public/javascripts/checkin.js"/>
 <div class="contentvhr">
     <h1><?=$_SESSION['name']?>'s Check Ins</h1>
 </div>
 <div class="contentvhr">
     <h1>Check Ins</h1>
     <hr/>
-    <div class="checkinbtn">
+    <div class="checkinbtn" onClick="geoFindMe()">
         Check In!
     </div>
 </div>
 <div class="contentvhr">
     <h1>Last Check In</h1>
     <hr/>
-    <div><b>Date: </b><?php echo(date('D, d/M/Y H:i'));?></div>
-    <div><b>Latitude: </b></div>
-    <div><b>Longitude: </b></div>
+    <div><b>Date: </b><?php echo(date('D, m/d/Y H:i', $json['time']));?></div>
+    <div><b>Latitude: </b></div><div id="latitude">&nbsp;<?=$json['lat']?></div>
+    <div><b>Longitude: </b></div><div id="longitude">&nbsp;<?=$json['lon']?></div>
 </div>
 <div class="contentvhr">
     <h1>Tag Information</h1>

@@ -1231,6 +1231,7 @@ xmp {
 .codes {
 	padding: 5px;
 }
+<<<<<<< HEAD:public/stylesheets/styles_desktop.css
 
 #clock {
 	position: fixed;
@@ -1244,3 +1245,4 @@ xmp {
 	z-index: 100;
 	font-size: 14px;
 }
+>>>>>>> origin/master:public/stylesheets/styles.css

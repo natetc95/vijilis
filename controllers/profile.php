@@ -72,12 +72,48 @@
         echo(json_encode($o));
     }
 
+    function editImage() {
+        $o = array('status' => 'FAIL', 'code' => '');
+        $exist = $GLOBALS['helpme'] . 'userfiles/u' . $_SESSION['uid'] . '/prof.png';
+        $new = $GLOBALS['helpme'] . 'userfiles/u' . $_SESSION['uid'] . '/oldprofiles/' . time() . '.png';
+
+        // Check to see if the user already has a profile image & move it if it does exist
+
+        if(file_exists($exist)) {
+            rename($exist, $new);
+            $o['code'] = $o['code'] . 'Replaced old profile image!';
+        } else {
+            $o['code'] = $o['code'] . 'Added new profile image!';
+        }
+
+        // Upload the image
+
+        $fileName = $_FILES['file']['name'];
+        $fileType = $_FILES['file']['type'];
+        $fileError = $_FILES['file']['error'];
+
+        if ($_FILES['file']['size'] != 0) {
+            $fileContent = file_get_contents($_FILES['file']['tmp_name']);
+            if($fileError == UPLOAD_ERR_OK) {
+                if (imagepng(imagecreatefromstring($fileContent), $exist)) {
+                    $o['code'] = $o['code'] . "File is valid, and was successfully uploaded.";
+                    $o['status'] = "SUCC";
+                } else {
+                    $o['code'] = $o['code'] . "Possible file upload attack!";
+                }
+            }
+        }
+
+        echo(json_encode($o));
+    }
+
+
     if(isset($_POST['action'])) {
         switch($_POST['action']) {
             case 'edit':
                 editProfile($mysqli, $_POST['fn'], $_POST['ln'], $_POST['em'], $_POST['tn']);
                 break;
-            case 'prof':
+            case 'img':
                 editImage();
                 break;
             case 'confirmEmail':

@@ -31,6 +31,11 @@ function initMap(lati, long) {
 
 function geoFindMe() {
 
+  var output = {
+    lat: 0,
+    lon: 0
+  };
+
   var options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -41,6 +46,7 @@ function geoFindMe() {
     document.getElementById("locbox_y").value = "Geolocation is not supported by your browser";
     return;
   }
+
   function success(position) {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;

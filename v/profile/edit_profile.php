@@ -6,7 +6,7 @@
     $pmethod = "Paypal";
     $acctnum = "000000001328";
     if (file_exists($GLOBALS['helpme'] . 'userfiles/u' . $_SESSION['uid'] . '/prof.png')) {
-        $profimg = 'userfiles/u' . $_SESSION['uid'] . '/prof.png';
+        $profimg = 'userfiles/u' . $_SESSION['uid'] . '/prof.png?' . time();
     } else {
         $profimg = 'public/images/unknownuser.jpg';
     }
@@ -24,10 +24,10 @@
 <div id="head" class="contentvhr">
     <div id="resourceHeader">
         <h1><?=$_SESSION['name']?>'s Profile</h1>
-        <div class="resourceIconAdd" title="Save" onClick="confirmation('You acknowledge that your profile could be <b>suspended</b> temporarily based on submitted information.', 'Edit', editProfile)" style="margin-top: -32px;">
+        <div id="save" class="resourceIconAdd" title="Save"style="margin-top: -32px;">
             <i class="fa fa-save" aria-hidden="true"></i>&nbsp;Save
         </div>
-        <div class="resourceIconDelete" title="Cancel" onClick="contentLoader('profile/my_profile', false)" style="margin-top: -32px; margin-right: 10px;">
+        <div id="cancel" class="resourceIconDelete" title="Cancel" onClick="contentLoader('profile/my_profile', false)" style="margin-top: -32px; margin-right: 10px;">
             <i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel
         </div>
     </div>
@@ -51,5 +51,6 @@
     <center><input id="img2" class="resourceInputBox" type="file"></input></center>
 </div>
 <div id='foot' class="contentvhr">
-    <center><button onClick="contentLoader('profile/my_profile', false)">AYY LMAO</button></center>
+    <button style="float: right;" id="save2">Save</button>
+    <button id="cancel2">Cancel</button>
 </div>
