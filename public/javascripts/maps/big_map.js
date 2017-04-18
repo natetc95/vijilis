@@ -93,7 +93,7 @@ function init() {
     geolocate();
 }
 
-function createMarker(jobNumber, position, type) {
+function createMarker(jobNumber, position, desc, type) {
     if (type == 'inactive' || type == 'active') {
         func = 'getResourceInformation()';
         name = 'Resource';
@@ -109,7 +109,8 @@ function createMarker(jobNumber, position, type) {
     });
     marker.addListener('click', function(e) {
         var curr = document.getElementsByClassName('map-modal');
-        var contentString = '<h3 style="margin: 0">' + name + ' #' + jobNumber + '</h3>' +
+        var contentString = '<h3 style="margin: 0">' + name + ' #' + jobNumber + '</h3><b>' +
+                            desc + '</b><br/>' +
                             '<a href="javascript:' + func + '">More Information</a>' + 
                             '<input id="ss" type="hidden" value="' + jobNumber + '"/>';
         if (infowindow == null) {
@@ -211,7 +212,7 @@ function getDBData(type) {
         var pos = '';
         for(var i = 0; i < e.length; i++) {
             pos = JSON.parse('{"lat": ' + e[i].lat + ', "lng": ' + e[i].lng + "}");
-            createMarker(e[i].uid, pos, type);
+            createMarker(e[i].uid, pos, e[i].type, type);
         } 
     });
 }
@@ -227,6 +228,9 @@ function getAllData() {
     }
     if(document.getElementById("fActive").checked) {
         getDBData('active');
+    }
+    if(document.getElementById("fDistrict").checked) {
+        console.log('AYYY LMAO THATS NOT IMPLEMENTED YET!');
     }
     removeLoader();
 }
