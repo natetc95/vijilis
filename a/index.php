@@ -36,7 +36,7 @@
   <div id="sidebar-menu">
     <div id="sidebar-content">
       <div class="sidebar-entry" onclick="openMenu('acct')">
-        <i class="fa fa-users" aria-hidden="true"></i>Accounts
+        <i class="fa fa-users" aria-hidden="true"></i>Creation
       </div>
       <div class="sidebar-entry" onclick="openMenu('req')">
         <i class="fa fa-code" aria-hidden="true"></i>Requests
@@ -46,6 +46,9 @@
       </div>
       <div class="sidebar-entry">
         <i class="fa fa-line-chart" aria-hidden="true"></i>Analytics
+      </div>
+      <div class="sidebar-entry" onclick="contentLoader('js/testing',true,'a')">
+        <i class="fa fa-flask" aria-hidden="true"></i>JS Testing
       </div>
       <div class="sidebar-entry">
         <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
@@ -80,13 +83,13 @@
   <div id="req-under-menu" class="under-menu">
     <div class="under-menu-content">
       <div class="under-menu-entry" onClick="contentLoader('requests/create_request')">
-        <i class="fa fa-rss" aria-hidden="true"></i>My Requests
+        <i class="fa fa-search" aria-hidden="true"></i>Find Codes
       </div>
       <div class="under-menu-entry" onClick="contentLoader('requests/local_requests')">
-        <i class="fa fa-newspaper-o" aria-hidden="true"></i>In My Area
+        <i class="fa fa-plus" aria-hidden="true"></i>New Codes
       </div>
       <div class="under-menu-entry" onClick="contentLoader('requests/lookup_request')">
-        <i class="fa fa-search" aria-hidden="true"></i>Find Request
+        <i class="fa fa-truck" aria-hidden="true"></i>Resources
       </div>
     </div>
   </div>

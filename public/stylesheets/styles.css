@@ -1241,7 +1241,6 @@ xmp {
 .codes {
 	padding: 5px;
 }
-<<<<<<< HEAD:public/stylesheets/styles_desktop.css
 
 #clock {
 	position: fixed;
@@ -1255,4 +1254,146 @@ xmp {
 	z-index: 100;
 	font-size: 14px;
 }
->>>>>>> origin/master:public/stylesheets/styles.css
+
+/* Everything new begins here! */
+
+.news-link {
+	text-decoration: none;
+	color: var(--dark-primary-color);
+	height: 20px;
+	margin: 0;
+	padding: 0;
+}
+
+.news-link:hover {
+	text-decoration: none;
+	color: darkorange;
+}
+
+.news-link-container {
+	height: 15px;
+}
+
+.nomargin {
+	margin: 5px;
+}
+
+.interiorvhr {
+	position: relative;
+	width: 280px;
+	min-height: 100px;
+	margin: 15px;
+}
+
+.interiorcontainer {
+	min-height: 110px;
+	width: 885px;
+	margin: 0 auto;
+	overflow:auto;
+	vertical-align: middle;
+}
+
+.half {
+	width: 120px;
+}
+
+#jobinfo {
+	height: 230px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-bottom: -250px;
+	background: white;
+	transition: 0.3s;
+	padding: 10px;
+	box-shadow: inset 0px 8px 15px -5px rgba(211,211,211,1);
+}
+
+.map-modal {
+	height: 150px;
+	width: 300px;
+	background: white;
+	position: absolute;
+	border-radius: 5px;
+	opacity: 0;
+	transition: 0.1s;
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  margin-left: -10px;
+  margin-top: 30px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent; 
+  border-right:10px solid white; 
+}
+
+.close-information {
+	float: right;
+	cursor: pointer;
+	color: lightgray;
+	margin-right: 20px;
+}
+
+.close-information:hover {
+	color: darkgray;
+}
+
+#filter-box {
+	position: absolute;
+	right: 10px;
+	top: 54px;
+	height: 25px;
+	width: 150px;
+	background: white;
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 3px;
+	font-weight: 700;
+	color: grey;
+	overflow: hidden;
+	user-select: none;
+	transition: 0.1s;
+}
+
+#filter-box:hover {
+	color: black;
+}
+
+#filter-box.open {
+	height: 145px;
+	transition: 0.1s;
+}
+
+#googattr {
+	height: 15px;
+	margin-top: 5px;
+	margin-left: 5px;
+	float: left;
+}
+
+#googbox {
+	height: 15px;
+	margin-top: 5px;
+	font-size: 15px;
+	vertical-align: middle;
+	line-height: 15px;
+	float: left;
+}
+
+.toast {
+	position: absolute;
+	width: auto;
+	padding: 10px;
+	height: auto;
+	border-radius: 5px;
+	color: white;
+	background: rgba(0, 0, 0, 0.2);
+	left: 50%;
+	bottom: 20px;
+	display: none;
+	text-align: center;
+	z-index: 150;
+}

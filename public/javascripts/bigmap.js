@@ -5,7 +5,9 @@ function initBig() {
     var y = parseFloat(document.getElementById("locbox_y").value);
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: x, lng: y},
-        zoom: 13
+        zoom: 13,
+        mapTypeControl: false,
+        streetViewControl: false
     });
     var marker = new google.maps.Marker({
           position: {lat: x, lng: y},
@@ -18,7 +20,9 @@ function initBig() {
 function initMap() {
 map = new google.maps.Map(document.getElementById('Bigmap'), {
     center: {lat: -34.397, lng: 150.644},
-    zoom: 13
+    zoom: 13,
+    mapTypeControl: false,
+    streetViewControl: false
 });
 
 var trafficLayer = new google.maps.TrafficLayer();

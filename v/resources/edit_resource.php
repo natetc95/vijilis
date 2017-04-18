@@ -95,6 +95,8 @@
 </div>
 <div class="contentvhr">
     <h1>Basic Information:</h1><hr/>
+    <p>Please add some basic information.......</p>
+    <hr/>
     <h2>Title:</h2><br/>
     <center><input id="title" class="resourceInputBox" type="text" value="<?=$rTitle?>"></input></center>
     <h2>Type of Resource:</h2><br/>

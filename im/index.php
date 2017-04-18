@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <base href="../">
-  <?php getcwd()?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <link type='text/css' href='public/stylesheets/styles.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="public/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel='icon' href='public/images/icon.ico'>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/viewcontroller.js"></script>
@@ -17,6 +19,7 @@
 </head>
 <?php require('../controllers/sessionHandler.php'); ?>
 <body>
+  <div id="clock"></div>
   <div id="sidebar-menu">
     <div id="sidebar-content">
       <div class="sidebar-entry" onClick="window.location='/vijilis/dev/views/incidentmanager/index.php'">

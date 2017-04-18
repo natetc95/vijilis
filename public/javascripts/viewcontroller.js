@@ -109,7 +109,6 @@ function refresh(q='v') {
 function contentLoader(s, menu=true, q='v') {
     createLoader();
     currPage = s;
-    console.log(q + "/" + s);
     var req = $.ajax('controllers/vendor.php', {
         method: 'POST',
         dataType: 'html',
@@ -384,11 +383,11 @@ function days(d) {
 var clk = null;
 
 function clock_stop() {
-    clearTimeout(clk);
+    clearInterval(clk);
 }
 
 function clock() {
-    clk = setTimeout(function() {
+    clk = setInterval(function() {
         var dt = new Date();
         var q = (dt.getHours() < 12) ? "AM":"PM";
         var v = (Math.round(dt.getTimezoneOffset()/60) < 0) ? "-":"+";
@@ -398,10 +397,28 @@ function clock() {
         clockface += '<br/>' + dt.getHours()%12 + ':' + m + ':' + s + ' '  + q + ' GMT' + v + Math.round(dt.getTimezoneOffset()/60);
         document.getElementById('clock').innerHTML = clockface;
         dt = null;
-        clock();
     }, 1);
 }
 
 window.onload = function() {
     clock();
+}
+
+function newToast(message, duration=3000) {
+    var toast = document.createElement('div');
+    toast.setAttribute('class', 'toast');
+    toast.setAttribute('id', 'toast');
+    toast.innerHTML = message;
+    document.body.appendChild(toast);
+    setTimeout(function() {
+        toast.style.marginLeft = '-' + $('#toast').width()/2 + 'px';
+    }, 100);
+    $('#toast').fadeIn('slow');
+    setTimeout(function() {
+        $('#toast').fadeOut('slow');
+        setTimeout(function() {
+            document.body.removeChild(toast);
+        }, 300);
+    }, duration);
+    
 }

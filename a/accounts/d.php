@@ -1,23 +1,26 @@
 <script src="public/javascripts/aRegistration.js"/>
 <div class="contentvhr">
     <h1><i class="fa fa-map-o" aria-hidden="true"></i>&nbsp;Create a District</h1><hr/>
-    <p>&nbsp;A district describes the strict coordinate bounded area which can be serviced. i.e. The service area of one dispatch office.</p>
+    <p style="margin: 0;">&nbsp;A district describes the strict coordinate bounded area which can be serviced. i.e. The service area of one dispatch office.</p>
 </div>
 <div class="contentvhr">
     <div class="interiorcontainer">
         <div class="interiorvhr">
             <h2>Basic Information:</h2><br/><hr style="margin-top: 10px;"/>
-            <b>Name: </b><br/>
+            <b>Contact Name: </b><br/>
             <center><input id="fname" class="resourceInputBox" type="text"></input></center>
-            <b>Email Bin: </b><br/>
+            <b>Contact Email: </b><br/>
             <center><input id="fname" class="resourceInputBox" type="text"></input></center>
-            <b>Telephone: </b><br/>
+            <b>Contact Telephone: </b><br/>
             <center><input id="fname" class="resourceInputBox" type="text"></input></center>
         </div>
         <div class="interiorvhr">
             <h2>Bounding Information:</h2>
-            <div class="resourceIconAdd" title="Save" onClick="editResource(<?=$_POST['uid']?>)" style="margin-top: -5px;">
+            <div class="resourceIconAdd" title="Save" onClick="newNode()" style="margin-top: -6px;">
                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add
+            </div>
+            <div class="resourceIconDelete" title="Save" onClick="delNode()" style="margin-top: -6px; margin-right: 5px;">
+                <i class="fa fa-minus" aria-hidden="true"></i>&nbsp;Remove
             </div>
             <br/><hr style="margin-top: 10px;"/>
             <div id="bounding-box">
@@ -51,20 +54,13 @@
             </div>
         </div>
         <div class="interiorvhr nomargin">
-            <h2>Passwords:</h2><br/><hr style="margin-top: 10px;"/>
-            <b>Password: </b><br/>
+            <h2>Identifying Information:</h2><br/><hr style="margin-top: 10px;"/>
+            <b>District Name: </b><br/>
             <center>
                 <input id="gpass" class="resourceInputBox" type="text"></input><br/><br/>
-                <button onclick="generatePassword()">Generate Password</button>
             </center>
         </div>
     </div>
-</div>
-<div class="contentvhr">
-    <h1>Profile Image</h1><hr/>
-    <center>
-            <input id="fname" class="resourceInputBox" type="file"></input><br/>
-    </center>
 </div>
 <div class="contentvhr">
     <button style="float: left" onClick="contentLoader('resources/my_resources', false)">Cancel</button><button style="float: right" onClick="addResource()">Save</button>

@@ -3,11 +3,11 @@
     if (isset($x) && isset($y)) {
         $zx = $x;
         $zy = $y;
-        echo("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=initBig&language=ru' async defer></script>");
+        echo("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=initBig' async defer></script>");
     } else {
         $zx = "";
         $zy = "";
-        echo("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=geoFindMe&language=ru' async defer></script>");
+        echo("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=geoFindMe' async defer></script>");
     }
 
 ?>
@@ -32,7 +32,7 @@
     <div id="map"></div>
 </div>
 <div id="sr" class="contentvhr">
-    <h2>Sub-Requests</h2><br/><br/>
+    <h2>Linked Jobs</h2><br/><br/>
     <div id="th" class="tabholder">
         <a href="javascript:void(0)" class="tab" id="tab1" onclick="opensub('1')">1</a>
         <a href="javascript:void(0)" class="tab plus" onclick="addSub()"><i class="fa fa-plus" aria-hidden="true"></i></a>
