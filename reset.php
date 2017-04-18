@@ -23,6 +23,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/resetpage.js"></script>
+  <script src="public/javascripts/pretty.js"></script>
   <title>Reset Password</title>
 </head>
 <body>
@@ -44,33 +45,43 @@
                 $query->bind_result($fname, $lname, $email, $hash);
                 $query->fetch();
 
-                $nul = "NULL";
-                $query->fetch();
-                $_SESSION['email'] = $email;
-                $_SESSION['action'] = 'RES_PAS';
-                $query2 = $mysqli->prepare('UPDATE user SET fhash = NULL WHERE fhash = ?;');
-                if($query2) {
-                    $query2->bind_param('s', $_GET['lnk']);
-                    $query2->execute();
+                if( $email != NULL ){
 
-                    echo ("Resetting password for: <br/>$fname $lname<br/>");
-                    echo ("");
-                    echo ('<span class="fa fa-envelope fa-entry fa2"></span><input require id="pw1" class="fa2 inputicon" type="password" placeholder="New Password" onkeyup="strengthTestPassword()"/>');
-                    echo ('<span class="fa fa-envelope fa-entry fa2"></span><input require id="pw2" class="fa2 inputicon" type="password" placeholder="Re-Enter New Password " onkeyup="validatePasswords()"/>');
+                  $query->fetch();
+                  $_SESSION['email'] = $email;
+                  $_SESSION['action'] = 'RES_PAS';
 
-                } else {
-                    echo("Link has expired or is no longer valid.<br/>");
-                }
+                  $query2 = $mysqli->prepare('UPDATE user SET fhash = NULL WHERE fhash = ?;');
+                  if($query2) {
+                      $query2->bind_param('s', $_GET['lnk']);
+                      $query2->execute();
+
+                      echo ("Resetting password for: <br/><strong>$fname $lname</strong><br/><br/>");
+                      echo ('<span class="fa fa-key fa-entry fa2"></span><input require id="pw1" class="fa2 inputicon" type="password" placeholder="New Password" onkeyup="strengthTestPassword()"/>');
+                      echo ('<span class="fa fa-key fa-entry fa2"></span><input require id="pw2" class="fa2 inputicon" type="password" placeholder="Re-Enter New Password " onkeyup="validatePasswords()"/>');
+                    } else {
+                      echo("Link has expired or is no longer valid.<br/>");
+                    }
+                  } else{
+                    echo("<br/></br/>Link has expired or is no longer valid<br/>");
+                  }
             }
         } else {
+
             header('Location: index.php');
         }
         $mysqli->close();
-    ?><br/><br/>
+    ?>
     </center>
-    <button id="la" style="float: left; margin-left: 10px;" onClick="window.location='index.php'"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Cancel</button>
-    <button id="la" style="float: right; margin-right: 10px;" onClick="resetPassword()">Reset&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>
-	</div>
+    <?php
+      if( $email != NULL ){
+        echo("<a href='index.php'><button id='la' style='float: left; margin-left: 10px;'><i class='fa fa-arrow-left' aria-hidden='true'></i>&nbsp;Cancel</button></a>");
+        echo('<button id="la" style="float: right; margin-right: 10px;" onClick="resetPassword()">Reset&nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i></button>');
+      } else{
+        echo("<center></br></br></br></br><a href='index.php'><button id='la'><i class='fa fa-arrow-left' aria-hidden='true'></i>&nbsp;Cancel</button></a></center>");
+      }
+    ?>
+  </div>
 </body>
 </html>
 <!-- TODO: verify fhash, fix how updates resetbox size, insert password (how to get name), send email-->

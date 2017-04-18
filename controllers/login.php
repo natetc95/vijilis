@@ -2,7 +2,7 @@
 
     /* login.php
      * Handles the login process for a user
-     * 
+     *
      * VIJILIS: Emergency Response System
      *
      * Senior Design Team 16040
@@ -47,6 +47,13 @@
           "loginstat": "FAIL",
           "username": "natetc95",
           "error": "USER EXISTS AND IS VERIFIED BUT PW IS NOT CORRECT"
+        }');
+      }
+      else if($ver == 0){
+        echo('{
+          "loginstat": "FAIL",
+          "username": "natetc95",
+          "error": "USER EXISTS BUT IS NOT VERIFIED"
         }');
       }
       else {

@@ -2,7 +2,7 @@
 
    /* configurator.php
     * Holds all the login information needed for the system to function
-    * 
+    *
     * VIJILIS: Emergency Response System
     *
     * Senior Design Team 16040

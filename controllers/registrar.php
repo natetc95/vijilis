@@ -15,7 +15,7 @@
                     $query->bind_param('s', $uname);
                     $query->execute();
                     $query->bind_result($uid);
-                    $query->fetch();
+                    $query->execute();
                     if(isset($uid)) {
                         $query->fetch();
                         chdir('../userfiles');

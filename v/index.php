@@ -19,7 +19,7 @@
   <meta name="application-name" content="VIJILIS Responder">
   <meta name="msapplication-config" content="/public/images/favicons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/viewcontroller.js"></script>
@@ -31,13 +31,14 @@
     $_SESSION['mxs'] = $_GET['m'];
     $_SESSION['mxr'] = $_SERVER['HTTP_REFERER'];
     header("Location: index.php");
-  } 
+  }
   else if (isset($_SESSION['mxs'])) {
     echo("<script>FOBBY(\"" . $_SESSION['mxs'] . "\")</script>");
     unset($_SESSION['mxs']);
   }
 ?>
 <body>
+  <div id="clock"></div>
   <div id="sidebar-menu">
     <div id="sidebar-content">
       <div class="sidebar-entry" onclick="openMenu('request')">
@@ -112,6 +113,5 @@
   <div id="content">
     <?php require('news.php') ?>
   </div>
-  <div id="clock"></div>
 </body>
 </html>

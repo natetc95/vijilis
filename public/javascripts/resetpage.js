@@ -55,7 +55,7 @@ function writeErrors2(obj, id, parent, n=1, pxMod=32) {
       }
     });
   }
-  document.getElementById("resetbox").style="height: " + (285 + numErrors*pxMod) + "px";
+  document.getElementById("resetbox").style="height: " + (305 + numErrors*pxMod) + "px";
 }
 
 function insertAfter( referenceNode, newNode ) {
@@ -73,7 +73,7 @@ function validatePasswords() {
     obj.error = "Passwords Do Not Match!";
     obj.result = false;
   }
-  writeErrors2(obj, "pwerror", "pw2");
+  writeErrors2(obj, "pwerror", "pw2", 1, 36);
   return obj;
 }
 
@@ -187,6 +187,7 @@ function resetPassValidation() {
 function submitToReset() {
   var email = document.getElementById("email").value;
   if (fullValidation()) {
+    createLoader();
     $.ajax({
       url: 'controllers/reset.php',
       type: 'POST',
@@ -195,15 +196,18 @@ function submitToReset() {
         email: email
       },
       success: function(success) {
+        removeLoader();
         window.location = "index.php";
+        alerter("An email to reset your password has been sent to the provided email.", "Password Reset");
       }
     });
   }
 }
 
 function resetPassword() {
-  var pword = document.getElementById("pw1").value;
+  var pword = document.getElementById("pw2").value;
   if (resetPassValidation()) {
+    //createLoader();
     $.ajax({
       url: 'controllers/resetp2.php',
       type: 'POST',
@@ -212,7 +216,9 @@ function resetPassword() {
         pword: pword
       },
       success: function(success) {
+        //removeLoader();
         window.location = "index.php";
+        alerter("You have successfully reset your password.", "Password Reset");
       }
     });
   }
