@@ -1513,7 +1513,7 @@ xmp {
 	z-index: 150;
 }
 
-#center-box {
+.center-box {
 	position: absolute;
 	right: 170px;
 	top: 54px;
@@ -1531,7 +1531,7 @@ xmp {
 	text-align: center;
 }
 
-#center-box:hover {
+.center-box:hover {
 	color: black;
 }
 
@@ -1587,4 +1587,8 @@ xmp {
 #resourceMenu ul {
 	list-style: none;
 	padding: 0;
+}
+
+#districttool {
+	transition: 0.3s;
 }

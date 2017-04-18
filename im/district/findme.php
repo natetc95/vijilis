@@ -20,9 +20,17 @@
   </head>
   <body>
     <div id="biggysmalls"></div>
-    <div id="center-box" title="Find Me!">
-        <i class="fa fa-compass fa-lg" aria-hidden="true" onclick="geolocate()"></i>
+    <div class="center-box" title="Find Me!" onclick="geolocate()">
+        <i class="fa fa-compass fa-lg" style="margin-top: 5px;" aria-hidden="true"></i>
     </div>
+    <?php 
+    session_start();
+    if(($_SESSION['acct'] & 4) == 4) {?>
+    <script src="public/javascripts/maps/admin.js"></script>
+    <div id='districttool' class="center-box" style='right: 210px' title="Points for Admin!" onclick="adminPoints()">
+        <i class="fa fa-hand-lizard-o fa-lg" style="margin-top: 5px;" aria-hidden="true"></i>
+    </div>
+    <?php } ?>
     <div id="filter-box">
        <div onclick="toggleFilters()" style="margin-bottom: 5px; text-align: center;" title="Filter by...">Filters</div>
        <label>Show:</label>

@@ -60,6 +60,34 @@
         echo(json_encode($o));
     }
 
+    function createDistrict($mysqli, $bounding, $cname, $email, $telnum, $dname, $color) {
+        $o = array('status' => 'FAIL', 'code' => '', 'email' => '');
+
+        $hash = password_hash($password, PASSWORD_BCRYPT);
+        if(password_verify($password, $hash)) {
+            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 1, 0, NULL, 2, 0, 0, 0, 0, 0);')) {
+                $query->bind_param('ssssss', $username, $email, $hash, $fname, $lname, $telnum);
+                $query->execute();
+                if($query = $mysqli->prepare('SELECT uid FROM user WHERE username = ?;')) {
+                    $query->bind_param('s', $username);
+                    $query->execute();
+                    $query->bind_result($uid);
+                    $query->fetch();
+                    if(isset($uid)) {
+                        $query->fetch();
+                        $o['code'] = $uid;
+                        $o['email'] = adminCreatedEmail($email, $first, $username, $password, 'Incident Manager');
+                        $o['status'] = 'SUCC';
+                        chdir('../../userfiles');
+                        mkdir('u' . $uid);
+                        mkdir('u' . $uid . '/oldprofiles');
+                    }
+                }
+            }
+        }
+        echo(json_encode($o));
+    }
+
     if(isset($_POST['action'])) {
         $a = $_POST['action'];
         switch($a) {
@@ -68,6 +96,9 @@
                 break;
             case 'createIncidentManager':
                 createIncidentManager($mysqli, $_POST['uname'], $_POST['pword'], $_POST['email'], $_POST['fname'], $_POST['lname'], $_POST['telnum']);
+                break;
+            case 'createDistrict':
+                echo(json_encode($_POST['data']));
                 break;
             default:
                 echo(json_encode(array('status' => 'FAIL', 'code' => "You didn't send a proper request! Your action request: $a")));

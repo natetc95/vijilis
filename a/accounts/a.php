@@ -1,4 +1,4 @@
-<script src="public/javascripts/aRegistration.js"/>
+<script src="public/javascripts/admin/registration.js"/>
 <div class="contentvhr">
     <h1> <i class="fa fa-user-secret" aria-hidden="true"></i>&nbsp;Create an Admin</h1><hr/>
     <div class="interiorcontainer">

@@ -34,8 +34,8 @@ function newNode() {
         newDiv.innerHTML = `<b>Location ` + numCoords + `: </b><br/>
                     <center><table>
                         <tr>
-                            <td><input id="fname" class="resourceInputBox half" type="text"></input></td>
-                            <td><input id="fname" class="resourceInputBox half" type="text"></input></td>
+                            <td><input id="lat" class="resourceInputBox half" type="text"></input></td>
+                            <td><input id="lng" class="resourceInputBox half" type="text"></input></td>
                         </tr>
                     </table></center>`;
         document.getElementById('bounding-box').appendChild(newDiv);
@@ -166,4 +166,42 @@ function createIncidentManager() {
     } else {
         alerter("One or more entries in the form are invalid! Please check your values!", "Invalid Entries!");
     }
+}
+
+function createDistrict() {
+        createLoader();
+        var bounds = document.getElementsByClassName('coords');
+        var arr = [];
+        var x,y = 0;
+        for(var i = 0; i < bounds.length; i++) {
+            x = parseFloat(bounds[i].querySelector('#lat').value);
+            y = parseFloat(bounds[i].querySelector('#lng').value);
+            arr.push(JSON.parse('{"lat": ' + x + ', "lng": ' + y + "}"));
+        }
+        $.ajax({
+        url: 'controllers/admin/creation.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            action: 'createDistrict',
+            data: arr,
+            cname: document.getElementById('fname').value,
+            email: document.getElementById('email').value,
+            telnum: document.getElementById('telnu').value,
+            dname: document.getElementById('dname').value,
+            color: document.getElementById('color').value,
+        },
+        success: function(e) {
+            removeLoader();
+            console.log(e);
+        },
+        failure: function(e) {
+            removeLoader();
+            console.log(e);
+        }
+    });
+}
+
+function popModal() {
+
 }
