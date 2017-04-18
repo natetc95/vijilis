@@ -232,6 +232,15 @@ input[type=submit], button {
 	background: var(--foreground-color);
 }
 
+input[type=submit], button#searchBut {
+	border: 1px solid var(--border-color);
+	border-radius: 2px;
+	padding: 0px;
+	font-weight: bold;
+	transition: 0.3s;
+	background: var(--foreground-color);
+}
+
 input[type=submit]:hover, button:hover {
 	cursor: pointer;
 	color: var(--border-color);
@@ -248,6 +257,27 @@ input[type=submit]:hover, button:hover {
 	background: var(--default-primary-color);
   box-shadow: inset 0px 0px 3px rgba(0,0,0,0.1);
 	margin-left: 12px;
+}
+
+.fa-search-entry {
+	padding: 10px 2px 10px 2px;
+	width: 400px;
+	height: 8px;
+	color: var(--dark-primary-color);
+	border: 1px solid var(--border-color);
+	border-width: 1px 1px 1px 1px;
+	border-radius: 0px 2px 2px 0px;
+	background: var(--default-primary-color);
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+	margin-left: 12px;
+}
+.fa-search-entry:hover{
+	border: 1px solid var(--dark-primary-color);
+	border-width: 1px 1px 1px 1px;
+}
+.fa-search-entry:active{
+		border: 1px solid var(--dark-primary-color);
+		border-width: 1px 1px 1px 1px;
 }
 
 .fa2 {
@@ -469,6 +499,75 @@ nav {
 	padding: 10px;
 }
 
+.contentTables {
+	width: 600px;
+	min-height: 25px;
+	height: 420px;
+	max-height: 420px;
+	background: var(--default-primary-color);
+	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
+	border-radius: 4px;
+	border: 1px solid var(--dark-primary-color);
+	margin: 0px 10px 10px 0px;
+	padding: 20px;
+}
+
+.contentTables .searchTable {
+	width: 580px;
+	height: 361px;
+	max-height: 361px;
+	max-width: 580px;
+	border: 1px solid black;
+}
+.contentTables .searchTable .type1 {
+	width: 580px;
+	height: 20px;
+	max-width: 580px;
+	max-height: 20px;
+	text-overflow: hidden;
+	background: var(--border-color);
+	font-size: 13px;
+}
+.contentTables .searchTable .type2 {
+	width: 580px;
+	height: 20px;
+	max-width: 580px;
+	max-height: 20px;
+	font-size: 13px;
+}
+.contentTables .searchTable .legend {
+	width: 580px;
+	height: 20px;
+	max-width: 580px;
+	max-height: 19px;
+	border-bottom: 1px solid black;
+}
+.contentTables .searchTable .fname {
+	width: 100px;
+	height: 19px;
+	float: left;
+}
+.contentTables .searchTable .lname {
+	width: 100px;
+	height: 19px;
+	float: left;
+}
+.contentTables .searchTable .telnum {
+	width: 100px;
+	height: 19px;
+	float: left;
+}
+.contentTables .searchTable .email {
+	width: 100px;
+	height: 19px;
+	float: right;
+}
+.contentTables .searchTable .status {
+	width: 75px;
+	height: 19px;
+	float: right;
+}
+
 .contentIMpage {
 	width: 1000px;
 	min-height: 25px;
@@ -594,6 +693,13 @@ nav {
 }
 
 .contentvhr h1 {
+	padding: 0px;
+	margin: 0px;
+	cursor: default;
+	font-size: 24px;
+}
+
+.contentTables h1 {
 	padding: 0px;
 	margin: 0px;
 	cursor: default;
@@ -838,6 +944,15 @@ option .title {
 }
 
 .contentvhr h2 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 18px;
+	height: 18px;
+	line-height: 18px;
+	float: left;
+}
+
+.contentTables h2 {
 	margin: 0px;
 	padding: 0px;
 	font-size: 18px;
@@ -1321,13 +1436,13 @@ xmp {
 }
 
 .arrow-left {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   margin-left: -10px;
   margin-top: 30px;
   border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent; 
-  border-right:10px solid white; 
+  border-bottom: 10px solid transparent;
+  border-right:10px solid white;
 }
 
 .close-information {

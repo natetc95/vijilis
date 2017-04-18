@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
     require('../controllers/sessionHandler.php');
     require('../controllers/configurator.php');
     require('../controllers/registrar.php');

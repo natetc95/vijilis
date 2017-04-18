@@ -54,6 +54,7 @@
   </div>
   <div id="menubar">
     <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="portal.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
+    <i id="refresh" class="fa fa-refresh" aria-hidden="true" onClick="refresh('im')"></i>
   </div>
   <div id="content">
 
