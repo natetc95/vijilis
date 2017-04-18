@@ -1412,7 +1412,7 @@ xmp {
 	width: 120px;
 }
 
-#jobinfo {
+#jobinfo, #resinfo {
 	height: 230px;
 	width: 100%;
 	position: absolute;
@@ -1458,7 +1458,7 @@ xmp {
 
 #filter-box {
 	position: absolute;
-	right: 10px;
+	right: 5px;
 	top: 54px;
 	height: 25px;
 	width: 150px;
@@ -1511,4 +1511,26 @@ xmp {
 	display: none;
 	text-align: center;
 	z-index: 150;
+}
+
+#center-box {
+	position: absolute;
+	right: 170px;
+	top: 54px;
+	height: 25px;
+	width: 25px;
+	background: white;
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 3px;
+	font-weight: 700;
+	color: grey;
+	overflow: hidden;
+	user-select: none;
+	transition: 0.1s;
+	text-align: center;
+}
+
+#center-box:hover {
+	color: black;
 }

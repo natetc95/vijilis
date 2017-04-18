@@ -24,7 +24,7 @@
     function find_active_resources($mysqli) {
         $o = array();
         $template = array('lat' => 0, 'lng' => 0, 'uid' => 0);
-        if($query = $mysqli->prepare('SELECT resourceLocation, uid FROM resource WHERE active = 0')) {
+        if($query = $mysqli->prepare('SELECT resourceLocation, uid FROM resource WHERE active = 1')) {
             $query->execute();
             $query->bind_result($rL, $uid);
             while($query->fetch()) {
