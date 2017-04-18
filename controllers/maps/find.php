@@ -58,6 +58,24 @@
         echo(json_encode($o));
     }
 
+    function find_jobs($mysqli) {
+        $o = array();
+        $template = array('lat' => 0, 'lng' => 0, 'uid' => 0);
+        if($query = $mysqli->prepare('SELECT locationCoords, incidentmanager_uid, uid FROM requests WHERE serviceStatus != 99')) {
+            $query->execute();
+            $query->bind_result($rL, $iid, $uid);
+            while($query->fetch()) {
+                $json = json_decode($rL, true);
+                $template['lat'] = $json['lat'];
+                $template['lng'] = $json['lng'];
+                $template['uid'] = $uid;
+                $template['type'] = $iid;
+                array_push($o, $template);
+            }
+        }
+        echo(json_encode($o));
+    }
+
     function getDistrict($mysqli) {
         $o = array('status' => 'FAIL', 'code' => '');
         if($query = $mysqli->prepare('SELECT district FROM user WHERE uid = ?')) {
@@ -91,6 +109,9 @@
         switch($_POST['action']) {
             case 'inactive':
                 find_inactive_resources($mysqli);
+                break;
+            case 'jobs':
+                find_jobs($mysqli);
                 break;
             case 'active':
                 find_active_resources($mysqli);

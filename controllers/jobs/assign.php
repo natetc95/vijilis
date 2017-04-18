@@ -25,11 +25,10 @@
         return $miles;
     }
 
-    function findVendorForJob($mysqli, $jobNumber) {
+    function findVendorForJob($mysqli, $jobNumber, $j) {
         $o = array();
         $v = array();
         $vendors = array();
-        $j = '{"lat":32.29177633471201,"lng":-111.07349395751953}';
         if($query = $mysqli->prepare('SELECT resourceLocation, uid, vendor_uid, resourceTitle FROM resource WHERE active = 1 AND resourceWasDeleted = 0 AND resourceType = 0')) {
             $query->execute();
             $query->bind_result($rL, $uid, $vid, $rT);
@@ -66,7 +65,6 @@
                         $telnum = str_ireplace('-', '', str_ireplace(' ', '', $telnum));
                         $telnum = '+1' . $telnum;
                         $str = 'Hi ' . $fname . '! Job #' . $job . ' is availabe for your resource: ' . $vendor['title'] . '. Approximately ' . sprintf('%.1f',$vendor['dist']) . ' miles away from your last check in. Text back to accept or decline.';
-                        echo $str;
                         sendMessage($telnum, $str);
                     }
                 }
@@ -74,7 +72,4 @@
         }
     }
 
-    //sendMessage('+14802448312', 'Job #' . $jobNumber . ' is availabe w/');
-    //echo(distance('{"lat": 32.2641734, "lon": -110.9518233, "time": 1492063810}', '{"lat": 32.22151494505975, "lon": -110.92689514160156, "time": 1492481983048}'));
-    findVendorForJob($mysqli, 4821546);
 ?>
