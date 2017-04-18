@@ -19,7 +19,7 @@
   <meta name="application-name" content="VIJILIS Responder">
   <meta name="msapplication-config" content="/public/images/favicons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/loginpage.js"></script>

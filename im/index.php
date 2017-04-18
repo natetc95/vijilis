@@ -22,23 +22,17 @@
   <div id="clock"></div>
   <div id="sidebar-menu">
     <div id="sidebar-content">
-      <div class="sidebar-entry" onClick="window.location='/vijilis/dev/views/incidentmanager/index.php'">
-        <i class="fa fa-home" aria-hidden="true"></i>Home
-      </div>
-      <div class="sidebar-entry" onclick="openMenu('request')">
+      <div class="sidebar-entry" onClick="openMenu('request')">
         <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Requests
       </div>
-      <div class="sidebar-entry" onclick="openMenu('district')">
+      <div class="sidebar-entry" onClick="contentLoader('district/findme', true, 'im')">
         <i class="fa fa-building-o" aria-hidden="true"></i>My District
       </div>
-      <div class="sidebar-entry" onclick="openMenu('vendor')">
+      <div class="sidebar-entry" onClick="contentLoader('vendors/vendor_profiles', true, 'im')">
         <i class="fa fa-users" aria-hidden="true"></i>Vendors
       </div>
-      <div class="sidebar-entry" onClick="contentLoaderIM('preferences')">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
-      </div>
-      <div class="sidebar-entry" onClick="contentLoaderIM('about')">
-        <i class="fa fa-question" aria-hidden="true"></i>About
+      <div class="sidebar-entry" onClick="contentLoader('profile/my_profile', true, 'im');">
+        <i class="fa fa-id-card-o" aria-hidden"true"></i>My Profile
       </div>
       <div class="sidebar-entry" onClick="window.location='portal.php'">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>Portals
@@ -50,40 +44,11 @@
   </div>
   <div id="request-under-menu" class="under-menu">
     <div class="under-menu-content">
-      <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('requests/create_request')">
+      <div class="under-menu-entry" onClick="contentLoader('requests/create_request', true, 'im')">
         <i class="fa fa-plus" aria-hidden="true"></i>Create
       </div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('requests/view_edit_requests')">
+      <div class="under-menu-entry" onClick="contentLoader('requests/view_edit_requests', true, 'im')">
         <i class="fa fa-wrench" aria-hidden="true"></i>View/Edit
-      </div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('requests/my_open_requests')">
-        <i class="fa fa-folder-o" aria-hidden="true"></i>Open
-      </div>
-    </div>
-  </div>
-  <div id="district-under-menu" class="under-menu">
-    <div class="under-menu-content">
-      <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('district/findme')">
-        <i class="fa fa-map-o" aria-hidden="true"></i>District Map
-      </div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('profile/edit_profile')">
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit Profile
-      </div>
-    </div>
-  </div>
-  <div id="vendor-under-menu" class="under-menu">
-    <div class="under-menu-content">
-      <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('vendors/vendor_profiles')">
-        <i class="fa fa-address-book-o" aria-hidden="true"></i>Profiles
-      </div>
-      <div class="under-menu-entry" onClick="contentLoaderIM('vendors/find_vendor')">
-        <i class="fa fa-search" aria-hidden="true"></i>Find Vendor
       </div>
     </div>
   </div>
@@ -91,33 +56,7 @@
     <i id="burger" class="fa fa-bars fa-2x" aria-hidden="true" onClick="test()"></i><a href="portal.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px;"></a>
   </div>
   <div id="content">
-    <br>
-    <div class="contentIMpage">
-      <h1>Welcome to the Incident Manager Portal Home Page!</h1>
-    </div>
-    <div class="contentIMpageSPLIT">
-      <h1>Recent News</h1>
-      ...Content...
-    </div>
-    <div class="contentIMpageSPLIT">
-      <h1>Other News idk</h1>
-      ...Content...
-    </div>
-    <div class="contentIMpage">
-      <h1>content</h1>
-    </div>
-    <div class="contentIMpage">
-      <h1>content</h1>
-    </div>
-    <div class="contentIMpage">
-      <h1>content</h1>
-    </div>
-    <div class="contentIMpage">
-      <h1>content</h1>
-    </div>
-    <div class="contentIMpage">
-      <h1>wanted to check the scroll</h1>
-    </div>
+
   </div>
 </body>
 </html>

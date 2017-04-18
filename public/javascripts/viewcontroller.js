@@ -23,7 +23,7 @@
 * - clock()
 *
 * Also start the center clock on the index.php page
-* 
+*
 * VIJILIS: Emergency Response System
 *
 * Senior Design Team 16040
@@ -137,11 +137,12 @@ function contentLoader(s, menu=true, q='v') {
 }
 
 function contentLoaderIM(s) {
+    createLoader();
     var req = $.ajax('controllers/vendor.php', {
         method: 'POST',
         dataType: 'html',
         data: {
-            page: "im\\" + s
+            page: "im/" + s
         },
        statusCode: {
            403: function() {
@@ -156,7 +157,8 @@ function contentLoaderIM(s) {
         }
     });
     req.done(function( msg ) {
-        $("#content").html(msg);
+      removeLoader();
+      $("#content").html(msg);
     });
     test()
 }
@@ -273,8 +275,8 @@ function confirmation(message, header, cb) {
     var output = false;
 
     $('body').css({'overflow':'hidden'});
-    $(document).bind('scroll',function () { 
-        window.scrollTo(0,document.body.scrollTop); 
+    $(document).bind('scroll',function () {
+        window.scrollTo(0,document.body.scrollTop);
     });
     var hgt = $(window).height();
     var bg = document.createElement("div");
@@ -286,7 +288,7 @@ function confirmation(message, header, cb) {
         document.body.removeChild(m);
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
-        $(document).unbind('scroll'); 
+        $(document).unbind('scroll');
         $('body').css({'overflow':'visible'});
     });
     prompt.setAttribute("id", "promptDelete");
@@ -304,7 +306,7 @@ function confirmation(message, header, cb) {
         document.body.removeChild(m);
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
-        $(document).unbind('scroll'); 
+        $(document).unbind('scroll');
         $('body').css({'overflow':'visible'});
     });
     document.getElementById("pAid").addEventListener("click", function(e) {
@@ -315,7 +317,7 @@ function confirmation(message, header, cb) {
         document.body.removeChild(m);
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
-        $(document).unbind('scroll'); 
+        $(document).unbind('scroll');
         $('body').css({'overflow':'visible'});
     });
 }
@@ -326,8 +328,8 @@ function alerter(message, header) {
     var output = false;
 
     $('body').css({'overflow':'hidden'});
-    $(document).bind('scroll',function () { 
-        window.scrollTo(0,document.body.scrollTop); 
+    $(document).bind('scroll',function () {
+        window.scrollTo(0,document.body.scrollTop);
     });
     var hgt = $(window).height();
     var bg = document.createElement("div");
@@ -339,7 +341,7 @@ function alerter(message, header) {
         document.body.removeChild(m);
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
-        $(document).unbind('scroll'); 
+        $(document).unbind('scroll');
         $('body').css({'overflow':'visible'});
     });
     prompt.setAttribute("id", "promptDelete");
@@ -356,7 +358,7 @@ function alerter(message, header) {
         document.body.removeChild(m);
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
-        $(document).unbind('scroll'); 
+        $(document).unbind('scroll');
         $('body').css({'overflow':'visible'});
     });
 }

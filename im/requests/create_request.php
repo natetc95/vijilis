@@ -58,5 +58,5 @@
     </div>
 </div>
 <div class="contentvhr">
-    <button style="float: left" onClick="window.location='/vijilis/views/incidentmanager/index.php'">Cancel</button><button style="float: right">Submit</button>
+    <button style="float: left" onClick="window.location='/vijilis/im/index.php'">Cancel</button><button style="float: right">Submit</button>
 </div>
