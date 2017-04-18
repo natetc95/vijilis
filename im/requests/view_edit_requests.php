@@ -5,7 +5,7 @@
     <center></br></br>
       <div class="contentTables">
         <div class="searchTab">
-          <input require id="search" class="fa-search-entry" type="text" placeholder="Search Requests" onkeyup="validateUsername()"/>
+          <input require id="search" class="fa-search-entry" type="text" placeholder="Search Jobs" onkeyup="validateUsername()"/>
           <button id="searchBut" style="height:30px; width:30px;" onClick=""><i class="fa fa-search" aria-hidden="true"></i></button><br/><br/>
         </div>
         <div class="searchTable">

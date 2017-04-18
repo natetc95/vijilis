@@ -14,7 +14,7 @@
 
 
 <div class="contentvhr">
-    <h1>Create A Request</h1>
+    <h1>Create A Job</h1>
     <div class="reqinfo">
         ID# <?php echo("000001AZ");?><br/>
         IM: <?php echo($_SESSION['name']);?><br/>

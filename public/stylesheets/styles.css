@@ -1268,7 +1268,7 @@ option .title {
 	float: left;
 	color: white;
 	opacity: 0.0;
-	z-index: 12;
+	z-index: 3;
 	height: 25px;
 	width: 135px;
 	cursor: pointer;
