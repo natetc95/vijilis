@@ -1458,3 +1458,28 @@ xmp {
 	list-style: none;
 	padding: 0;
 }
+
+#districttool {
+	transition: 0.3s;
+}
+
+.importModal {
+	position: absolute;
+	width: 290px;
+	height: 308px;
+	left: 50%;
+	margin-left: -155px;
+	top: 50%;
+	margin-top: -154px;
+	text-align: center;
+	background: white;
+	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
+	border-radius: 4px;
+	border: 1px solid var(--dark-primary-color);
+	padding: 10px;
+}
+
+.importModal textarea {
+	height: 250px;
+	width: 280px;
+}

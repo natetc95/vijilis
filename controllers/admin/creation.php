@@ -9,7 +9,7 @@
 
         $hash = password_hash($password, PASSWORD_BCRYPT);
         if(password_verify($password, $hash)) {
-            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 1, 0, NULL, 1, 0, 0, 0, 0, 0);')) {
+            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 1, 0, NULL, 1, 0, 0, 0, 0, 0, 3);')) {
                 $query->bind_param('ssssss', $username, $email, $hash, $fname, $lname, $telnum);
                 $query->execute();
                 if($query = $mysqli->prepare('SELECT uid FROM user WHERE username = ?;')) {
@@ -37,7 +37,7 @@
 
         $hash = password_hash($password, PASSWORD_BCRYPT);
         if(password_verify($password, $hash)) {
-            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 1, 0, NULL, 2, 0, 0, 0, 0, 0);')) {
+            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 1, 0, NULL, 2, 0, 0, 0, 0, 0, 3);')) {
                 $query->bind_param('ssssss', $username, $email, $hash, $fname, $lname, $telnum);
                 $query->execute();
                 if($query = $mysqli->prepare('SELECT uid FROM user WHERE username = ?;')) {
@@ -61,27 +61,19 @@
     }
 
     function createDistrict($mysqli, $bounding, $cname, $email, $telnum, $dname, $color) {
-        $o = array('status' => 'FAIL', 'code' => '', 'email' => '');
-
-        $hash = password_hash($password, PASSWORD_BCRYPT);
-        if(password_verify($password, $hash)) {
-            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 1, 0, NULL, 2, 0, 0, 0, 0, 0);')) {
-                $query->bind_param('ssssss', $username, $email, $hash, $fname, $lname, $telnum);
+        $o = array('status' => 'FAIL', 'code' => '');
+        if($query = $mysqli->prepare('INSERT INTO districts VALUES (0, ?, "AZ", ?, ?, ?, ?, ?);')) {
+            $query->bind_param('ssssss', $dname, $cname, $email, $telnum, $bounding, $color);
+            $query->execute();
+            if($query = $mysqli->prepare('SELECT uid FROM districts WHERE name = ?;')) {
+                $query->bind_param('s', $dname);
                 $query->execute();
-                if($query = $mysqli->prepare('SELECT uid FROM user WHERE username = ?;')) {
-                    $query->bind_param('s', $username);
-                    $query->execute();
-                    $query->bind_result($uid);
+                $query->bind_result($uid);
+                $query->fetch();
+                if(isset($uid)) {
                     $query->fetch();
-                    if(isset($uid)) {
-                        $query->fetch();
-                        $o['code'] = $uid;
-                        $o['email'] = adminCreatedEmail($email, $first, $username, $password, 'Incident Manager');
-                        $o['status'] = 'SUCC';
-                        chdir('../../userfiles');
-                        mkdir('u' . $uid);
-                        mkdir('u' . $uid . '/oldprofiles');
-                    }
+                    $o['code'] = $uid;
+                    $o['status'] = 'SUCC';
                 }
             }
         }
@@ -98,7 +90,7 @@
                 createIncidentManager($mysqli, $_POST['uname'], $_POST['pword'], $_POST['email'], $_POST['fname'], $_POST['lname'], $_POST['telnum']);
                 break;
             case 'createDistrict':
-                echo(json_encode($_POST['data']));
+                createDistrict($mysqli, json_encode($_POST['data']), $_POST['cname'], $_POST['email'], $_POST['telnum'], $_POST['dname'], $_POST['color']);
                 break;
             default:
                 echo(json_encode(array('status' => 'FAIL', 'code' => "You didn't send a proper request! Your action request: $a")));

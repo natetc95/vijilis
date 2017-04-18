@@ -2,6 +2,7 @@
 
     require('../configurator.php');
     require('../verification.php');
+    session_start();
     $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
 
     function resourceType($x) {
@@ -57,6 +58,35 @@
         echo(json_encode($o));
     }
 
+    function getDistrict($mysqli) {
+        $o = array('status' => 'FAIL', 'code' => '');
+        if($query = $mysqli->prepare('SELECT district FROM user WHERE uid = ?')) {
+            $query->bind_param('i', $_SESSION['uid']);
+            $query->execute();
+            $query->bind_result($d);
+            $query->fetch();
+            $o['code'] = $_SESSION['uid'];
+            if (isset($d)) {
+                $o['code'] = 'STAGE 1';
+                $query->fetch();
+                if($query = $mysqli->prepare('SELECT boudingInformation, color FROM districts WHERE uid = ?')) {
+                    $query->bind_param('i', $d);
+                    $query->execute();
+                    $query->bind_result($b, $c);
+                    $query->fetch();
+                    $o['code'] = 'STAGE 2';
+                    if (isset($b)) {
+                        $query->fetch();
+                        $o['data'] = json_decode($b, true);
+                        $o['color'] = $c;
+                        $o['status'] = 'SUCC';
+                    }    
+                }
+            }    
+        }
+        echo(json_encode($o));
+    }
+
     if(isset($_POST['action'])) {
         switch($_POST['action']) {
             case 'inactive':
@@ -64,6 +94,9 @@
                 break;
             case 'active':
                 find_active_resources($mysqli);
+                break;
+            case 'district':
+                getDistrict($mysqli);
                 break;
         }
     }

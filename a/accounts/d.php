@@ -51,8 +51,8 @@
                         </tr>
                     </table></center>
                 </div>
-                <a href="javascript:popModal()" style="float: right; text-decoration: none;"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;Import</a>
             </div>
+            <a href="javascript:popModal()" style="float: right; text-decoration: none;"><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;Import</a>
         </div>
         <div class="interiorvhr nomargin">
             <h2>Identifying Information:</h2><br/><hr style="margin-top: 10px;"/>
@@ -68,5 +68,5 @@
     </div>
 </div>
 <div class="contentvhr">
-    <button style="float: left" onClick="contentLoader('resources/my_resources', false)">Cancel</button><button style="float: right" onClick="addResource()">Save</button>
+    <button style="float: left" onClick="contentLoader('resources/my_resources', false)">Cancel</button><button style="float: right" onClick="createDistrict()">Save</button>
 </div>

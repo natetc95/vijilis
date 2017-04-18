@@ -1,5 +1,6 @@
 var x = false;
 var map = null;
+var poly2 = null;
 var infowindow = null;
 
 var markers = [];
@@ -75,20 +76,6 @@ function initMap() {
 
 function init() {
     initMap();
-    var mapPolygon = [
-        {lat: 33.28806392819752, lng: -112.11856842041016},
-        {lat: 33.28490697068781, lng: -111.99256896972656},
-        {lat: 33.348884792201694, lng: -111.99394226074219}
-    ];
-    var bermudaTriangle = new google.maps.Polygon({
-          paths: mapPolygon,
-          strokeColor: '#FFFFFF',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#FFFFFF',
-          fillOpacity: 0.05,
-          map: map
-        });
     getAllData();
     geolocate();
 }
@@ -139,6 +126,9 @@ function closeAllMarkers() {
             markers[i].setMap(null);
         }
     }
+    if (poly2 != null) {
+        poly2.setMap(null);
+    }
 }
 
 function getJobInformation() {
@@ -148,6 +138,33 @@ function getJobInformation() {
     infowindow.close();
     document.getElementById('jobinfo').style.marginBottom = '0px';
     map.addListener('click', function(e) { closeInformation() });
+}
+
+function getDistrict() {
+    $.ajax({
+        url: 'controllers/maps/find.php',
+        method: 'post',
+        dataType: 'json',
+        data: {
+            action: 'district'
+        }
+    }).done(function(e) {
+        var polygoon = e.data;
+        for (var i = 0; i < e.data.length; i++) {
+            polygoon[i].lat = parseFloat(e.data[i].lat);
+            polygoon[i].lng = parseFloat(e.data[i].lng);
+        }
+        var color = e.color;
+        poly2 = new google.maps.Polygon({
+          paths: polygoon,
+          strokeColor: color,
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: color,
+          fillOpacity: 0.05,
+          map: map
+        });
+    });
 }
 
 function closeJobInformation() {
@@ -230,7 +247,7 @@ function getAllData() {
         getDBData('active');
     }
     if(document.getElementById("fDistrict").checked) {
-        console.log('AYYY LMAO THATS NOT IMPLEMENTED YET!');
+        getDistrict();
     }
     removeLoader();
 }
