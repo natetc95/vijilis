@@ -23,7 +23,7 @@
   <div id="sidebar-menu">
     <div id="sidebar-content">
       <div class="sidebar-entry" onClick="openMenu('request')">
-        <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Requests
+        <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Jobs
       </div>
       <div class="sidebar-entry" onClick="contentLoader('district/findme', true, 'im')">
         <i class="fa fa-building-o" aria-hidden="true"></i>My District

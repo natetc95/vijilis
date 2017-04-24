@@ -342,7 +342,7 @@ function alerter(message, header) {
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
         $(document).unbind('scroll');
-        $('body').css({'overflow':'visible'});
+        document.body.style='';
     });
     prompt.setAttribute("id", "promptDelete");
     prompt.setAttribute("style", "top: " + (document.body.scrollTop + hgt/3) + "px;");
@@ -359,7 +359,7 @@ function alerter(message, header) {
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
         $(document).unbind('scroll');
-        $('body').css({'overflow':'visible'});
+        document.body.style='';
     });
 }
 

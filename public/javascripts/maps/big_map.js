@@ -1,5 +1,6 @@
 var x = false;
 var map = null;
+var poly2 = null;
 var infowindow = null;
 
 var markers = [];
@@ -75,34 +76,29 @@ function initMap() {
 
 function init() {
     initMap();
-    var mapPolygon = [
-        {lat: 33.28806392819752, lng: -112.11856842041016},
-        {lat: 33.28490697068781, lng: -111.99256896972656},
-        {lat: 33.348884792201694, lng: -111.99394226074219}
-    ];
-    var bermudaTriangle = new google.maps.Polygon({
-          paths: mapPolygon,
-          strokeColor: '#FFFFFF',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#FFFFFF',
-          fillOpacity: 0.05,
-          map: map
-        });
-    getAllData()
+    getAllData();
+    geolocate();
 }
 
-function createMarker(jobNumber, position) {
+function createMarker(jobNumber, position, desc, type) {
+    if (type == 'inactive' || type == 'active') {
+        func = 'getResourceInformation()';
+        name = 'Resource';
+    } else {
+        func = 'getJobInformation()';
+        name = 'Job';
+    }
     var marker = new google.maps.Marker({
         position: position,
         map: map,
         title: 'Job # ' + jobNumber,
-        icon: 'public/images/logo_icon_tr_2.png'
+        icon: 'public/images/mapicons/' + type + '.png'
     });
     marker.addListener('click', function(e) {
         var curr = document.getElementsByClassName('map-modal');
-        var contentString = '<h3 style="margin: 0">Job #' + jobNumber + '</h3>' +
-                            '<a href="javascript:getInformation()">More Information</a>' + 
+        var contentString = '<h3 style="margin: 0">' + name + ' #' + jobNumber + '</h3><b>' +
+                            desc + '</b><br/>' +
+                            '<a href="javascript:' + func + '">More Information</a>' + 
                             '<input id="ss" type="hidden" value="' + jobNumber + '"/>';
         if (infowindow == null) {
             infowindow = new google.maps.InfoWindow({
@@ -118,7 +114,8 @@ function createMarker(jobNumber, position) {
                 map: map
             });
         }
-        closeInformation();
+        closeJobInformation();
+        closeResourceInformation();
     });
     markers.push(marker);
 }
@@ -129,9 +126,12 @@ function closeAllMarkers() {
             markers[i].setMap(null);
         }
     }
+    if (poly2 != null) {
+        poly2.setMap(null);
+    }
 }
 
-function getInformation() {
+function getJobInformation() {
     document.getElementById('biggysmalls').style = 'height: ' + ($(window).height() - 294) + 'px';
     var jn = document.getElementById('ss').value;
     document.getElementById('jn').innerHTML = jn;
@@ -140,11 +140,74 @@ function getInformation() {
     map.addListener('click', function(e) { closeInformation() });
 }
 
-function closeInformation() {
+function getDistrict() {
+    $.ajax({
+        url: 'controllers/maps/find.php',
+        method: 'post',
+        dataType: 'json',
+        data: {
+            action: 'district'
+        }
+    }).done(function(e) {
+        var polygoon = e.data;
+        for (var i = 0; i < e.data.length; i++) {
+            polygoon[i].lat = parseFloat(e.data[i].lat);
+            polygoon[i].lng = parseFloat(e.data[i].lng);
+        }
+        var color = e.color;
+        poly2 = new google.maps.Polygon({
+          paths: polygoon,
+          strokeColor: color,
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: color,
+          fillOpacity: 0.05,
+          map: map
+        });
+    });
+}
+
+function closeJobInformation() {
     document.getElementById('biggysmalls').style = 'height: ' + ($(window).height() - 44) + 'px';
     document.getElementById('jobinfo').style.marginBottom = '';
     google.maps.event.clearListeners(map, 'click')
 }
+
+function getResourceInformation() {
+    var jn = document.getElementById('ss').value;
+    $.ajax({
+        url: 'controllers/maps/getinfo.php',
+        method: 'post',
+        dataType: 'json',
+        data: {
+            action: 'resource',
+            uid: jn
+        }
+    }).done(function(e) {
+        document.getElementById('Rappr').innerHTML = (e.resource.approved ? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>' : '<i class="fa fa-times" style="color: red" aria-hidden="true"></i>');
+        document.getElementById('Ract').innerHTML = (e.resource.active ? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>' : '<i class="fa fa-times" style="color: red" aria-hidden="true"></i>');
+        document.getElementById('Rtitle').innerHTML = '<xmp>' + e.resource.title + '</xmp>';
+        document.getElementById('Rtype').innerHTML = e.resource.type;
+        document.getElementById('Rnum').innerHTML = e.resource.uid;
+        document.getElementById('Rlat').innerHTML = e.resource.location.lat;
+        document.getElementById('Rlng').innerHTML = e.resource.location.lon;
+        document.getElementById('Rdesc').innerHTML = '<xmp>' + e.resource.description + '</xmp>';
+        document.getElementById('Rname').innerHTML = '<xmp>' + e.vendor.name + '</xmp>';
+        document.getElementById('Rvid').innerHTML = e.vendor.uid;
+        document.getElementById('Rimg').innerHTML = '<img height="180px" style="float: left; margin-right: 10px;" src="userfiles/u' + e.vendor.uuid + '/v' + e.vendor.uid + '/r' + e.resource.uid + '/img2.png"/>';
+        document.getElementById('biggysmalls').style = 'height: ' + ($(window).height() - 294) + 'px';
+        infowindow.close();
+        document.getElementById('resinfo').style.marginBottom = '0px';
+        map.addListener('click', function(e) { closeResourceInformation() });
+    });    
+}
+
+function closeResourceInformation() {
+    document.getElementById('biggysmalls').style = 'height: ' + ($(window).height() - 44) + 'px';
+    document.getElementById('resinfo').style.marginBottom = '';
+    google.maps.event.clearListeners(map, 'click')
+}
+
 
 function toggleFilters() {
     if (document.getElementById('filter-box').getAttribute('class') == 'open') {
@@ -166,7 +229,7 @@ function getDBData(type) {
         var pos = '';
         for(var i = 0; i < e.length; i++) {
             pos = JSON.parse('{"lat": ' + e[i].lat + ', "lng": ' + e[i].lng + "}");
-            createMarker(e[i].uid, pos);
+            createMarker(e[i].uid, pos, e[i].type, type);
         } 
     });
 }
@@ -183,7 +246,33 @@ function getAllData() {
     if(document.getElementById("fActive").checked) {
         getDBData('active');
     }
+    if(document.getElementById("fDistrict").checked) {
+        getDistrict();
+    }
     removeLoader();
+}
+
+function geolocate() {
+
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
+  if (!navigator.geolocation){
+    newToast("Geolocation is not supported by your browser");
+  }
+
+  function success(position) {
+    map.setCenter(JSON.parse('{"lat": ' + position.coords.latitude + ', "lng": ' + position.coords.longitude + "}"));
+    newToast("Map Centered on User!");
+  }
+
+  function error() {
+    return newToast("Unable to retrieve your location");
+  }
+  navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
 init();

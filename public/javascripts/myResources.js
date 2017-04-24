@@ -338,3 +338,56 @@ function changeLocationSetting() {
         document.getElementById('forcbox1').innerHTML = "Resource Follows Vendor?";
     }
 }
+
+var menuEvent = null;
+
+function openBoxMenu(uid, active) {
+    closeBoxMenu();
+    var e = event.currentTarget;
+    if(e.innerHTML != '<i class="fa fa-times" aria-hidden="true"></i>') {
+        var activeContent = (active == 0 ? '<li onClick="activate(' + uid + ', 1)" style="border: none"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Make Active</li>' : '<li onClick="activate(' + uid + ', 0)" style="border: none"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Make Inactive</li>')
+        var list = document.getElementsByClassName('resourceMenu');
+        for (var i = 0; i < list.length; i++) {
+            list[i].innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>';
+        }
+        e.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>';
+        var menu = document.createElement('div');
+        menu.setAttribute('id', 'resourceMenu');
+        menu.innerHTML = '<ul>' +
+                            '<li onClick="openEditor(' + uid + ')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Edit</li>' +
+                            '<li onClick="deleteResource(' + uid + ');closeMenu();"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Delete</li>' +
+                            activeContent +
+                        '</ul>';
+        event.currentTarget.parentElement.appendChild(menu);
+        $('#resourceMenu').slideDown('fast');
+    } else {
+        e.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>';
+    }
+}
+
+function closeBoxMenu() {
+    var menu = document.getElementById('resourceMenu');
+    if( menu != undefined) {
+        menu.parentElement.removeChild(menu);
+    }
+}
+
+function activate(uid, yes) {
+    $.ajax({
+        url: 'controllers/resources.php',
+        method: 'post',
+        dataType: 'json',
+        data: {
+            action: 'activate',
+            uid: uid,
+            do: (yes == 1 ? true : false)
+        }
+    }).done(function(e) {
+        refresh();
+        if (yes) {
+            alerter('Resource #' + uid + ' has been activated.<br/>All others have been deactivated!', 'Activation Done');
+        } else {
+            alerter('All resources have been deactivated!', 'Activation Done');
+        }
+    })
+}

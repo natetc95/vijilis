@@ -39,7 +39,7 @@
         <i class="fa fa-users" aria-hidden="true"></i>Creation
       </div>
       <div class="sidebar-entry" onclick="openMenu('req')">
-        <i class="fa fa-code" aria-hidden="true"></i>Requests
+        <i class="fa fa-code" aria-hidden="true"></i>Job Codes
       </div>
       <div class="sidebar-entry" onclick="openMenu('billing')">
         <i class="fa fa-usd" aria-hidden="true"></i>Billing

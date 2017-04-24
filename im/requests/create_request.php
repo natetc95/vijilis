@@ -1,20 +1,14 @@
-<script src="public/javascripts/gps.js"></script>
-<?php session_start();
-    if (isset($x) && isset($y)) {
-        $zx = $x;
-        $zy = $y;
-        echo("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=initBig' async defer></script>");
-    } else {
-        $zx = "";
-        $zy = "";
-        echo("<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&callback=geoFindMe' async defer></script>");
-    }
+<script src="public/javascripts/obsolete/gps.js"></script>
+<script src="public/javascripts/jobs.js"></script>
 
+<?php
+    session_start();
 ?>
 
+<script>geoFindMe();</script>
 
 <div class="contentvhr">
-    <h1>Create A Request</h1>
+    <h1>Create A Job</h1>
     <div class="reqinfo">
         ID# <?php echo("000001AZ");?><br/>
         IM: <?php echo($_SESSION['name']);?><br/>
@@ -41,22 +35,22 @@
         <br/>
         <div class="description" onChange="selectBox('car')">
             <h2>Incident Type</h2><br/>
-            <select class="wew">
+            <select class="wew" id="jobtype">
                 <option selected hidden> -- Choose One -- </option>
-                <option>Car Crash</option>
-                <option>Debris Cleanup</option>
+                <option value='0'>Car Crash</option>
+                <option value='1'>Debris Cleanup</option>
             </select>
-            <div class="description"><br/>
+            <div class="description" ><br/>
                 <h2>Incident Description</h2><br/>
-                <textarea></textarea>
+                <textarea id="jobdesc"></textarea>
             </div>
             <div class="description"><br/>
                 <h2>Special Instructions</h2><br/>
-                <textarea></textarea>
+                <textarea id="jobspec"></textarea>
             </div>
         </div>
     </div>
 </div>
 <div class="contentvhr">
-    <button style="float: left" onClick="window.location='/vijilis/im/index.php'">Cancel</button><button style="float: right">Submit</button>
+    <button style="float: left" onClick="contentLoader('district/findme', false, 'im')">Cancel</button><button onClick='submitJob()' style="float: right">Submit</button>
 </div>

@@ -1,4 +1,4 @@
-<script src="public/javascripts/aRegistration.js"/>
+<script src="public/javascripts/admin/registration.js"/>
 <div class="contentvhr">
     <h1> <i class="fa fa-truck" aria-hidden="true"></i>&nbsp;Create a Vendor</h1><hr/>
     <p style="margin: 0;">&nbsp;Vendors service the requests as they come in. They are the main workforce of the system.</p>

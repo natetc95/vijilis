@@ -8,7 +8,7 @@
         $hash = password_hash($pword, PASSWORD_BCRYPT);
         $vhash = md5($uname . rand(0,5000));
         if(password_verify($pword, $hash)) {
-            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 0, 0, ?, 1, 0, 0, 0, 0, 0);')) {
+            if($query = $mysqli->prepare('INSERT INTO user VALUES (0, ?, ?, ?, ?, ?, ?, 0, 0, ?, 1, 0, 0, 0, 0, 0, 3);')) {
                 $query->bind_param('sssssss', $uname, $email, $hash, $fname, $lname, $telnum, $vhash);
                 $query->execute();
                 if($query = $mysqli->prepare('SELECT uid FROM user WHERE username = ?;')) {

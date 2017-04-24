@@ -34,8 +34,8 @@ function newNode() {
         newDiv.innerHTML = `<b>Location ` + numCoords + `: </b><br/>
                     <center><table>
                         <tr>
-                            <td><input id="fname" class="resourceInputBox half" type="text"></input></td>
-                            <td><input id="fname" class="resourceInputBox half" type="text"></input></td>
+                            <td><input id="lat" class="resourceInputBox half" type="text"></input></td>
+                            <td><input id="lng" class="resourceInputBox half" type="text"></input></td>
                         </tr>
                     </table></center>`;
         document.getElementById('bounding-box').appendChild(newDiv);
@@ -167,3 +167,87 @@ function createIncidentManager() {
         alerter("One or more entries in the form are invalid! Please check your values!", "Invalid Entries!");
     }
 }
+
+function createDistrict() {
+        createLoader();
+        var bounds = document.getElementsByClassName('coords');
+        var arr = [];
+        var x,y = 0;
+        var good = (document.getElementById('fname').value != '' ? true : false) & (document.getElementById('email').value != '' ? true : false) & (document.getElementById('telnu').value != '' ? true : false) & (document.getElementById('dname').value != '' ? true : false);
+        if (good) {
+            for(var i = 0; i < bounds.length; i++) {
+                x = parseFloat(bounds[i].querySelector('#lat').value);
+                y = parseFloat(bounds[i].querySelector('#lng').value);
+                if (isNaN(x) || isNaN(y)) {
+                    good = false;
+                    break;
+                } else {
+                    arr.push(JSON.parse('{"lat": ' + x + ', "lng": ' + y + "}"));
+                }
+            }
+        } else {
+            removeLoader();
+            alerter("There was an error processing some of the data.<br/>Please check and try again!", "District Tool")
+        }
+        if(good) {
+            $.ajax({
+            url: 'controllers/admin/creation.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'createDistrict',
+                data: arr,
+                cname: document.getElementById('fname').value,
+                email: document.getElementById('email').value,
+                telnum: document.getElementById('telnu').value,
+                dname: document.getElementById('dname').value,
+                color: document.getElementById('color').value,
+            },
+            success: function(e) {
+                removeLoader();
+                contentLoader('news', false, 'a');
+                alerter('District #' + e.code + ' has been created!', 'District Created!');
+            },
+            failure: function(e) {
+                removeLoader();
+                console.log(e);
+            }
+            });
+        } else {
+            removeLoader();
+            alerter("There was an error processing some of the bounding data.<br/>Please check and try again!", "District Tool")
+        }
+}
+
+function popModal() {
+    var newDiv = document.createElement('div');
+    newDiv.setAttribute('class', 'importModal');
+    newDiv.innerHTML = ('Import JSON String Here. Up to 7 Points.<textarea id="data"></textarea><button style="float: right" onclick="submitModal()">Submit</button><button style="float: left" onclick="closeModal()">Cancel</button>');
+    document.body.appendChild(newDiv);
+}
+
+function closeModal() {
+    document.body.removeChild(document.getElementById('data').parentElement);
+}
+
+function submitModal() {
+    createLoader();
+    var data = JSON.parse(document.getElementById('data').value);
+    var coords = document.getElementsByClassName('coords');
+    if (coords.length-1 < data.length) {
+        for(var i = coords.length-1; i < data.length-1; i++) {
+            newNode();
+        }
+    } else if(coords.length-1 > data.length) {
+        for(var i = coords.length-1; i > data.length-1; i--) {
+            delNode();
+        }
+    }
+    for (var i = 0; i < coords.length; i++) {
+        coords[i].querySelector('#lat').value = data[i].lat;
+        coords[i].querySelector('#lng').value = data[i].lng;
+    }
+    document.body.removeChild(document.getElementById('data').parentElement);
+    removeLoader();
+}
+
