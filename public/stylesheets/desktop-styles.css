@@ -1483,3 +1483,27 @@ xmp {
 	height: 250px;
 	width: 280px;
 }
+
+.code-select-box {
+	border-radius: 2px;
+	height: 400px;
+	overflow-y: scroll;
+	background: grey;
+	width: 100%;
+}
+
+.code-select-entry {
+	margin: 5px;
+	border-radius: 2px;
+	height: 40px;
+	background: lightgrey;
+	width: 253px;
+	line-height: 40px;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+}
+
+.code-select-entry h1 {
+	cursor: pointer;
+}

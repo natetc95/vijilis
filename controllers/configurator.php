@@ -13,8 +13,8 @@
     // DATABASE LOGIN INFORMATIN
 
         $DB_HOST = 'localhost';
-        $DB_UNME = 'root';
-        $DB_PWRD = 'travis';
+        $DB_UNME = 'test_root';
+        $DB_PWRD = 'wololo';
         $DB_NAME = 'vijilis';
 
     // EMAIL LOGIN INFORMATION
@@ -27,11 +27,10 @@
     // else if in htdocs (XAMPP) make it the folder the site is in
     // so for me, it would be /vijilis/vijilis/
 
-        $GLOBALS['ftr'] = '/vijilis/';
+        $GLOBALS['ftr'] = '/vijilis/vijilis/';
         $GLOBALS['helpme'] = 'C:/xampp/htdocs/vijilis/vijilis/';
 
     // TWILIO FILES
-    // :)
 
         $GLOBALS['twilio_usr'] = 'SKab2b8a192a469d88562b15301e2aa0ac';
         $GLOBALS['twilio_pwd'] = 'NRLb74nhbFCTWuKyIWu0tD3UHRCl9Zxc';
