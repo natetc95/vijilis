@@ -208,7 +208,6 @@ var reqs = 1;
 
 function addSub() {
     reqs++;
-    console.log(reqs);
     var newTab = document.createElement("a");
     newTab.setAttribute("href","javascript:void(0)");
     newTab.setAttribute("class", "tab");
@@ -219,7 +218,7 @@ function addSub() {
     var newBox = document.createElement("div");
     newBox.setAttribute("id", "subreq" + reqs);
     newBox.setAttribute("class", "subreq");
-    var parentID = document.getElementById("parentID").value;
+    //var parentID = document.getElementById("parentID").value;
     newBox.innerHTML = `<br/>
       <div class="description" onChange="selectBox('car')">
         <h2>Incident Type</h2><br/>
@@ -251,6 +250,7 @@ function addSub() {
             <textarea id="jobspec"></textarea>
         </div>
       </div>
+
       <div style="margin-top:10px;margin-bottom:10px;">
         <center><button onClick="">Remove Linked Job</button></center>
       </div>`;

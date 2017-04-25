@@ -10,7 +10,6 @@
 <div class="contentvhr">
     <h1>Create A Job</h1>
     <div class="reqinfo">
-        JOB ID# <label id="parentID"><?php echo("000001AZ");?></label><br/>
         IM: <?php echo($_SESSION['name']);?><br/>
         District: <?php echo("Tucson") ?>
     </div>
@@ -72,5 +71,5 @@
 </div>
 <div class="contentvhr">
     <button style="float: left" onClick="contentLoader('district/findme', false, 'im')">Cancel</button>
-    <button onClick='submitJob()' style="float: right">Submit</button>
+    <button onClick="submitJob()" style="float: right">Submit</button>
 </div>

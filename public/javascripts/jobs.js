@@ -34,9 +34,9 @@ function submitJob() {
           parent: i
         }
       }).done(function(e) {
-        contentLoader('district/news', true, 'im');
+        contentLoader('news', true, 'im');
         alerter('A new request has been created. #' + e.code, 'Request Tool');
       });
-
+      console.log("done");
     }
 }

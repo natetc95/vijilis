@@ -3,7 +3,7 @@
     require('assign.php');
     require('../configurator.php');
     $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
-    
+
     function createJob($mysqli, $parent, $type, $latlng, $desc, $spec) {
         $o = array('status' => 'FAIL', 'code' => '');
         $time = time();

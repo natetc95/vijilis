@@ -41,7 +41,7 @@
             }
         }
         usort($vendors, function ($item1, $item2) {
-            return $item1['dist'] <=> $item2['dist'];
+            return $item1['dist'] <= $item2['dist'];
         });
         messageSelectedVendor($mysqli, $jobNumber, $vendors[0]);
         return $vendors[0];
