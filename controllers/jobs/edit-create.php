@@ -21,9 +21,9 @@
                     $o['status'] = 'SUCC';
                     $o['code'] = $req;
                     findVendorForJob($mysqli, $req, $latlng);
-                } 
+                }
             }
-            
+
         }
         echo(json_encode($o));
     }
