@@ -57,7 +57,7 @@
     <i id="refresh" class="fa fa-refresh" aria-hidden="true" onClick="refresh('im')"></i>
   </div>
   <div id="content">
-
+    <?php require('news.php') ?>
   </div>
 </body>
 </html>
