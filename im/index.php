@@ -17,7 +17,7 @@
   <script src="public/javascripts/viewcontroller.js"></script>
   <title>Incident Manager Portal</title>
 </head>
-<?php require('../controllers/sessionHandler.php'); ?>
+<?php require('../controllers/sessionhandler.php'); ?>
 <body>
   <div id="clock"></div>
   <div id="sidebar-menu">
