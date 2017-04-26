@@ -107,6 +107,7 @@ function refresh(q='v') {
 }
 
 function contentLoader(s, menu=true, q='v') {
+    window.scrollTo(0, 0);
     createLoader();
     currPage = s;
     var req = $.ajax('controllers/vendor.php', {
