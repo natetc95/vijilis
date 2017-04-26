@@ -29,15 +29,15 @@ function submitJob() {
       data: {
         action: 'create',
         location: JSON.parse('{"lat": ' + parseFloat(document.getElementById('locbox_x').value) + ', "lng": ' + parseFloat(document.getElementById('locbox_y').value) + "}"),
-        // type: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobtype" ).value,
-        // desc: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobdesc" ).value,
-        // spec: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobspec" ).value,
-        // //priority: baseElement.querySelector( "#subreq"+i ).querySelector( "#priorityinp" ).value,
-        // parent: i
-        type: document.getElementById("jobtype").value,
-        desc: document.getElementById("jobdesc").value,
-        spec: document.getElementById("jobspec").value,
-        parent: false
+        type: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobtype" ).value,
+        desc: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobdesc" ).value,
+        spec: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobspec" ).value,
+        priority: baseElement.querySelector( "#subreq"+i ).querySelector( "#priorityinp" ).value,
+        parent: i
+        // type: document.getElementById("jobtype").value,
+        // desc: document.getElementById("jobdesc").value,
+        // spec: document.getElementById("jobspec").value,
+        // parent: false
       },
       success: function(e){
         removeLoader();
@@ -58,13 +58,13 @@ function submitJob() {
         console.log("ERROR");
         alerter("ERROR", 'Error Handling');
       }
-      // });
-      }).done(function(e) {
-        removeLoader();
-        //window.location = "im/index.php";
-        contentLoader('news', true, 'im');//maybe put out of this
-        alerter('A new request has been created. #' + e.code, 'Request Tool');//make an array
       });
+      // }).done(function(e) {
+      //   removeLoader();
+      //   //window.location = "im/index.php";
+      //   contentLoader('news', true, 'im');//maybe put out of this
+      //   alerter('A new request has been created. #' + e.code, 'Request Tool');//make an array
+      // });
   }
   // if( result == true ){
   //   //window.location = "index.php";
