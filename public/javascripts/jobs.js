@@ -11,6 +11,10 @@ function inputBlur(i){
     }
 }
 
+function removeLinkedJob(){
+
+}
+
 function submitJob() {
 
     createLoader();
@@ -20,8 +24,6 @@ function submitJob() {
 
     for (var i = 1; i <= reqs; i++){
 
-      console.log("i = "+i);
-      console.log("reqs = "+reqs);
       $.ajax({
       url: 'controllers/jobs/edit-create.php',
       method: 'post',
@@ -32,52 +34,46 @@ function submitJob() {
         type: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobtype" ).value,
         desc: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobdesc" ).value,
         spec: baseElement.querySelector( "#subreq"+i ).querySelector( "#jobspec" ).value,
-        priority: baseElement.querySelector( "#subreq"+i ).querySelector( "#priorityinp" ).value,
         parent: i
-        // type: document.getElementById("jobtype").value,
-        // desc: document.getElementById("jobdesc").value,
-        // spec: document.getElementById("jobspec").value,
-        // parent: false
+        // priority: baseElement.querySelector( "#subreq"+i ).querySelector( "#priorityinp" ).value
       },
       success: function(e){
-        removeLoader();
         result = true;
         console.log("SUCC");
-        console.log(e.code);
-        list.push("SUCC");
+        list.push(e.code);
+        $.ajax({
+        url: 'controllers/jobs/updateParentID.php',
+        method: 'post',
+        dataType: 'json',
+        data: {
+          action: 'update',
+          uid: e.code,
+          parent: list[0]
+        },
+        success: function(e){
+          removeLoader();
+          console.log("SUCC2");
+          console.log(e.status);
+        },
+        failure: function(e){
+          removeLoader();
+          console.log("FAIL2");
+        },
+        error: function(xhr, error){
+          removeLoader();
+          console.debug(error);
+          console.log("ERROR2");
+        }
+        });
       },
       failure: function(e){
-        list.push("FAIL");
         console.log("FAIL");
       },
-      // complete: function(e){
-      //   console.log(e.code);
-      // },
       error: function(xhr, error){
         console.debug(error);
         console.log("ERROR");
-        alerter("ERROR", 'Error Handling');
       }
       });
-      // }).done(function(e) {
-      //   removeLoader();
-      //   //window.location = "im/index.php";
-      //   contentLoader('news', true, 'im');//maybe put out of this
-      //   alerter('A new request has been created. #' + e.code, 'Request Tool');//make an array
-      // });
-  }
-  // if( result == true ){
-  //   //window.location = "index.php";
-  //   contentLoader('index', true, 'i');
-  //   if( reqs == 1 ){
-  //   alerter( 'A new request has been created. #' + list );
-  //   }
-  //   else{
-  //     alerter( 'New requests have been created: ' + list );
-  //   }
-  // }
-  // else{
-  //   contentLoader('news', true, 'im');
-  //   alerter( 'An error occured and your request was not processed' );
-  // }
+    }
+
 }
