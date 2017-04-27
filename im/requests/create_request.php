@@ -1,5 +1,6 @@
 <script src="public/javascripts/obsolete/gps.js"></script>
 <script src="public/javascripts/jobs.js"></script>
+<script src="public/javascripts/viewcontroller.js"></script>
 
 <?php
     session_start();
@@ -63,9 +64,6 @@
                 <h2>Special Instructions</h2><br/>
                 <textarea id="jobspec"></textarea>
             </div>
-        </div>
-        <div style="margin-top:10px;margin-bottom:10px;">
-          <center><button onClick="">Remove Linked Job</button></center>
         </div>
     </div>
 </div>
