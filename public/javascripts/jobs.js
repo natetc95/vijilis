@@ -54,6 +54,10 @@ function submitJob() {
           removeLoader();
           console.log("SUCC2");
           console.log(e.status);
+          contentLoader('news', true, 'im');
+          if( list.length == reqs ){
+            alerter('You have created the following linked job(s): '+list, 'New Job(s)');
+          }
         },
         failure: function(e){
           removeLoader();
