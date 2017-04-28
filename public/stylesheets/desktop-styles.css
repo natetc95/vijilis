@@ -1492,6 +1492,10 @@ xmp {
 	width: 100%;
 }
 
+.code-select-box.half {
+	height: 175px;
+}
+
 .code-select-entry {
 	margin: 5px;
 	border-radius: 2px;

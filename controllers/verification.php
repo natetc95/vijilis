@@ -135,4 +135,90 @@
         }
         return(json_encode($o));
     }
+
+    function approvalEmail($email, $fname, $quest, $msg) {
+        $o = array('status' => 'FAIL', 'code' => '');
+        $msg = "
+            <div id='center'>
+                <div id='header'>
+                    <h1>You have been $quest!</h1>
+                </div>
+                <div id='content'>
+                    Hello $fname,<br/>
+                    <p>
+                        Your account has been $quest by an admin!
+                        <br/><br/>
+                        <b>Custom Message:</b><br/>
+                        $msg
+                    </p>
+                    Thanks,<br/><br/>
+                    <strong>VIJILIS Team</strong><br/><br/>
+                </div>
+            </div>";
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 465;
+        $mail->IsHTML(true);
+        $mail->Username = $GLOBALS['emailToUse'];
+        $mail->Password = $GLOBALS['emailPassword'];
+        $mail->SetFrom($GLOBALS['emailToUse'], 'VIJILIS Team');
+        $mail->Subject = "VIJILIS Account Status Alert";
+        $mail->Body = $msg;
+        $mail->AddEmbeddedImage('public/images/logo_rn.png', 'logo_rn');
+        $mail->AddAddress($email);
+        if(!$mail->Send()) {
+            $o['code'] = "Mailer Error: " . $mail->ErrorInfo;
+        } else {
+            $o['code'] = 'Message was sent sucessfully!';
+            $o['status'] = 'SUCC';
+        }
+        return(json_encode($o));
+    }
+
+    function resourceApprovalEmail($email, $fname, $quest, $msg) {
+        $o = array('status' => 'FAIL', 'code' => '');
+        $msg = "
+            <div id='center'>
+                <div id='header'>
+                    <h1>Your resource has been $quest!</h1>
+                </div>
+                <div id='content'>
+                    Hello $fname,<br/>
+                    <p>
+                        Your resource has has been $quest by an admin!
+                        <br/><br/>
+                        <b>Custom Message:</b><br/>
+                        $msg
+                    </p>
+                    Thanks,<br/><br/>
+                    <strong>VIJILIS Team</strong><br/><br/>
+                </div>
+            </div>";
+        $mail = new PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Host = "smtp.gmail.com";
+        $mail->Port = 465;
+        $mail->IsHTML(true);
+        $mail->Username = $GLOBALS['emailToUse'];
+        $mail->Password = $GLOBALS['emailPassword'];
+        $mail->SetFrom($GLOBALS['emailToUse'], 'VIJILIS Team');
+        $mail->Subject = "VIJILIS Resource Status Alert";
+        $mail->Body = $msg;
+        $mail->AddEmbeddedImage('public/images/logo_rn.png', 'logo_rn');
+        $mail->AddAddress($email);
+        if(!$mail->Send()) {
+            $o['code'] = "Mailer Error: " . $mail->ErrorInfo;
+        } else {
+            $o['code'] = 'Message was sent sucessfully!';
+            $o['status'] = 'SUCC';
+        }
+        return(json_encode($o));
+    }
 ?>

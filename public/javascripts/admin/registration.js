@@ -202,6 +202,8 @@ function createDistrict() {
                 telnum: document.getElementById('telnu').value,
                 dname: document.getElementById('dname').value,
                 color: document.getElementById('color').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value
             },
             success: function(e) {
                 removeLoader();
