@@ -20,18 +20,97 @@
   </head>
   <body>
     <div id="biggysmalls"></div>
+    <div class="center-box" title="Find Me!" onclick="geolocate()">
+        <i class="fa fa-compass fa-lg" style="margin-top: 5px;" aria-hidden="true"></i>
+    </div>
+    <?php 
+    session_start();
+    if(($_SESSION['acct'] & 4) == 4) {?>
+    <script src="public/javascripts/maps/admin.js"></script>
+    <div id='districttool' class="center-box" style='right: 210px' title="Points for Admin!" onclick="adminPoints()">
+        <i class="fa fa-hand-lizard-o fa-lg" style="margin-top: 5px;" aria-hidden="true"></i>
+    </div>
+    <?php } ?>
     <div id="filter-box">
-       <div onclick="toggleFilters()" style="margin-bottom: 5px; text-align: center;">Filters</div>
+       <div onclick="toggleFilters()" style="margin-bottom: 5px; text-align: center;" title="Filter by...">Filters</div>
        <label>Show:</label>
        <div>
             <input id="fJobs" type="checkbox" checked/>Jobs<br/>
-            <input id="fInactive" type="checkbox"/>Active Resources<br/>
-            <input id="fActive" type="checkbox"/>Inactive Resources<br/>
+            <input id="fActive" type="checkbox" checked/>Active Resources<br/>
+            <input id="fInactive" type="checkbox" checked/>Inactive Resources<br/>
+            <input id="fDistrict" type="checkbox" checked/>My District<br/>
         </div>
         <center><button style="margin-top: 5px" onClick="getAllData()">Apply</button></center>
     </div>
+
+    <!-- RESOURCE INFORMATION -->
+
+    <div id="resinfo">
+        <i class="fa fa-times fa-lg close-information" aria-hidden="true" onclick="closeResourceInformation()"></i>
+        <div style='float: left'>
+            <h1 style="margin: 0; padding: 0;">Resource Information</h1>
+            <table>
+                <tr>
+                    <td><b>Title:</b></td>
+                    <td id="Rtitle"></td>
+                    <td><b>Approved:</b></td>
+                    <td id="Rappr"></td>
+                </tr>
+                <tr>
+                    <td><b>Type:</b></td>
+                    <td id="Rtype"></td>
+                    <td><b>Active:</b></td>
+                    <td id="Ract"></td>
+                </tr>
+                <tr>
+                    <td><b>UID:</b></td>
+                    <td id="Rnum"></td>
+                </tr>
+                <tr>
+                    <td><b>Latitude:</b></td>
+                    <td id="Rlat"></td>
+                </tr>
+                <tr>
+                    <td><b>Longitude:</b></td>
+                    <td id="Rlng"></td>
+                </tr>
+            </table> 
+            <table>
+                <tr>
+                    <td><b>Description:</b></td>
+                    <td id="Rdesc" style='width: 300px'></td>
+                </tr> 
+            </table>          
+        </div>
+        <div style='float: left'>
+            <h1 style="margin: 0; padding: 0;">Vendor Information</h1>
+            <table>
+                <tr>
+                    <td><b>Name:</b></td>
+                    <td id="Rname"></td>
+                </tr>
+                <tr>
+                    <td><b>Company:</b></td>
+                    <td id="Rcmp"></td>
+                </tr>
+                <tr>
+                    <td><b>Vendor ID:</b></td>
+                    <td id="Rvid"></td>
+                </tr>
+            </table>
+        </div>
+        <div style='float: left; margin-left: 25px;'>
+            <h1 style="margin: 0; padding: 0;">Available Images</h1>
+            <div id="Rimg">
+                <img style='float: left; margin-right: 10px;' src='public/images/crash.png' height='180px'/>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOB INFORMATION -->
+
     <div id="jobinfo">
-        <i class="fa fa-times fa-lg close-information" aria-hidden="true" onclick="closeInformation()"></i>
+        <i class="fa fa-times fa-lg close-information" aria-hidden="true" onclick="closeJobInformation()"></i>
         <div style='float: left'>
             <h1 style="margin: 0; padding: 0;">Job Information</h1>
             <table>

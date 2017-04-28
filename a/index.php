@@ -39,7 +39,7 @@
         <i class="fa fa-users" aria-hidden="true"></i>Creation
       </div>
       <div class="sidebar-entry" onclick="openMenu('req')">
-        <i class="fa fa-code" aria-hidden="true"></i>Requests
+        <i class="fa fa-code" aria-hidden="true"></i>Job Codes
       </div>
       <div class="sidebar-entry" onclick="openMenu('billing')">
         <i class="fa fa-usd" aria-hidden="true"></i>Billing
@@ -82,14 +82,11 @@
   </div>
   <div id="req-under-menu" class="under-menu">
     <div class="under-menu-content">
-      <div class="under-menu-entry" onClick="contentLoader('requests/create_request')">
+      <div class="under-menu-entry" onClick="contentLoader('codes/view_codes', true, 'a')">
         <i class="fa fa-search" aria-hidden="true"></i>Find Codes
       </div>
-      <div class="under-menu-entry" onClick="contentLoader('requests/local_requests')">
+      <div class="under-menu-entry" onClick="contentLoader('accounts/im', true, 'a')">
         <i class="fa fa-plus" aria-hidden="true"></i>New Codes
-      </div>
-      <div class="under-menu-entry" onClick="contentLoader('requests/lookup_request')">
-        <i class="fa fa-truck" aria-hidden="true"></i>Resources
       </div>
     </div>
   </div>

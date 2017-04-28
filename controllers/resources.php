@@ -175,6 +175,31 @@
         }
     }
 
+    function activation($mysqli, $uid, $yes) {
+        $o = array('STAT' => 'FAIL', 'CODE' => $yes);
+        if($query = $mysqli->prepare("SELECT uid FROM vendor WHERE user_uid = ?")) {
+            $query->bind_param("i", $_SESSION['uid']);
+            $query->execute();
+            $query->bind_result($vid);
+            $query->fetch();
+            if(isset($vid)) {
+                $query->fetch();
+                if($query = $mysqli->prepare("UPDATE resource SET active = 0 WHERE vendor_uid = ?")) {
+                    $query->bind_param("i", $vid);
+                    $query->execute();
+                    if($yes == 'true') {
+                        if($query = $mysqli->prepare("UPDATE resource SET active = 1 WHERE vendor_uid = ? AND uid = ?")) {
+                            $query->bind_param("ii", $vid, $uid);
+                            $query->execute();
+                        }
+                    }
+                    $o['STAT'] = 'SUCC';
+                }
+            }
+        }
+        echo(json_encode($o));
+    }
+
 
     $action = $_POST['action'];
 
@@ -190,6 +215,9 @@
             break;
         case 'img':
             addImage($mysqli, $_POST['uid'], $_POST['imgtype']);
+            break;
+        case 'activate':
+            activation($mysqli, $_POST['uid'], $_POST['do']);
             break;
     }
 

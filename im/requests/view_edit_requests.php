@@ -5,8 +5,8 @@
     <center></br></br>
       <div class="contentTables">
         <div class="searchTab">
-          <input require id="search" class="fa-search-entry" type="text" placeholder="Search Requests" onkeyup="validateUsername()"/>
-          <button id="searchBut" style="height:30px; width:30px;" onClick=""><i class="fa fa-search" aria-hidden="true"></i></button><br/><br/>
+          <input require id="search" class="fa-search-entry" type="text" placeholder="Search Jobs" onkeyup="validateUsername()"/>
+          <button id="searchBut" style="height:30px; width:30px;" onClick="newToast('This button currently has no functionality')"><i class="fa fa-search" aria-hidden="true"></i></button><br/><br/>
         </div>
         <div class="searchTable">
           <div class="legend">

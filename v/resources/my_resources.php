@@ -43,24 +43,22 @@
         $query->fetch();
         if(isset($uid)) {
             $query->fetch();
-            if($query = $mysqli->prepare("SELECT uid, resourceType, resourceTitle, resourceDescription, resourceWasDeleted FROM resource WHERE vendor_uid = ?")) {
+            if($query = $mysqli->prepare("SELECT uid, resourceType, resourceTitle, resourceDescription, resourceWasDeleted, active FROM resource WHERE vendor_uid = ?")) {
                 $query->bind_param('i', $uid);
                 $query->execute();
-                $query->bind_result($uid2, $type, $title, $description, $valid);
+                $query->bind_result($uid2, $type, $title, $description, $valid, $active);
                 while($query->fetch()) { 
                     if ($valid == 0) {
                         $pic = "userfiles/u" . $_SESSION['uid'] . "/v" . $uid . "/r" . $uid2 . "/img2.png";
+                        $activated = $active == 1 ? '<i class="fa fa-check" style="color: green" aria-hidden="true"></i>&nbsp;' : '<i class="fa fa-times" style="color: red" aria-hidden="true"></i>&nbsp;';
                 ?>
                 <div class="contentvhr">
-                    <div>
+                    <div style='position: relative;'>
                         <div class="resourceTitle">
-                            <h1> <?= $title ?> </h1>
+                            <h1> <?= $activated ?> <?= $title ?> </h1>
                         </div>
-                        <div class="resourceIconDelete" title="Delete" onClick="deleteResource(<?=$uid2?>)">
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Delete
-                        </div>
-                        <div class="resourceIconEdit" title="Edit" onClick="openEditor(<?=$uid2?>)">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Edit
+                        <div class="resourceMenu" onClick="openBoxMenu(<?=$uid2?>, <?=$active?>)">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div style="margin-top: 40px; height: 150px;">

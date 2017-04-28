@@ -42,7 +42,7 @@
   <div id="sidebar-menu">
     <div id="sidebar-content">
       <div class="sidebar-entry" onclick="openMenu('request')">
-        <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Requests
+        <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Jobs
       </div>
       <div class="sidebar-entry" onclick="openMenu('profile')">
         <i class="fa fa-id-card-o" aria-hidden="true"></i>Profile
@@ -70,13 +70,13 @@
   <div id="request-under-menu" class="under-menu">
     <div class="under-menu-content">
       <div class="under-menu-entry" onClick="contentLoader('requests/create_request')">
-        <i class="fa fa-rss" aria-hidden="true"></i>My Requests
+        <i class="fa fa-rss" aria-hidden="true"></i>My Open Jobs
       </div>
       <div class="under-menu-entry" onClick="contentLoader('requests/local_requests')">
         <i class="fa fa-newspaper-o" aria-hidden="true"></i>In My Area
       </div>
       <div class="under-menu-entry" onClick="contentLoader('requests/lookup_request')">
-        <i class="fa fa-search" aria-hidden="true"></i>Find Request
+        <i class="fa fa-search" aria-hidden="true"></i>Find A Job
       </div>
     </div>
   </div>

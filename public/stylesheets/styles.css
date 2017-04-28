@@ -1268,7 +1268,7 @@ option .title {
 	float: left;
 	color: white;
 	opacity: 0.0;
-	z-index: 12;
+	z-index: 3;
 	height: 25px;
 	width: 135px;
 	cursor: pointer;
@@ -1412,7 +1412,7 @@ xmp {
 	width: 120px;
 }
 
-#jobinfo {
+#jobinfo, #resinfo {
 	height: 230px;
 	width: 100%;
 	position: absolute;
@@ -1458,7 +1458,7 @@ xmp {
 
 #filter-box {
 	position: absolute;
-	right: 10px;
+	right: 5px;
 	top: 54px;
 	height: 25px;
 	width: 150px;
@@ -1478,7 +1478,7 @@ xmp {
 }
 
 #filter-box.open {
-	height: 145px;
+	height: 170px;
 	transition: 0.1s;
 }
 
@@ -1499,7 +1499,7 @@ xmp {
 }
 
 .toast {
-	position: absolute;
+	position: fixed;
 	width: auto;
 	padding: 10px;
 	height: auto;
@@ -1511,4 +1511,84 @@ xmp {
 	display: none;
 	text-align: center;
 	z-index: 150;
+}
+
+.center-box {
+	position: absolute;
+	right: 170px;
+	top: 54px;
+	height: 25px;
+	width: 25px;
+	background: white;
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 3px;
+	font-weight: 700;
+	color: grey;
+	overflow: hidden;
+	user-select: none;
+	transition: 0.1s;
+	text-align: center;
+}
+
+.center-box:hover {
+	color: black;
+}
+
+.resourceMenu {
+	float: right;
+	height: 32px;
+	width: 32px;
+	line-height: 32px;
+	font-size: 20px;
+	margin-top: 0px;
+	color: lightgrey;
+	text-align: center;
+	background: white;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: 0.3s;
+	box-shadow: 1px 1px lightgrey;
+	overflow: hidden;
+	user-select: none;
+}
+
+.resourceMenu:hover {
+	color: black;
+	transition: 0.3s;
+}
+
+#resourceMenu {
+	border-radius: 3px;
+	box-shadow: 1px 1px lightgrey;
+	padding: 5px;
+	user-select: none;
+	position: absolute;
+	height: 100px;
+	width: 150px;
+	background: white;
+	z-index: 50;
+	right: 0px;
+	top: 37px;
+	display: none;
+}
+
+#resourceMenu ul li {
+	border-bottom: 1px solid lightgray;
+	text-decoration: none;
+	height: 24px;
+	padding: 5px;
+}
+
+#resourceMenu ul li:hover {
+	font-weight: 700;
+}
+
+#resourceMenu ul {
+	list-style: none;
+	padding: 0;
+}
+
+#districttool {
+	transition: 0.3s;
 }
