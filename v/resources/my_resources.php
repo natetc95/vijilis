@@ -57,7 +57,7 @@
                         <div class="resourceTitle">
                             <h1> <?= $activated ?> <?= $title ?> </h1>
                         </div>
-                        <div class="resourceMenu" onClick="openBoxMenu(<?=$uid2?>, <?=$active?>)">
+                        <div class="resourceMenu" id='r<?=$uid2?>' onClick="openBoxMenu(<?=$uid2?>, <?=$active?>)">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </div>
                     </div>

@@ -125,6 +125,7 @@ function createMarker(jobNumber, position, desc, type) {
         closeResourceInformation();
     });
     markers.push(marker);
+    console.log(name + 'Marker Added!');
 }
 
 function closeAllMarkers() {

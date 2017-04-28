@@ -16,12 +16,12 @@ body {
 	padding: 0;
 	margin: 0;
 	position: absolute;
-	color: var(--dark-primary-color);
-	/* background: var(--light-primary-color); */
+	color: #193864;
+	/* background: #E0D8D7; */
 	/*background-image: url(../images/bg5.jpg);
 	background-size: cover;*/
 	background: lightslategrey;
-	font-family: var(--text-font);
+	font-family: 'Open Sans Condensed', sans-serif;
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
@@ -37,13 +37,13 @@ form {
 	height: 264px;
 	top: 40%;
 	margin-top: -155px;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);;
 	border-radius: 4px;
 }
 #loginbox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid #BDBDBD;
 	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
@@ -54,7 +54,7 @@ form {
 	width: 268px;
 	height: 125px;
 	margin-top: 150px;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);;
 	border-radius: 4px;
 }
@@ -64,13 +64,13 @@ form {
 	width: 268px;
 	height: 305px;
 	margin-top: 150px;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);;
 	border-radius: 4px;
 }
 #resetbox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid #BDBDBD;
 	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
@@ -81,13 +81,13 @@ form {
 	width: 268px;
 	height: 230px;
 	margin-top: 150px;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);;
 	border-radius: 4px;
 }
 #verifybox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid #BDBDBD;
 	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
@@ -98,13 +98,13 @@ form {
 	width: 268px;
 	height: 200px;
 	margin-top: 150px;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);;
 	border-radius: 4px;
 }
 #forgotpassbox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid #BDBDBD;
 	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
@@ -117,7 +117,7 @@ form {
 	margin-top: -155px;
 	width: 268px;
 	height: 310px;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 }
@@ -134,7 +134,7 @@ form {
 
 #portalbox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid #BDBDBD;
 	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
@@ -145,7 +145,7 @@ form {
 	width: 268px;
 	height: 465px;
 	margin-top: 5%;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	box-shadow: 0px 5px 25px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
 	transition: 0.1s;
@@ -153,26 +153,26 @@ form {
 
 #registerbox h1 {
 	padding: 0px 0px 10px 0px;
-	border-bottom: 1px solid var(--border-color);
+	border-bottom: 1px solid #BDBDBD;
 	margin: 0px 0px 10px 0px;
 	text-align: center;
 	cursor: default;
 }
 
 .portal-link {
-	border: 1px solid var(--border-color);
+	border: 1px solid #BDBDBD;
 	border-radius: 2px;
 	width: 220px;
 	height: 32px;
 	line-height: 32px;
 	padding: 10px;
-	color: var(--dark-primary-color);
+	color: #193864;
 	transition: 0.3s;
 	margin: 10px 0px 10px 0px;
 }
 .portal-link:hover {
-	color: var(--border-color);
-	border: 1px solid var(--dark-primary-color);
+	color: #BDBDBD;
+	border: 1px solid #193864;
 }
 
 .portal-div{
@@ -192,16 +192,16 @@ form {
 #bar {
 	width: 100%;
 	height: 10px;
-	background: var(--light-primary-color);;
+	background: #E0D8D7;;
 	font-size: 1px;
-	color: var(--border-color);
+	color: #BDBDBD;
 	margin: 0px;
 	padding: 0px;
 }
 
 .headerbar {
 	width: 100%;
-	background: var(--border-color);
+	background: #BDBDBD;
 	height: 24px;
 	padding: 12px;
 	position: fixed;
@@ -224,37 +224,37 @@ form {
 }
 
 input[type=submit], button {
-	border: 1px solid var(--border-color);
+	border: 1px solid #BDBDBD;
 	border-radius: 2px;
 	padding: 4px 8px 4px 8px;
 	font-weight: bold;
 	transition: 0.3s;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 }
 
 input[type=submit], button#searchBut {
-	border: 1px solid var(--border-color);
+	border: 1px solid #BDBDBD;
 	border-radius: 2px;
 	padding: 0px;
 	font-weight: bold;
 	transition: 0.3s;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 }
 
 input[type=submit]:hover, button:hover {
 	cursor: pointer;
-	color: var(--border-color);
-	border: 1px solid var(--dark-primary-color);
+	color: #BDBDBD;
+	border: 1px solid #193864;
 }
 
 .fa-entry {
 	padding: 10px 2px 10px 2px;
 	width: 30px;
 	height: 16px;
-	color: var(--dark-primary-color);
-	border: 1px solid var(--border-color);
+	color: #193864;
+	border: 1px solid #BDBDBD;
 	border-radius: 2px 0px 0px 2px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
   box-shadow: inset 0px 0px 3px rgba(0,0,0,0.1);
 	margin-left: 12px;
 }
@@ -263,20 +263,20 @@ input[type=submit]:hover, button:hover {
 	padding: 10px 2px 10px 2px;
 	width: 400px;
 	height: 8px;
-	color: var(--dark-primary-color);
-	border: 1px solid var(--border-color);
+	color: #193864;
+	border: 1px solid #BDBDBD;
 	border-width: 1px 1px 1px 1px;
 	border-radius: 0px 2px 2px 0px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
 	margin-left: 12px;
 }
 .fa-search-entry:hover{
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	border-width: 1px 1px 1px 1px;
 }
 .fa-search-entry:active{
-		border: 1px solid var(--dark-primary-color);
+		border: 1px solid #193864;
 		border-width: 1px 1px 1px 1px;
 }
 
@@ -289,8 +289,8 @@ input[type=submit]:hover, button:hover {
 	width: 190px;
 	height: 16px;
 	background: none;
-	color: var(--dark-primary-color);
-	border: 1px solid var(--border-color);
+	color: #193864;
+	border: 1px solid #BDBDBD;
 	border-width: 1px 1px 1px 0px;
 	border-radius: 0px 2px 2px 0px;
 	padding: 10px;
@@ -298,11 +298,11 @@ input[type=submit]:hover, button:hover {
 	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
 }
 .inputicon:hover {
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	border-width: 1px 1px 1px 0px;
 }
 .inputicon:active {
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	border-width: 1px 1px 1px 0px;
 }
 
@@ -321,8 +321,8 @@ input[type=submit]:hover, button:hover {
 #errors {
 	width: 210px;
 	height: auto;
-	border: 1px solid var(--default-primary-color);
-	color: var(--dark-primary-color);
+	border: 1px solid #EBEBEB;
+	color: #193864;
 	text-align: center;
 	font-size: 10pt;
 	padding: 5px;
@@ -347,7 +347,7 @@ nav > a {
 	width: 60px;
 	background: #003565;
 	text-decoration: none;
-	font-family: var(--text-font);
+	font-family: 'Open Sans Condensed', sans-serif;
 	color: white;
 	transition: 0.3s;
 }
@@ -388,7 +388,7 @@ nav {
 
 #menubar {
 	width: 100%;
-	background: var(--border-color);
+	background: #BDBDBD;
 	height: 24px;
 	padding: 12px;
 	position: fixed;
@@ -446,10 +446,10 @@ nav {
 .sidebar-entry:hover {
 	width: 146px;
 	text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
-	color: var(--foreground-color);
+	color: #FFFFFF;
 	background: #363636;
 	box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2) inset;
-	border-left: 5px solid var(--foreground-color);
+	border-left: 5px solid #FFFFFF;
 }
 
 .sidebar-entry i {
@@ -471,7 +471,7 @@ nav {
 	font-size: 24px;
 	list-style: none;
 	margin-left: 16px;
-	border-left: 1px solid var(--border-color);
+	border-left: 1px solid #BDBDBD;
 	z-index: 1;
 }
 .te {
@@ -481,7 +481,7 @@ nav {
 	color: #6D6D6D;
 }
 .te:hover {
-	color: var(--foreground-color);
+	color: #FFFFFF;
 }
 .under-nav .open {
 	display: block;
@@ -491,10 +491,10 @@ nav {
 .contentvhr {
 	width: 310px;
 	min-height: 25px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	margin: 0px 10px 10px 0px;
 	padding: 10px;
 }
@@ -504,10 +504,10 @@ nav {
 	min-height: 25px;
 	height: 420px;
 	max-height: 420px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	margin: 0px 10px 10px 0px;
 	padding: 20px;
 }
@@ -525,7 +525,7 @@ nav {
 	max-width: 580px;
 	max-height: 20px;
 	text-overflow: hidden;
-	background: var(--border-color);
+	background: #BDBDBD;
 	font-size: 13px;
 }
 .contentTables .searchTable .type2 {
@@ -571,10 +571,10 @@ nav {
 .contentIMpage {
 	width: 1000px;
 	min-height: 25px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 25px;
@@ -586,10 +586,10 @@ nav {
 .contentIMpageSPLIT {
 	width: 46.5%;
 	min-height: 25px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	margin: 0px 10px 25px 0px;
 	padding: 10px;
 	padding-top: 20px;
@@ -607,10 +607,10 @@ nav {
 .contentIMaboutpage {
 	width: 800px;
 	min-height: 25px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	margin-left: 250px;
 	margin-bottom: 25px;
 	padding-top: 10px;
@@ -632,10 +632,10 @@ nav {
 .aboutpageSCROLLancestor{
 	width: 800px;
 	min-height: 25px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	margin-left: 250px;
 	margin-top: 180px;
 	padding-top: 10px;
@@ -657,10 +657,10 @@ nav {
 .contentIMaboutpageSPLITleft {
 	width: 550px;
 	min-height: 25px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	margin: 0px 10px 25px 0px;
 	padding: 10px;
 	margin-left: 50px;
@@ -670,10 +670,10 @@ nav {
 .contentIMaboutpageSPLITright {
 	width: 550px;
 	min-height: 25px;
-	background: var(--default-primary-color);
+	background: #EBEBEB;
 	box-shadow: 0px 5px 10px 5px rgba(0, 0, 0, 0.4);
 	border-radius: 4px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	margin: 0px 10px 25px 0px;
 	margin-left: 650px;
 	padding: 10px;
@@ -723,8 +723,8 @@ nav {
 	width: 190px;
 	height: 16px;
 	background: white;
-	color: var(--dark-primary-color);
-	border: 1px solid var(--border-color);
+	color: #193864;
+	border: 1px solid #BDBDBD;
 	border-radius: 2px 2px 2px 2px;
 	padding: 5px;
 	transition: 0.3s;
@@ -754,7 +754,7 @@ nav {
 }
 
 .location i:hover {
-	color: 1px solid var(--border-color)
+	color: 1px solid #BDBDBD
 }
 
 .location .help {
@@ -770,7 +770,7 @@ nav {
 
 .location .help a {
 	text-decoration: none;
-	color: var(--dark-primary-color);
+	color: #193864;
 }
 
 .location .help a:hover {
@@ -798,7 +798,7 @@ nav {
 .under-menu-content {
 	width: 190px;
 	height: 100%;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 }
 
 .under-menu-entry {
@@ -807,7 +807,7 @@ nav {
 	height: auto;
 	line-height: 36px;
 	font-size: 28px;
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	border-bottom: 1px solid rgb(109, 109, 109, 0.8);
 	color: #6D6D6D;
 	padding: 12px;
@@ -831,7 +831,7 @@ nav {
 	width: 161px;
 	color: #363636;
 	text-shadow: 1px 1px rgba(109, 109, 109, 0.8);
-	background: var(--foreground-color);
+	background: #FFFFFF;
 	box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2) inset;
 	border-left: 5px solid #363636;
 }
@@ -868,8 +868,8 @@ nav {
 .wew {
 	width: 296px;
 	background: white;
-	color: var(--dark-primary-color);
-	border: 1px solid var(--border-color);
+	color: #193864;
+	border: 1px solid #BDBDBD;
 	border-radius: 2px 2px 2px 2px;
 	padding: 5px;
 	transition: 0.3s;
@@ -903,13 +903,13 @@ option .title {
 #map {
     height: 310px;
     width: 310px;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 }
 
 .tabholder {
 	width: 310px;
 	height: 26px;
-	border-bottom: 1px solid var(--dark-primary-color);
+	border-bottom: 1px solid #193864;
 }
 
 .tab {
@@ -917,8 +917,8 @@ option .title {
 	line-height: 25px;
 	height: 25px;
 	float: left;
-	color: var(--dark-primary-color);
-	border: 2px solid var(--dark-primary-color);
+	color: #193864;
+	border: 2px solid #193864;
 	border-width: 1px 1px 0px 1px;
 	border-radius: 2px 2px 0px 0px;
 	text-decoration: none;
@@ -940,7 +940,7 @@ option .title {
 }
 
 .tab.selected {
-	background: var(--border-color);
+	background: #BDBDBD;
 }
 
 .contentvhr h2 {
@@ -964,7 +964,7 @@ option .title {
 .subreq {
 	width: 303px;
 	height: auto;
-	border: 1px solid var(--dark-primary-color);
+	border: 1px solid #193864;
 	border-width: 0px 1px 1px 1px;
 	border-radius: 0px 0px 2px 2px;
 	padding-left: 5px;
@@ -1177,8 +1177,8 @@ option .title {
 	width: 250px;
 	margin: 5px 0;
 	background: white;
-	color: var(--dark-primary-color);
-	border: 1px solid var(--border-color);
+	color: #193864;
+	border: 1px solid #BDBDBD;
 	border-radius: 2px 2px 2px 2px;
 	padding: 5px;
 	transition: 0.3s;
@@ -1299,7 +1299,7 @@ option .title {
 
 xmp {
 	display: inline;
-	font-family: var(--text-font);
+	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .imghider {
@@ -1374,7 +1374,7 @@ xmp {
 
 .news-link {
 	text-decoration: none;
-	color: var(--dark-primary-color);
+	color: #193864;
 	height: 20px;
 	margin: 0;
 	padding: 0;

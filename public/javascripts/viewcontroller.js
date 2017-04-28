@@ -98,7 +98,7 @@ function openMenu(type) {
     $("#" + type + "-under-menu").toggleClass('open');
 }
 
-function refresh(q='v') {
+function refresh(q = 'v') {
     $('#refresh').toggleClass('fa-spin');
     $('#content').innerHTML = "";
     contentLoader(currPage, false, q);
