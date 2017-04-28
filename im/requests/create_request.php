@@ -16,9 +16,9 @@
     </div>
 </div>
 <div class="contentvhr">
-    <div class="location">
+    <div class="location" style='margin-left: 0'>
         <h2>Location</h2><div class="help"><a href="javascript:geoFindMe()">(Get My Location <i class="fa fa-map-marker" aria-hidden="true"></i>)</a></div><br/>
-        <label>Address: </label><br/>
+        <label>Address Search: </label><br/>
         <input class="locbox" id="locinp" type="text" style="color:#888;" onfocus="inputFocus(this)" onblur="inputBlur(this)" value="Enter Location Here"/>
         <button id="locinp_but" style="height:30px; width:30px;" onClick="geocodeMe()"><i class="fa fa-paper-plane-o" id='meslogo' aria-hidden="true"></i></button><br/><br/>
         <label>Latitude: </label><br/>
