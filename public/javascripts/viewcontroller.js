@@ -21,6 +21,7 @@
 * - alerter(message, header)
 * - days(d)
 * - clock()
+* - newToast(message, duration)
 *
 * Also start the center clock on the index.php page
 *
@@ -253,7 +254,7 @@ function addSub() {
       </div>
 
       <div style="margin-top:10px;margin-bottom:10px;">
-        <center><button onClick="">Remove Linked Job</button></center>
+        <center><button onClick="removeLinkedJob()">Remove Linked Job</button></center>
       </div>`;
     document.getElementById("sr").appendChild(newBox);
 }

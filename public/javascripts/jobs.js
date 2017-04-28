@@ -12,7 +12,7 @@ function inputBlur(i){
 }
 
 function removeLinkedJob(){
-
+    newToast('This button currently has no functionality');
 }
 
 function submitJob() {
