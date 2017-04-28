@@ -425,6 +425,10 @@ nav {
 	box-shadow: 4px 0 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+#sidebar-menu.open {
+    margin:  0px 15px 0px 0px;
+}
+
 #sidebar-content {
 	width: 175px;
 	height: 100%;

@@ -17,7 +17,7 @@
                     $query->bind_result($uid, $vendoridR, $rType, $rTitle, $rDesc, $rFollow);
                     $query->fetch();
                     if(!isset($vendorid) || $vendorid != $vendoridR) {
-                        echo("<script>contentLoader('resources/my_resources',false);</script>");
+                        echo("<script>contentLoader('resources/my_resources',false, 'v');</script>");
                     } else {
                         $query->fetch();
                         $img1 = 'userfiles/u' . $_SESSION['uid'] . '/v' . $vendorid . '/r' . $uid . '/img1.png';
@@ -66,7 +66,7 @@
             }
         }
     } else {
-        echo("<script>contentLoader('resources/my_resources',false);</script>");
+        echo("<script>contentLoader('resources/my_resources',false, 'v');</script>");
     }
 ?>
 
@@ -85,7 +85,7 @@
         <div class="resourceIconAdd" title="Save" onClick="editResource(<?=$_POST['uid']?>)" style="margin-top: -32px;">
             <i class="fa fa-save" aria-hidden="true"></i>&nbsp;Save
         </div>
-        <div class="resourceIconDelete" title="Cancel" onClick="contentLoader('resources/my_resources', false)" style="margin-top: -32px; margin-right: 10px;">
+        <div class="resourceIconDelete" title="Cancel" onClick="contentLoader('resources/my_resources', false, 'v')" style="margin-top: -32px; margin-right: 10px;">
             <i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel
         </div>
     </div>
@@ -185,5 +185,5 @@
 <?php } ?>
 </div>
 <div class="contentvhr">
-    <button style="float: left" onClick="contentLoader('resources/my_resources', false)">Cancel</button><button style="float: right" onClick="editResource(<?=$_POST['uid']?>)">Save</button>
+    <button style="float: left" onClick="contentLoader('resources/my_resources', false, 'v')">Cancel</button><button style="float: right" onClick="editResource(<?=$_POST['uid']?>)">Save</button>
 </div>

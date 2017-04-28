@@ -69,13 +69,13 @@
   </div>
   <div id="request-under-menu" class="under-menu">
     <div class="under-menu-content">
-      <div class="under-menu-entry" onClick="contentLoader('requests/create_request')">
+      <div class="under-menu-entry" onClick="contentLoader('requests/create_request', true, 'v')">
         <i class="fa fa-rss" aria-hidden="true"></i>My Open Jobs
       </div>
-      <div class="under-menu-entry" onClick="contentLoader('requests/local_requests')">
+      <div class="under-menu-entry" onClick="contentLoader('requests/local_requests', true, 'v')">
         <i class="fa fa-newspaper-o" aria-hidden="true"></i>In My Area
       </div>
-      <div class="under-menu-entry" onClick="contentLoader('requests/lookup_request')">
+      <div class="under-menu-entry" onClick="contentLoader('requests/lookup_request', true, 'v')">
         <i class="fa fa-search" aria-hidden="true"></i>Find A Job
       </div>
     </div>
@@ -83,7 +83,7 @@
   <div id="profile-under-menu" class="under-menu">
     <div class="under-menu-content">
       <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry" onClick="contentLoader('profile/my_profile')">
+      <div class="under-menu-entry" onClick="contentLoader('profile/my_profile', true, 'v')">
         <i class="fa fa-user" aria-hidden="true"></i>My Profile
       </div>
       <div class="under-menu-entry">
@@ -95,17 +95,17 @@
     <div class="under-menu-content">
       <div class="under-menu-empty">&nbsp;</div>
       <div class="under-menu-empty">&nbsp;</div>
-      <div class="under-menu-entry" onClick="contentLoader('resources/my_resources')">
+      <div class="under-menu-entry" onClick="contentLoader('resources/my_resources', true, 'v')">
         <i class="fa fa-list" aria-hidden="true"></i>My Resources
       </div>
-      <div class="under-menu-entry" onClick="contentLoader('resources/add_resource')">
+      <div class="under-menu-entry" onClick="contentLoader('resources/add_resource', true, 'v')">
         <i class="fa fa-plus" aria-hidden="true"></i>Add Resource
       </div>
     </div>
   </div>
   <div id="menubar">
     <i id="burger" class="fa fa-bars" aria-hidden="true" onClick="test()"></i>
-    <i id="refresh" class="fa fa-refresh" aria-hidden="true" onClick="refresh()"></i>
+    <i id="refresh" class="fa fa-refresh" aria-hidden="true" onClick="refresh('v')"></i>
     <a href="portal.php">
       <img src="public/images/logo_rn.png" class="barlogo" height="24px" style="float: right; margin-right: 30px;">
     </a>
