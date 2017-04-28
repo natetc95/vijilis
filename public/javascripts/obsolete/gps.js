@@ -140,21 +140,29 @@ function initAutocomplete() {
       }
 
 function geocodeMe() {
-
-  $.ajax({
-    url: 'https://maps.googleapis.com/maps/api/geocode/json',
-    method: 'get',
-    dataType: 'json',
-    data: {
-      address: document.getElementById('locinp').value.replace(/\s/g, "+"),
-      key: 'AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw'
-    }, success: function(e) {
-      document.getElementById('locbox_x').value = e.results[0].geometry.location.lat;
-      document.getElementById('locbox_y').value = e.results[0].geometry.location.lng;
-      marker.setPosition(e.results[0].geometry.location);
-      map.setCenter(e.results[0].geometry.location);
-    }
-  })
+  if(document.getElementById('locinp').value != "Enter Location Here") {
+    document.getElementById('meslogo').setAttribute('class', 'fa fa-cog fa-spin');
+    $.ajax({
+      url: 'https://maps.googleapis.com/maps/api/geocode/json',
+      method: 'get',
+      dataType: 'json',
+      data: {
+        address: document.getElementById('locinp').value.replace(/\s/g, "+"),
+        key: 'AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw'
+      }, success: function(e) {
+        document.getElementById('locbox_x').value = e.results[0].geometry.location.lat;
+        document.getElementById('locbox_y').value = e.results[0].geometry.location.lng;
+        marker.setPosition(e.results[0].geometry.location);
+        map.setCenter(e.results[0].geometry.location);
+        document.getElementById('meslogo').setAttribute('class', 'fa fa-paper-plane-o');
+      }
+    });
+  } else {
+    document.getElementById('meslogo').setAttribute('class', 'fa fa-exclamation-circle ');
+    setTimeout(function() {
+      document.getElementById('meslogo').setAttribute('class', 'fa fa-paper-plane-o');
+    }, 750);
+  }
 }
 
 function geolocate() {
