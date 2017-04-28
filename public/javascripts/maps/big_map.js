@@ -81,7 +81,7 @@ function init() {
 }
 
 function createMarker(jobNumber, position, desc, type) {
-    if (type == 'inactive' || type == 'active') {
+    if (type == 'inactive' || type == 'active' || type == 'engaged') {
         func = 'getResourceInformation()';
         name = 'Resource';
     } else {
@@ -91,10 +91,17 @@ function createMarker(jobNumber, position, desc, type) {
     var marker = new google.maps.Marker({
         position: position,
         map: map,
-        title: 'Job # ' + jobNumber,
+        title: name + ' #' + jobNumber,
         icon: 'public/images/mapicons/' + type + '.png'
     });
     marker.addListener('click', function(e) {
+        if (marker.icon != 'public/images/mapicons/jobs.png') {
+            func = 'getResourceInformation()';
+            name = 'Resource';
+        } else {
+            func = 'getJobInformation()';
+            name = 'Job';
+        }
         var curr = document.getElementsByClassName('map-modal');
         var contentString = '<h3 style="margin: 0">' + name + ' #' + jobNumber + '</h3><b>' +
                             desc + '</b><br/>' +
@@ -239,12 +246,19 @@ function getAllData() {
     closeAllMarkers();
     if(document.getElementById("fJobs").checked) {
         getDBData('jobs');
+        console.log('Done Loading Jobs');
     }
     if(document.getElementById("fInactive").checked) {
         getDBData('inactive');
+        console.log('Done Loading Inactive Resources');
+    }
+    if(document.getElementById("fEngaged").checked) {
+        getDBData('engaged');
+        console.log('Done Loading Engaged Resources');
     }
     if(document.getElementById("fActive").checked) {
         getDBData('active');
+        console.log('Done Loading Active Resources');
     }
     if(document.getElementById("fDistrict").checked) {
         getDistrict();
