@@ -20,7 +20,7 @@
         <h2>Location</h2><div class="help"><a href="javascript:geoFindMe()">(Get My Location <i class="fa fa-map-marker" aria-hidden="true"></i>)</a></div><br/>
         <label>Address: </label><br/>
         <input class="locbox" id="locinp" type="text" style="color:#888;" onfocus="inputFocus(this)" onblur="inputBlur(this)" value="Enter Location Here"/>
-        <button id="locinp" style="height:30px; width:30px;" onClick="searchLocation()"><i class="fa fa-search" aria-hidden="true"></i></button><br/><br/>
+        <button id="locinp_but" style="height:30px; width:30px;" onClick="geocodeMe()"><i class="fa fa-paper-plane-o" id='meslogo' aria-hidden="true"></i></button><br/><br/>
         <label>Latitude: </label><br/>
         <input class="locbox" id="locbox_x" type="text" value="<?php echo($zx); ?>"/><br/>
         <label>Longitude: </label><br/>
@@ -70,5 +70,5 @@
 </div>
 <div class="contentvhr">
     <button style="float: left" onClick="contentLoader('news', true, 'im')">Cancel</button>
-    <button onClick="submitJob()" style="float: right">Submit</button>
+    <button onClick="makeJob()" style="float: right">Submit</button>
 </div>

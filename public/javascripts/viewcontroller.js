@@ -257,6 +257,7 @@ function addSub() {
         <center><button onClick="removeLinkedJob()">Remove Linked Job</button></center>
       </div>`;
     document.getElementById("sr").appendChild(newBox);
+    opensub(reqs);
 }
 
 function FOBBY(uid, menu=false) {
