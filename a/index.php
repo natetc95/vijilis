@@ -42,7 +42,7 @@
         <i class="fa fa-code" aria-hidden="true"></i>Job Codes
       </div>
       <div class="sidebar-entry" onclick="openMenu('billing')">
-        <i class="fa fa-usd" aria-hidden="true"></i>Billing
+        <i class="fa fa-check" aria-hidden="true"></i>Approvals
       </div>
       <div class="sidebar-entry">
         <i class="fa fa-line-chart" aria-hidden="true"></i>Analytics
@@ -92,14 +92,11 @@
   </div>
   <div id="billing-under-menu" class="under-menu">
     <div class="under-menu-content">
-      <div class="under-menu-entry" onClick="contentLoader('requests/create_request')">
-        <i class="fa fa-rss" aria-hidden="true"></i>My Requests
+      <div class="under-menu-entry" onClick="contentLoader('approval/acct', true, 'a')">
+        <i class="fa fa-users" aria-hidden="true"></i>Accounts
       </div>
-      <div class="under-menu-entry" onClick="contentLoader('requests/local_requests')">
-        <i class="fa fa-newspaper-o" aria-hidden="true"></i>In My Area
-      </div>
-      <div class="under-menu-entry" onClick="contentLoader('requests/lookup_request')">
-        <i class="fa fa-search" aria-hidden="true"></i>Find Request
+      <div class="under-menu-entry" onClick="contentLoader('approval/res', true, 'a')">
+        <i class="fa fa-truck" aria-hidden="true"></i>Resources
       </div>
     </div>
   </div>

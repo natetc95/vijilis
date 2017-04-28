@@ -60,10 +60,10 @@
         echo(json_encode($o));
     }
 
-    function createDistrict($mysqli, $bounding, $cname, $email, $telnum, $dname, $color) {
+    function createDistrict($mysqli, $bounding, $cname, $email, $telnum, $dname, $color, $city, $state) {
         $o = array('status' => 'FAIL', 'code' => '');
-        if($query = $mysqli->prepare('INSERT INTO districts VALUES (0, ?, "AZ", ?, ?, ?, ?, ?);')) {
-            $query->bind_param('ssssss', $dname, $cname, $email, $telnum, $bounding, $color);
+        if($query = $mysqli->prepare('INSERT INTO districts VALUES (0, ?, "AZ", ?, ?, ?, ?, ?, ?, ?);')) {
+            $query->bind_param('ssssss', $dname, $cname, $email, $telnum, $bounding, $color, $city, $state);
             $query->execute();
             if($query = $mysqli->prepare('SELECT uid FROM districts WHERE name = ?;')) {
                 $query->bind_param('s', $dname);
@@ -90,7 +90,7 @@
                 createIncidentManager($mysqli, $_POST['uname'], $_POST['pword'], $_POST['email'], $_POST['fname'], $_POST['lname'], $_POST['telnum']);
                 break;
             case 'createDistrict':
-                createDistrict($mysqli, json_encode($_POST['data']), $_POST['cname'], $_POST['email'], $_POST['telnum'], $_POST['dname'], $_POST['color']);
+                createDistrict($mysqli, json_encode($_POST['data']), $_POST['cname'], $_POST['email'], $_POST['telnum'], $_POST['dname'], $_POST['color'], $_POST['city'], $_POST['state']);
                 break;
             default:
                 echo(json_encode(array('status' => 'FAIL', 'code' => "You didn't send a proper request! Your action request: $a")));

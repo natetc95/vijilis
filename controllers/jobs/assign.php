@@ -29,7 +29,7 @@
         $o = array();
         $v = array();
         $vendors = array();
-        if($query = $mysqli->prepare('SELECT resourceLocation, uid, vendor_uid, resourceTitle FROM resource WHERE active = 1 AND resourceWasDeleted = 0 AND resourceType = 0')) {
+        if($query = $mysqli->prepare('SELECT resourceLocation, uid, vendor_uid, resourceTitle FROM resource WHERE active = 1 AND resourceWasDeleted = 0 AND resourceType = 0 AND engaged = 0')) {
             $query->execute();
             $query->bind_result($rL, $uid, $vid, $rT);
             while($query->fetch()) {
@@ -66,6 +66,10 @@
                         $telnum = '+1' . $telnum;
                         $str = 'Hi ' . $fname . '! Job #' . $job . ' is availabe for your resource: ' . $vendor['title'] . '. Approximately ' . sprintf('%.1f',$vendor['dist']) . ' miles away from your last check in. Text back to accept or decline.';
                         sendMessage($telnum, $str);
+                        if($query = $mysqli->prepare('INSERT INTO messages VALUES (0, ?, ?, 1, ?, ?)')) {
+                            $query->bind_param('i', $telnum, $fname, $job, $vendor['uid']);
+                            $query->execute();
+                        }
                     }
                 }
             }
