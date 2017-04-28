@@ -1499,7 +1499,7 @@ xmp {
 }
 
 .toast {
-	position: absolute;
+	position: fixed;
 	width: auto;
 	padding: 10px;
 	height: auto;
