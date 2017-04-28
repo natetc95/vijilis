@@ -70,5 +70,5 @@
 </div>
 <div class="contentvhr">
     <button style="float: left" onClick="contentLoader('news', true, 'im')">Cancel</button>
-    <button onClick="submitJob()" style="float: right">Submit</button>
+    <button onClick="makeJob()" style="float: right">Submit</button>
 </div>
