@@ -25,7 +25,7 @@
     function find_inactive_resources($mysqli) {
         $o = array();
         $template = array('lat' => 0, 'lng' => 0, 'uid' => 0);
-        if($query = $mysqli->prepare('SELECT resourceLocation, resourceType, uid FROM resource WHERE active = 0 AND resourceWasDeleted = 0')) {
+        if($query = $mysqli->prepare('SELECT resourceLocation, resourceType, uid FROM resource WHERE active = 0 AND resourceWasDeleted = 0 AND approved = 1')) {
             $query->execute();
             $query->bind_result($rL, $rT, $uid);
             while($query->fetch()) {
@@ -43,7 +43,7 @@
     function find_active_resources($mysqli) {
         $o = array();
         $template = array('lat' => 0, 'lng' => 0, 'uid' => 0);
-        if($query = $mysqli->prepare('SELECT resourceLocation, resourceType, uid FROM resource WHERE active = 1 AND resourceWasDeleted = 0')) {
+        if($query = $mysqli->prepare('SELECT resourceLocation, resourceType, uid FROM resource WHERE active = 1 AND resourceWasDeleted = 0 AND approved = 1')) {
             $query->execute();
             $query->bind_result($rL, $rT, $uid);
             while($query->fetch()) {
