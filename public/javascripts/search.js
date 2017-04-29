@@ -27,7 +27,6 @@ function searchVendor(e){
         document.getElementById('telnum').innerHTML = '';
         document.getElementById('zip').innerHTML = '';
 
-        console.log(list);
         //remove current entries
         var parentElement = document.getElementsByClassName('code-select-box');
         while (parentElement[0].hasChildNodes()) {
@@ -45,13 +44,8 @@ function searchVendor(e){
                 str: list[i]
             },
             success: function(e) {
-              console.log(e);
-              console.log(e[0]);
-              console.log(e[1]);
-              console.log(e.length);
               for(var j = 0; j < e.length; j++){
                 if(e[j].status == 'SUCC'){
-                  console.log(e[j].status);
                   var childElement = document.createElement('div');
                   var h1 = document.createElement('h1');
                   h1.innerHTML = e[j].fname + ' ' + e[j].lname;
@@ -61,10 +55,9 @@ function searchVendor(e){
                     openuser(e[j].uid);
                     event.preventDefault();
                   });
-                  
+
                   childElement.appendChild(h1);
                   parentElement[0].appendChild(childElement);
-                  console.log(e[j].uid);
                 }
                 else{
                   alerter('Please try a different entry', 'User not found')
