@@ -23,6 +23,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="public/javascripts/loginpage.js"></script>
+  <script src="public/javascripts/viewcontroller.js"></script>
   <title>Portals</title>
 </head>
 <?php
@@ -45,6 +46,7 @@
   $size = $size*65 + 130;
 ?>
 <body>
+  <div id="clock"></div>
 	<div class="headerbar">
 		<a href="portal.php"><img src="public/images/logo_rn.png" height="24px" style="float: right; margin-right: 30px"></a>
   </div>
@@ -78,7 +80,7 @@
       </a><?php } ?>
     </center>
     <button style="float: left; margin:  12px 10px 10px 12px" onclick="Logout()"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Log Out</button>
-    <button style="float: right; margin: 12px 12px 10px 10px;" onclick="">Preferences&nbsp;<i class="fa fa-cogs" aria-hidden="true"></i></button>
+    <button style="float: right; margin: 12px 12px 10px 10px;" onclick="newToast('This button currently has no functionality')">Preferences&nbsp;<i class="fa fa-cogs" aria-hidden="true"></i></button>
 	</div>
 </body>
 </html>

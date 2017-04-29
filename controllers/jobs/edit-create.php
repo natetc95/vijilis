@@ -19,7 +19,7 @@
                     $query->fetch();
                     $o['status'] = 'SUCC';
                     $o['code'] = $req;
-                  // findVendorForJob($mysqli, $req, $latlng);
+                    findVendorForJob($mysqli, $req, $latlng);
                 }
             }
 

@@ -788,8 +788,8 @@ option .title {
 }
 
 #map {
-    height: 310px;
-    width: 310px;
+  height: 310px;
+  width: 310px;
 	border: 1px solid var(--dark-primary-color);
 }
 
