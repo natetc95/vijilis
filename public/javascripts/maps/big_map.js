@@ -5,6 +5,10 @@ var infowindow = null;
 
 var markers = [];
 
+var oldmarkers = [];
+var oldy = null;
+var truths = [];
+
 function initMap() {
     // Styles a map in night mode.
     document.getElementById('biggysmalls').style = 'height: ' + ($(window).height() - 44) + 'px';
@@ -125,18 +129,18 @@ function createMarker(jobNumber, position, desc, type) {
         closeResourceInformation();
     });
     markers.push(marker);
-    console.log(name + 'Marker Added!');
 }
 
 function closeAllMarkers() {
-    if (markers.length != 0) {
-        for (var i = 0; i < markers.length; i++) {
-            markers[i].setMap(null);
+    if (oldmarkers.length != 0) {
+        for (var i = 0; i < oldmarkers.length; i++) {
+            oldmarkers[i].setMap(null);
         }
     }
-    if (poly2 != null) {
-        poly2.setMap(null);
+    if (oldy != null) {
+        oldy.setMap(null);
     }
+    oldmarkers = [];
 }
 
 function getJobInformation() {
@@ -172,6 +176,10 @@ function getDistrict() {
           fillOpacity: 0.05,
           map: map
         });
+        truths[4] = true;
+        if( toomanytruths() ) {
+            closeAllMarkers();
+        }
     });
 }
 
@@ -235,42 +243,48 @@ function getDBData(type) {
         }
     }).done(function(e) {
         var pos = '';
-        for(var i = 0; i < e.length; i++) {
-            pos = JSON.parse('{"lat": ' + e[i].lat + ', "lng": ' + e[i].lng + "}");
-            createMarker(e[i].uid, pos, e[i].type, type);
+        for(var i = 0; i < e.arr.length; i++) {
+            pos = JSON.parse('{"lat": ' + e.arr[i].lat + ', "lng": ' + e.arr[i].lng + "}");
+            createMarker(e.arr[i].uid, pos, e.arr[i].type, type);
+        }
+        truths[parseInt(e.type)] = true; 
+        if( toomanytruths() ) {
+            closeAllMarkers();
         }
     });
 }
 
+function toomanytruths() {
+    return truths[0] & truths[1] & truths[2] & truths[3] & truths[4];
+}
+
 function getAllData() {
     createLoader();
-    closeAllMarkers();
-    if(document.getElementById("fJobs").checked) {
+    oldmarkers = markers.slice();
+    oldy = poly2;
+    var j = document.getElementById("fJobs").checked;
+    var i = document.getElementById("fInactive").checked;
+    var e = document.getElementById("fEngaged").checked;
+    var a = document.getElementById("fActive").checked;
+    var d = document.getElementById("fDistrict").checked;
+    truths = [!j, !i, !e, !a, !d];
+    if(j) {
         getDBData('jobs');
-        console.log('Done Loading Jobs');
     }
-    if(document.getElementById("fInactive").checked) {
+    if(i) {
         getDBData('inactive');
-        console.log('Done Loading Inactive Resources');
     }
-    if(document.getElementById("fEngaged").checked) {
+    if(e) {
         getDBData('engaged');
-        console.log('Done Loading Engaged Resources');
     }
-    if(document.getElementById("fActive").checked) {
+    if(a) {
         getDBData('active');
-        console.log('Done Loading Active Resources');
     }
-    if(document.getElementById("fDistrict").checked) {
+    if(d) {
         getDistrict();
     }
     removeLoader();
 }
-
-// setInterval(function() {
-//   getAllData();
-//   console.log('Refreshing!');
-// }, 10000);
 
 function geolocate() {
 

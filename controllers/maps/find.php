@@ -23,7 +23,7 @@
     }
 
     function find_inactive_resources($mysqli) {
-        $o = array();
+        $o = array('arr' => array(), 'type' => 1);
         $template = array('lat' => 0, 'lng' => 0, 'uid' => 0);
         if($query = $mysqli->prepare('SELECT resourceLocation, resourceType, uid FROM resource WHERE active = 0 AND resourceWasDeleted = 0 AND approved = 1 AND engaged = 0')) {
             $query->execute();
@@ -34,14 +34,14 @@
                 $template['lng'] = $json['lon'];
                 $template['uid'] = $uid;
                 $template['type'] = resourceType($rT);
-                array_push($o, $template);
+                array_push($o['arr'], $template);
             }
         }
         echo(json_encode($o));
     }
 
     function find_active_resources($mysqli) {
-        $o = array();
+        $o = array('arr' => array(), 'type' => 0);
         $template = array('lat' => 0, 'lng' => 0, 'uid' => 0);
         if($query = $mysqli->prepare('SELECT resourceLocation, resourceType, uid FROM resource WHERE active = 1 AND resourceWasDeleted = 0 AND approved = 1 AND engaged = 0')) {
             $query->execute();
@@ -52,14 +52,14 @@
                 $template['lng'] = $json['lon'];
                 $template['uid'] = $uid;
                 $template['type'] = resourceType($rT);
-                array_push($o, $template);
+                array_push($o['arr'], $template);
             }
         }
         echo(json_encode($o));
     }
 
     function find_jobs($mysqli) {
-        $o = array();
+        $o = array('arr' => array(), 'type' => 3);
         $template = array('lat' => 0, 'lng' => 0, 'uid' => 0);
         if($query = $mysqli->prepare('SELECT locationCoords, incidentmanager_uid, uid FROM requests WHERE serviceStatus != 99 and uid = parent_uid')) {
             $query->execute();
@@ -70,7 +70,7 @@
                 $template['lng'] = $json['lng'];
                 $template['uid'] = $uid;
                 $template['type'] = $iid;
-                array_push($o, $template);
+                array_push($o['arr'], $template);
             }
         }
         echo(json_encode($o));
@@ -106,9 +106,9 @@
     }
 
     function find_engaged_resources($mysqli) {
-        $o = array();
+        $o = array('arr' => array(), 'type' => 2);
         $template = array('lat' => 0, 'lng' => 0, 'uid' => 0);
-        if($query = $mysqli->prepare('SELECT resourceLocation, resourceType, uid FROM resource WHERE resourceWasDeleted = 0 AND approved = 1 AND engaged = 1')) {
+        if($query = $mysqli->prepare('SELECT resourceLocation, resourceType, uid FROM resource WHERE resourceWasDeleted = 0 AND approved = 1 AND engaged != 0')) {
             $query->execute();
             $query->bind_result($rL, $rT, $uid);
             while($query->fetch()) {
@@ -117,7 +117,7 @@
                 $template['lng'] = $json['lon'];
                 $template['uid'] = $uid;
                 $template['type'] = resourceType($rT);
-                array_push($o, $template);
+                array_push($o['arr'], $template);
             }
         }
         echo(json_encode($o));

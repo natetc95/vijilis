@@ -83,8 +83,8 @@
                         $o['tel'] = $t;
                         $o['msg'] = "Hi " . $f . "! Job #" . $j . " is available for your resource: " . $v['title'] . " (" . $v['uid'] . "). Approximately " . sprintf('%.1f',$v['dist']) . " miles away from your last check in. Please text back 'accept' or 'decline'.";
                         $o['err'] = sendMessage($t, $o['msg']);
-                        if($query = $mysqli->prepare('INSERT INTO messages VALUES (0, ?, ?, 1, ?, ?, 0)')) {
-                            $query->bind_param('ssii', $t, $f, $j, $v['uid']);
+                        if($query = $mysqli->prepare('INSERT INTO messages VALUES (0, ?, ?, 1, ?, ?, 0, ?)')) {
+                            $query->bind_param('ssiid', $t, $f, $j, $v['uid'], $v['dist']);
                             $query->execute();
                         }
                         if($query = $mysqli->prepare('UPDATE resource SET engaged = ? WHERE uid = ?')) {

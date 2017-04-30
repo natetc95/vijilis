@@ -4,6 +4,7 @@
 
 <?php
     session_start();
+    require('controllers/json/assembly.php');
 ?>
 
 <script>geoFindMe();</script>
@@ -41,25 +42,9 @@
         <div class="description" onChange="selectBox('car')">
             <div class="breaker">
                 <h2>Incident Type</h2><br/>
-                <select class="wew" id="jobtype">
-                    <option selected hidden> -- Choose One -- </option>
-                    <option value='0'>Car Crash</option>
-                    <option value='1'>Debris Cleanup</option>
-                </select>
+                <?php assembleSerBox(); ?>
                 <br/><br/><h2>Priority</h2><br/>
-                <select class="wew" id="priorityinp">
-                    <option selected hidden> -- Choose One -- </option>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                    <option value='6'>6</option>
-                    <option value='7'>7</option>
-                    <option value='8'>8</option>
-                    <option value='9'>9</option>
-                    <option value='10'>10</option>
-                </select>
+                <?php assemblePBox(); ?>
             </div>
             <div class="breaker">
                 <div class="description" >

@@ -1,0 +1,11 @@
+[
+    {"code": "00", "message": "Unassigned"},
+    {"code": "10", "message": "Assigned/Awaiting Response"},
+    {"code": "20", "message": "Vendor Accepted"},
+    {"code": "21", "message": "Vendor En Route"},
+    {"code": "22", "message": "Vendor Checked In"},
+    {"code": "30", "message": "Vendor Leaving Site"},
+    {"code": "31", "message": "Vendor Complete"},
+    {"code": "40", "message": "Complete"},
+    {"code": "99", "message": "Billing Complete"}
+]

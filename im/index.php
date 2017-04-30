@@ -40,19 +40,6 @@
       <div class="sidebar-entry no-border" onClick="Logout()">
         <i class="fa fa-sign-out" aria-hidden="true"></i>Log Out
       </div>
-      <?php 
-        if(($_SESSION['acct'] & 4) == 4) {?>
-          <input type='text' id='hidden_message'></input>
-          <script>
-            document.getElementById("hidden_message").addEventListener('keypress', function (e) {
-                if (e.keyCode == 13) {
-                    contentLoader(document.getElementById("hidden_message").value, true, "im");
-                    document.getElementById("hidden_message").value = '';
-                }
-                removeLoader();
-            });
-          </script>
-      <?php } ?>
     </div>
   </div>
   <div id="request-under-menu" class="under-menu">

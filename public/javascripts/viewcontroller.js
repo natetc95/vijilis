@@ -102,7 +102,13 @@ function openMenu(type) {
 function refresh(q) {
     $('#refresh').toggleClass('fa-spin');
     $('#content').innerHTML = "";
-    contentLoader(currPage, false, q);
+    if (typeof(currPage) == 'object') {
+        if(currPage[0] == 'job') {
+            loadJob(currPage[1]);
+        }
+    } else {
+        contentLoader(currPage, false, q);
+    }
     setTimeout(function() {
         $('#refresh').toggleClass('fa-spin');
     }, 1000);
@@ -418,6 +424,7 @@ function clock_stop() {
 }
 
 function clock() {
+    console.log('starting clock');
     clk = setInterval(function() {
         var dt = new Date();
         var q = (dt.getHours() < 12) ? "AM":"PM";

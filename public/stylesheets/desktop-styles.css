@@ -369,7 +369,7 @@ nav {
 }
 
 #sidebar-menu.open {
-    margin:  0px 15px 0px 0px;
+    margin: 0px 15px 0px 0px;
 }
 
 #sidebar-content {
@@ -436,6 +436,7 @@ nav {
 }
 
 .contentvhr {
+    overflow: auto;
 	width: 900px;
 	min-height: 25px;
 	background: var(--default-primary-color);
@@ -446,6 +447,8 @@ nav {
 	margin-bottom: 15px;
 	padding: 10px;
 }
+
+
 .contentIMpage {
 	width: 1000px;
 	min-height: 25px;
@@ -759,7 +762,6 @@ nav {
 	padding: 5px;
 	transition: 0.3s;
 	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
-	font-family: var(--text-font);
 }
 
 #refresh {
@@ -788,22 +790,22 @@ option .title {
 
 #map {
 	position: relative;
-	margin-left: 250px;
+    text-align: center;
+    float: right;
     height: 310px;
-    width: 640px;
+    width: 600px;
 	border: 1px solid var(--dark-primary-color);
-	text-align: center;
-	vertical-align: middle;
+    margin-right: 20px;
 }
 
 #map i {
-	position: relative;
-	top: 50%;
-	margin-top: -36px;
+    position: relative;
+    top: 50%;
+    margin-top:-32px;
 }
 
 .tabholder {
-	width: 900px;
+	width: 908px;
 	height: 26px;
 	border-bottom: 1px solid var(--dark-primary-color);
 }
@@ -849,7 +851,7 @@ option .title {
 }
 
 .subreq {
-	width: 893px;
+	width: 900px;
 	height: auto;
 	border: 1px solid var(--dark-primary-color);
 	border-width: 0px 1px 1px 1px;
@@ -1299,7 +1301,7 @@ xmp {
 .half {
 	width: 120px;
 }
-#jobinfo {
+#jobinfo, #resinfo {
 	height: 230px;
 	width: 100%;
 	position: absolute;
@@ -1345,7 +1347,7 @@ xmp {
 
 #filter-box {
 	position: absolute;
-	right: 5px;
+	right: 10px;
 	top: 54px;
 	height: 25px;
 	width: 150px;
@@ -1365,7 +1367,7 @@ xmp {
 }
 
 #filter-box.open {
-	height: 198px;
+	height: 115px;
 	transition: 0.1s;
 }
 
@@ -1400,7 +1402,6 @@ xmp {
 	z-index: 150;
 }
 
-
 #entry {
 	width: 90%;
 	padding: 13px;
@@ -1412,7 +1413,7 @@ xmp {
 	margin: 0 auto;
 }
 
-.center-box {
+#center-box {
 	position: absolute;
 	right: 170px;
 	top: 54px;
@@ -1430,10 +1431,9 @@ xmp {
 	text-align: center;
 }
 
-.center-box:hover {
+#center-box:hover {
 	color: black;
 }
-
 
 .resourceMenu {
 	float: right;
@@ -1531,7 +1531,7 @@ xmp {
 	border-radius: 2px;
 	height: 40px;
 	background: lightgrey;
-	width: 235px;
+	width: 253px;
 	line-height: 40px;
 	vertical-align: middle;
 	text-align: center;
@@ -1542,21 +1542,56 @@ xmp {
 	cursor: pointer;
 }
 
-#hidden_message {
-    background: #363636;
-	color: #6D6D6D;
-    float: right;
-	width: 151px;
-	height: 28px;
-	font-size: 28px;
-    font-family: 'Open Sans Condensed', sans-serif;
-    border: none;
-    padding: 12px;
-	color: #6D6D6D;
-	cursor: text;
+.center-box {
+	position: absolute;
+	right: 170px;
+	top: 54px;
+	height: 25px;
+	width: 25px;
+	background: white;
+	padding: 5px;
+	cursor: pointer;
+	border-radius: 3px;
+	font-weight: 700;
+	color: grey;
+	overflow: hidden;
+	user-select: none;
+	transition: 0.1s;
+	text-align: center;
+}
+
+.center-box:hover {
+	color: black;
 }
 
 .breaker {
-	float: left;
-	padding: 5px;
+    float: left;
+    padding: 5px;
+}
+
+.search-div {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 355px;
+}
+
+.search-table {
+    border-collapse: collapse;
+    width: 580px;
+}
+
+.search-table i {
+    margin-top: 150px;
+}
+
+.style-row-1 {
+    background: lightgray;
+}
+
+.style-row-2 {
+}
+
+.style-row-1 td, .style-row-2 td {
+    text-align: center;
+    max-width: 200px;
 }
