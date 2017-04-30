@@ -1,0 +1,7 @@
+[
+    {"code": "0", "message": "Immediate Response (<15m)"},
+    {"code": "1", "message": "Priority Response (<30m)"},
+    {"code": "2", "message": "Intermediate Response (1hr)"},
+    {"code": "3", "message": "Non-Priority Response (5hr)"},
+    {"code": "4", "message": "Holding Response (10hr)"}
+]

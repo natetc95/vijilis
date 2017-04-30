@@ -13,8 +13,8 @@
     // DATABASE LOGIN INFORMATIN
 
         $DB_HOST = 'localhost';
-        $DB_UNME = 'root';
-        $DB_PWRD = 'travis';
+        $DB_UNME = 'test_root';
+        $DB_PWRD = 'wololo';
         $DB_NAME = 'vijilis';
 
     // EMAIL LOGIN INFORMATION
@@ -32,8 +32,8 @@
 
     // TWILIO FILES
 
-        $GLOBALS['twilio_usr'] = 'SKab2b8a192a469d88562b15301e2aa0ac';
-        $GLOBALS['twilio_pwd'] = 'NRLb74nhbFCTWuKyIWu0tD3UHRCl9Zxc';
+        $GLOBALS['twilio_usr'] = 'SKc085fd225a45f1e936d672b116f8c0b6';
+        $GLOBALS['twilio_pwd'] = '0Rrak4cTTg2I7f9UQdNRYe2PS1FTDYCm';
         $GLOBALS['twilio_sid'] = 'AC27331a077ac468fb5a51ebd2bac7d3bd';
         $GLOBALS['twilio_num'] = '+14805256796';
 

@@ -1,8 +1,11 @@
 <?php
 
-    require('../twilio/messaging.php');
-    require('../configurator.php');
-    require('../verification.php');
+    error_reporting(E_ALL);
+	ini_set("display_errors","On");
+    chdir(__DIR__);
+    require(getcwd() . '/../configurator.php');
+    require(getcwd() . '/../verification.php');
+    require(getcwd() . '/../twilio/messaging.php');
     session_start();
     $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
 
@@ -27,53 +30,73 @@
 
     function findVendorForJob($mysqli, $jobNumber, $j) {
         $o = array();
-        $v = array();
-        $vendors = array();
-        if($query = $mysqli->prepare('SELECT resourceLocation, uid, vendor_uid, resourceTitle FROM resource WHERE active = 1 AND resourceWasDeleted = 0 AND resourceType = 0 AND engaged = 0')) {
+        if($query = $mysqli->prepare('SELECT uid, vendor_uid, resourceTitle, resourceLocation FROM resource WHERE approved = 1 AND active = 1 AND engaged = 0 AND resourceWasDeleted = 0')) {
             $query->execute();
-            $query->bind_result($rL, $uid, $vid, $rT);
+            $query->bind_result($uid, $vid, $rti, $rlo);
             while($query->fetch()) {
-                $v['dist'] = distance($j, $rL);
+                $v = array();
                 $v['uid'] = $uid;
                 $v['vid'] = $vid;
-                $v['title'] = $rT;
-                array_push($vendors, $v);
+                $v['title'] = $rti;
+                $v['dist'] = distance($j, $rlo);
+                array_push($o, $v);
             }
         }
-        usort($vendors, function ($item1, $item2) {
-            return $item1['dist'] <= $item2['dist'];
-        });
-        messageSelectedVendor($mysqli, $jobNumber, $vendors[0]);
-        return $vendors[0];
+        if (count($o) > 0) {
+            usort($o, function ($item1, $item2) {
+                return $item1['dist'] >= $item2['dist'];
+            });
+            if ($query = $mysqli->prepare('UPDATE requests SET serviceStatus = 10 WHERE uid = ?')) {
+                $query->bind_param('i', $jobNumber);
+                $query->execute();
+            }
+            return messageVendor($mysqli, $o[0], $jobNumber);
+        } else {
+            if ($query = $mysqli->prepare('UPDATE requests SET serviceStatus = 1 WHERE uid = ?')) {
+                $query->bind_param('i', $jobNumber);
+                $query->execute();
+            }
+            return 'No Available Vendors!';
+        }
+        
     }
 
-    function messageSelectedVendor($mysqli, $job, $vendor) {
+    function messageVendor($mysqli, $v, $j) {
+        $o = array('vendor' => $v);
         if($query = $mysqli->prepare('SELECT user_uid FROM vendor WHERE uid = ?')) {
-            $query->bind_param('i', $vendor['vid']);
+            $query->bind_param('i', $v['vid']);
             $query->execute();
             $query->bind_result($uid);
             $query->fetch();
-            if (isset($uid)) {
+            if(isset($uid)) {
                 $query->fetch();
+                $o['uid'] = $uid;
                 if($query = $mysqli->prepare('SELECT telnum, fname FROM user WHERE uid = ?')) {
                     $query->bind_param('i', $uid);
                     $query->execute();
-                    $query->bind_result($telnum, $fname);
+                    $query->bind_result($t, $f);
                     $query->fetch();
-                    if (isset($uid)) {
+                    if(isset($uid)) {
                         $query->fetch();
-                        $telnum = str_ireplace('-', '', str_ireplace(' ', '', $telnum));
-                        $telnum = '+1' . $telnum;
-                        $str = 'Hi ' . $fname . '! Job #' . $job . ' is availabe for your resource: ' . $vendor['title'] . '. Approximately ' . sprintf('%.1f',$vendor['dist']) . ' miles away from your last check in. Text back to accept or decline.';
-                        sendMessage($telnum, $str);
-                        if($query = $mysqli->prepare('INSERT INTO messages VALUES (0, ?, ?, 1, ?, ?)')) {
-                            $query->bind_param('i', $telnum, $fname, $job, $vendor['uid']);
+                        $t = str_ireplace('-', '', str_ireplace(' ', '', $t));
+                        $t = '+1' . $t;
+                        $o['tel'] = $t;
+                        $o['msg'] = "Hi " . $f . "! Job #" . $j . " is available for your resource: " . $v['title'] . " (" . $v['uid'] . "). Approximately " . sprintf('%.1f',$v['dist']) . " miles away from your last check in. Please text back 'accept' or 'decline'.";
+                        $o['err'] = sendMessage($t, $o['msg']);
+                        if($query = $mysqli->prepare('INSERT INTO messages VALUES (0, ?, ?, 1, ?, ?, 0, ?)')) {
+                            $query->bind_param('ssiid', $t, $f, $j, $v['uid'], $v['dist']);
+                            $query->execute();
+                        }
+                        if($query = $mysqli->prepare('UPDATE resource SET engaged = ? WHERE uid = ?')) {
+                            $query->bind_param('ii', $j, $v['uid']);
                             $query->execute();
                         }
                     }
                 }
             }
         }
+        return $o;
     }
+
 
 ?>

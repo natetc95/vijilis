@@ -37,14 +37,15 @@ var currPage = 'news';
 var wew = false;
 
 function test() {
+    console.log('menu open');
     if (!open) {
-        document.getElementById("sidebar-menu").style = "margin-left: 0px;"
+        document.getElementById('sidebar-menu').setAttribute('class', 'open');
         document.getElementById("burger").setAttribute("class", "fa fa-times");
         //document.getElementById("burger").style="display: none";
         createClicky();
         open = true;
     } else {
-        document.getElementById("sidebar-menu").style = "margin-left: -200px;"
+        document.getElementById('sidebar-menu').removeAttribute('class');
         document.getElementById("burger").setAttribute("class", "fa fa-bars");
         removeClicky();
         //document.getElementById("burger").style="display: inline";
@@ -98,16 +99,22 @@ function openMenu(type) {
     $("#" + type + "-under-menu").toggleClass('open');
 }
 
-function refresh(q='v') {
+function refresh(q) {
     $('#refresh').toggleClass('fa-spin');
     $('#content').innerHTML = "";
-    contentLoader(currPage, false, q);
+    if (typeof(currPage) == 'object') {
+        if(currPage[0] == 'job') {
+            loadJob(currPage[1]);
+        }
+    } else {
+        contentLoader(currPage, false, q);
+    }
     setTimeout(function() {
         $('#refresh').toggleClass('fa-spin');
     }, 1000);
 }
 
-function contentLoader(s, menu=true, q='v') {
+function contentLoader(s, menu, q) {
     window.scrollTo(0, 0);
     createLoader();
     currPage = s;
@@ -220,39 +227,45 @@ function addSub() {
     var newBox = document.createElement("div");
     newBox.setAttribute("id", "subreq" + reqs);
     newBox.setAttribute("class", "subreq");
+     newBox.setAttribute("style", "overflow: auto;");
     //var parentID = document.getElementById("parentID").value;
     newBox.innerHTML = `<br/>
-      <div class="description" onChange="selectBox('car')">
-        <h2>Incident Type</h2><br/>
-        <select class="wew" id="jobtype">
-            <option selected hidden> -- Choose One -- </option>
-            <option value='0'>Car Crash</option>
-            <option value='1'>Debris Cleanup</option>
-        </select>
-        <br/><br/><h2>Priority</h2><br/>
-        <select class="wew" id="priorityinp">
-            <option selected hidden> -- Choose One -- </option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6'>6</option>
-            <option value='7'>7</option>
-            <option value='8'>8</option>
-            <option value='9'>9</option>
-            <option value='10'>10</option>
-        </select>
-        <div class="description" ><br/>
-            <h2>Incident Description</h2><br/>
-            <textarea id="jobdesc"></textarea>
-        </div>
-        <div class="description"><br/>
-            <h2>Special Instructions</h2><br/>
-            <textarea id="jobspec"></textarea>
-        </div>
-      </div>
-
+        <div class="description" onChange="selectBox('car')">
+            <div class="breaker">
+                <h2>Incident Type</h2><br/>
+                <select class="wew" id="jobtype">
+                    <option selected hidden> -- Choose One -- </option>
+                    <option value='0'>Car Crash</option>
+                    <option value='1'>Debris Cleanup</option>
+                </select>
+                <br/><br/><h2>Priority</h2><br/>
+                <select class="wew" id="priorityinp">
+                    <option selected hidden> -- Choose One -- </option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                    <option value='6'>6</option>
+                    <option value='7'>7</option>
+                    <option value='8'>8</option>
+                    <option value='9'>9</option>
+                    <option value='10'>10</option>
+                </select>
+            </div>
+            <div class="breaker">
+                <div class="description" >
+                    <h2>Incident Description</h2><br/>
+                    <textarea class="wew"  id="jobdesc"></textarea>
+                </div>
+            </div>
+            <div class="breaker">
+                <div class="description">
+                    <h2>Special Instructions</h2><br/>
+                    <textarea class="wew" id="jobspec"></textarea>
+                </div>
+            </div>
+            <br/>
       <div style="margin-top:10px;margin-bottom:10px;">
         <center><button onClick="removeLinkedJob()">Remove Linked Job</button></center>
       </div>`;
@@ -260,7 +273,7 @@ function addSub() {
     opensub(reqs);
 }
 
-function FOBBY(uid, menu=false) {
+function FOBBY(uid, menu) {
     currPage = 'resources/my_resources';
     var req = $.ajax('v/checkins/addFob.php', {
         method: 'POST',
@@ -411,6 +424,7 @@ function clock_stop() {
 }
 
 function clock() {
+    console.log('starting clock');
     clk = setInterval(function() {
         var dt = new Date();
         var q = (dt.getHours() < 12) ? "AM":"PM";
@@ -428,7 +442,7 @@ window.onload = function() {
     clock();
 }
 
-function newToast(message, duration=3000) {
+function newToast(message) {
     var toast = document.createElement('div');
     toast.setAttribute('class', 'toast');
     toast.setAttribute('id', 'toast');
@@ -443,6 +457,6 @@ function newToast(message, duration=3000) {
         setTimeout(function() {
             document.body.removeChild(toast);
         }, 300);
-    }, duration);
+    }, 3000);
 
 }

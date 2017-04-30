@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-  <link type='text/css' href='public/stylesheets/styles.css' rel='stylesheet'>
+  <link type='text/css' media="(max-width: 400px)" href='public/stylesheets/styles.css' rel='stylesheet'>
   <link type='text/css' media="(min-width: 401px)" href='public/stylesheets/desktop-styles.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&libraries=places"></script>
@@ -17,9 +17,7 @@
   <script src="public/javascripts/viewcontroller.js"></script>
   <title>Incident Manager Portal</title>
 </head>
-<?php require('../controllers/sessionhandler.php'); ?>
-
-
+<?php require('../controllers/sessionHandler.php'); ?>
 <body>
   <div id="clock"></div>
   <div id="sidebar-menu">

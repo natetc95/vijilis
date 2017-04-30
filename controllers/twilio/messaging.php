@@ -1,17 +1,22 @@
 <?php
-    
-    require('twilio/autoload.php');
-    require('../configurator.php');
+
+    error_reporting(E_ALL);
+	ini_set("display_errors","On");
+
+    require('Twilio/autoload.php');
 
     use Twilio\Rest\Client;
 
-    function sendMessage($to, $message) {
+    function sendMessage($t, $m) {
         $client = new Client($GLOBALS['twilio_usr'], $GLOBALS['twilio_pwd'], $GLOBALS['twilio_sid']);
         $client->messages->create(
-            $to,
+            $t,
             array(
                 'from' => $GLOBALS['twilio_num'],
-                'body' => $message
+                'body' => $m
             )
         );
+        return 'SUCC';
     }
+
+?>

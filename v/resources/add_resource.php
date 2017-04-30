@@ -9,7 +9,7 @@
         <div class="resourceIconAdd" title="Save" onClick="addResource()" style="margin-top: -32px;">
             <i class="fa fa-save" aria-hidden="true"></i>&nbsp;&nbsp;Save
         </div>
-        <div class="resourceIconDelete" title="Cancel" onClick="contentLoader('resources/my_resources', false)" style="margin-top: -32px; margin-right: 10px;">
+        <div class="resourceIconDelete" title="Cancel" onClick="contentLoader('resources/my_resources', false, 'v')" style="margin-top: -32px; margin-right: 10px;">
             <i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel
         </div>
     </div>
@@ -69,5 +69,5 @@
     <center><input id="img3" class="resourceInputBox" type="file"></input></center><br/>
 </div>
 <div class="contentvhr">
-    <button style="float: left" onClick="contentLoader('resources/my_resources', false)">Cancel</button><button style="float: right" onClick="addResource()">Save</button>
+    <button style="float: left" onClick="contentLoader('resources/my_resources', false, 'v')">Cancel</button><button style="float: right" onClick="addResource()">Save</button>
 </div>

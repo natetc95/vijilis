@@ -1,103 +1,60 @@
-<script src="public/javascripts/im/vendorinfo.js"/>
+<script src="public/javascripts/jobs.js"/>
 
 <?php
 
     session_start();
     require('controllers/configurator.php');
     require('controllers/sessionHandler.php');
+    require('controllers/json/assembly.php');
     $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
-
-    if ($query = $mysqli->prepare('SELECT username, fname, lname, uid FROM user WHERE acttype = 0')) {
-        $query->execute();
-        $query->bind_result($u, $f, $l, $u2);
 
 ?>
 <div class="contentvhr">
-    <h1><i class="fa fa-code" aria-hidden="true"></i>&nbsp;Vendor Profiles</h1><hr/>
+    <h1><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search For Jobs</h1><hr/>
     <div class="interiorcontainer">
-        <div class="interiorvhr">
-            <div class='code-select-box'>
-            <?php while($query->fetch()) { ?>
-                <div class='code-select-entry' onclick='openuser(<?=$u2?>)'>
-                    <h1><?=$u?></h1>
-                </div>
-                <?php }} ?>
+        <div class="interiorvhr" style='border-right: 1px solid slategrey;'>
+            <b>General Search Options</b></br>
+            <table>
+                <tr>
+                    <td><input class="searchbox" id="jobnum" type="text" style="width: 114px;" placeholder="Job Number" /></td>
+                    <td><input class="searchbox" id="parent" type="text" style="width: 114px;" placeholder="Parent Number" /></td>
+                </tr>
+            </table>
+            <div style="margin-left: 3px;">
+                <?php assembleSerBox(-1)?>
             </div>
-        </div>
-        <div class="interiorvhr">
-            <h2>Basic Information</h2><br/><hr/>
+            <div style="margin-left: 3px; margin-top: 3px;">
+                <?php assembleSBox(-1)?>
+            </div>
+            <div style="margin-left: 3px; margin-top: 3px;">
+                <textarea class='wew' id='desc' style='width: 244px;' placeholder='Description'></textarea>
+            </div><div style='height: 5px'/>
+            <b>Creation Search Options</b></br>
             <table>
                 <tr>
-                    <td><b>Name:</b></td>
-                    <td id="name"></td>
+                    <td><input class="searchbox" id="user" type="text" style="width: 114px;" placeholder="Created By" /></td>
+                    <td><input class="searchbox" id="ctime" type="text" style="width: 114px;" placeholder="Last Edited" /></td>
                 </tr>
-                <tr>
-                    <td><b>User ID:</b></td>
-                    <td id="uid"></td>
-                </tr>
-                <tr>
-                    <td><b>Email:</b></td>
-                    <td id="email"></td>
-                </tr>
-                <tr>
-                    <td><b>Telephone:</b></td>
-                    <td id="telnum"></td>
-                </tr>
-                <tr>
-                    <td><b>Zip Code:</b></td>
-                    <td id='zip'></td>
-                </tr>
-            </table>
-            <br/><h2>Configurables</h2><br/><hr/>
+            </table><div style='height: 5px'/>
+            <b>Vendor Search Options</b></br>
             <table>
                 <tr>
-                    <td><b>Polygon:</b></td>
-                    <td>
-                        <select class="wew" id="poly" style="width: 190px">
-                        <?php
-                            if ($query = $mysqli->prepare('SELECT uid, city, state FROM districts')) {
-                                $query->execute();
-                                $query->bind_result($u, $c, $s);
-                                while($query->fetch()) {
-                        ?>
-                            <option value='<?=$u?>'>Polygon <?=$u?> -- <?=$c?>, <?=$s?></option>
-                        <?php }} ?>
-                        </select>
-                    </td>
+                    <td><input class="searchbox" id="vid" type="text" style="width: 114px;" placeholder="Resource ID" /></td>
                 </tr>
+            </table><div style='height: 5px'/>
+            <button style="float: left" onClick="window.location='im/index.php'">Clear</button>
+            <button onClick="search()" style="float: right; margin-right: 20px;">Search</button>
+        </div>
+        <div class='search-div'>
+            <table class='search-table' id='tableoo'>
                 <tr>
-                    <td><b>Account Type:</b></td>
-                    <td>
-                        <select class="wew" id="type" style="width: 190px">
-                            <option value='1'>Vendor</option>
-                            <option value='2'>Incident Manager</option>
-                            <option value='7'>Admin</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>Notify:</b></td>
-                    <td><input type='checkbox' id='notify' onChange='stopNotify()' checked></input></td>
-                </tr>
-                <tr>
-                    <td><b>Method:</b></td>
-                    <td>
-                        <select class="wew" id="contactmethod" style="width: 190px">
-                            <option value='e'>Email</option>
-                            <option value='p'>Phone</option>
-                        </select>
-                    </td>
+                    <th style='overflow:hidden; white-space:nowrap'>Job #</th>
+                    <th style='overflow:hidden; white-space:nowrap'>Status</th>
+                    <th style='overflow:hidden; white-space:nowrap'>Description</th>
+                    <th style='overflow:hidden; white-space:nowrap'>Assigned To</th>
+                    <th style='overflow:hidden; white-space:nowrap'>Last Updated</th>
                 </tr>
             </table>
-        </div>
-        <div class="interiorvhr nomargin">
-            <h2>Applicant</h2><br/><hr/>
-            <center>
-                <b>Custom Message</b>
-                <textarea id='custmsg' rows='16' cols='30'></textarea><br/><br/>
-                <button id='x' onClick="contentLoader('news', false, 'a')" disabled>Decline</button>
-                <button id='y' onClick="createIncidentManager()" disabled>Approve</button><br/>
-            </center>
         </div>
     </div>
 </div>

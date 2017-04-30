@@ -13,7 +13,7 @@
     <div class="resourceTitle">
         <h1>Add A Resource</h1>
     </div>
-    <div class="resourceIconAdd" title="Edit" onClick="contentLoader('resources/add_resource', false)">
+    <div class="resourceIconAdd" title="Edit" onClick="contentLoader('resources/add_resource', false, 'v')">
         <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add
     </div>
 </div>
@@ -57,7 +57,7 @@
                         <div class="resourceTitle">
                             <h1> <?= $activated ?> <?= $title ?> </h1>
                         </div>
-                        <div class="resourceMenu" onClick="openBoxMenu(<?=$uid2?>, <?=$active?>)">
+                        <div class="resourceMenu" id='r<?=$uid2?>' onClick="openBoxMenu(<?=$uid2?>, <?=$active?>)">
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </div>
                     </div>
