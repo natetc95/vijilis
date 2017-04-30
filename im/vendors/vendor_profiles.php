@@ -19,7 +19,7 @@
         <div class="interiorvhr">
           <input class="searchbox" id="searchinp" type="text" style="color:#888;" onClick="SelectAll()" onfocus="inputFocus(this)" onblur="inputBlur(this)" value="Search Vendor Name" onkeypress="return searchVendor(event)"/>
           <!-- <button id="search_but" style="height:26px; width:30px;" onClick="geocodeMe()"><i class="fa fa-paper-plane-o" id='meslogo' aria-hidden="true"></i></button><br/> -->
-            <div class='code-select-box'>
+            <div class='code-select-box' style='margin-top: 10px'>
             <?php while($query->fetch()) { ?>
                 <div class='code-select-entry' onclick='openuser(<?=$u2?>)'>
                     <h1><?=$f?> <?=$l?></h1>

@@ -919,7 +919,14 @@ option .title {
 #map {
     height: 310px;
     width: 310px;
+    text-align: center;
 	border: 1px solid #193864;
+}
+
+#map i {
+	position: relative;
+	top: 50%;
+	margin-top: -36px;
 }
 
 .tabholder {
@@ -1607,4 +1614,18 @@ xmp {
 
 #districttool {
 	transition: 0.3s;
+}
+
+#hidden_message {
+    background: #363636;
+	color: #6D6D6D;
+    float: right;
+	width: 151px;
+	height: 28px;
+	font-size: 28px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    border: none;
+    padding: 12px;
+	color: #6D6D6D;
+	cursor: text;
 }

@@ -13,8 +13,8 @@
     // DATABASE LOGIN INFORMATIN
 
         $DB_HOST = 'localhost';
-        $DB_UNME = 'root';
-        $DB_PWRD = 'travis';
+        $DB_UNME = 'test_root';
+        $DB_PWRD = 'wololo';
         $DB_NAME = 'vijilis';
 
     // EMAIL LOGIN INFORMATION

@@ -221,39 +221,45 @@ function addSub() {
     var newBox = document.createElement("div");
     newBox.setAttribute("id", "subreq" + reqs);
     newBox.setAttribute("class", "subreq");
+     newBox.setAttribute("style", "overflow: auto;");
     //var parentID = document.getElementById("parentID").value;
     newBox.innerHTML = `<br/>
-      <div class="description" onChange="selectBox('car')">
-        <h2>Incident Type</h2><br/>
-        <select class="wew" id="jobtype">
-            <option selected hidden> -- Choose One -- </option>
-            <option value='0'>Car Crash</option>
-            <option value='1'>Debris Cleanup</option>
-        </select>
-        <br/><br/><h2>Priority</h2><br/>
-        <select class="wew" id="priorityinp">
-            <option selected hidden> -- Choose One -- </option>
-            <option value='1'>1</option>
-            <option value='2'>2</option>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6'>6</option>
-            <option value='7'>7</option>
-            <option value='8'>8</option>
-            <option value='9'>9</option>
-            <option value='10'>10</option>
-        </select>
-        <div class="description" ><br/>
-            <h2>Incident Description</h2><br/>
-            <textarea id="jobdesc"></textarea>
-        </div>
-        <div class="description"><br/>
-            <h2>Special Instructions</h2><br/>
-            <textarea id="jobspec"></textarea>
-        </div>
-      </div>
-
+        <div class="description" onChange="selectBox('car')">
+            <div class="breaker">
+                <h2>Incident Type</h2><br/>
+                <select class="wew" id="jobtype">
+                    <option selected hidden> -- Choose One -- </option>
+                    <option value='0'>Car Crash</option>
+                    <option value='1'>Debris Cleanup</option>
+                </select>
+                <br/><br/><h2>Priority</h2><br/>
+                <select class="wew" id="priorityinp">
+                    <option selected hidden> -- Choose One -- </option>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                    <option value='6'>6</option>
+                    <option value='7'>7</option>
+                    <option value='8'>8</option>
+                    <option value='9'>9</option>
+                    <option value='10'>10</option>
+                </select>
+            </div>
+            <div class="breaker">
+                <div class="description" >
+                    <h2>Incident Description</h2><br/>
+                    <textarea class="wew"  id="jobdesc"></textarea>
+                </div>
+            </div>
+            <div class="breaker">
+                <div class="description">
+                    <h2>Special Instructions</h2><br/>
+                    <textarea class="wew" id="jobspec"></textarea>
+                </div>
+            </div>
+            <br/>
       <div style="margin-top:10px;margin-bottom:10px;">
         <center><button onClick="removeLinkedJob()">Remove Linked Job</button></center>
       </div>`;
