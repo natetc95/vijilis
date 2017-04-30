@@ -39,13 +39,13 @@ var wew = false;
 function test() {
     console.log('menu open');
     if (!open) {
-        document.getElementById('sidebar-menu').setAttribute('class', 'open')
+        document.getElementById('sidebar-menu').setAttribute('class', 'open');
         document.getElementById("burger").setAttribute("class", "fa fa-times");
         //document.getElementById("burger").style="display: none";
         createClicky();
         open = true;
     } else {
-        document.getElementById('sidebar-menu').removeAttribute('class')
+        document.getElementById('sidebar-menu').removeAttribute('class');
         document.getElementById("burger").setAttribute("class", "fa fa-bars");
         removeClicky();
         //document.getElementById("burger").style="display: inline";
