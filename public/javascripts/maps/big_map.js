@@ -70,7 +70,7 @@ function initMap() {
                 stylers: [{ color: '#17263c' }]
             }
         ]
-    }); 
+    });
 
 }
 
@@ -105,7 +105,7 @@ function createMarker(jobNumber, position, desc, type) {
         var curr = document.getElementsByClassName('map-modal');
         var contentString = '<h3 style="margin: 0">' + name + ' #' + jobNumber + '</h3><b>' +
                             desc + '</b><br/>' +
-                            '<a href="javascript:' + func + '">More Information</a>' + 
+                            '<a href="javascript:' + func + '">More Information</a>' +
                             '<input id="ss" type="hidden" value="' + jobNumber + '"/>';
         if (infowindow == null) {
             infowindow = new google.maps.InfoWindow({
@@ -207,7 +207,7 @@ function getResourceInformation() {
         infowindow.close();
         document.getElementById('resinfo').style.marginBottom = '0px';
         map.addListener('click', function(e) { closeResourceInformation() });
-    });    
+    });
 }
 
 function closeResourceInformation() {
@@ -238,7 +238,7 @@ function getDBData(type) {
         for(var i = 0; i < e.length; i++) {
             pos = JSON.parse('{"lat": ' + e[i].lat + ', "lng": ' + e[i].lng + "}");
             createMarker(e[i].uid, pos, e[i].type, type);
-        } 
+        }
     });
 }
 
@@ -266,6 +266,11 @@ function getAllData() {
     }
     removeLoader();
 }
+
+// setInterval(function() {
+//   getAllData();
+//   console.log('Refreshing!');
+// }, 10000);
 
 function geolocate() {
 

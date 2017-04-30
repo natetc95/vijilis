@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <link type='text/css' href='public/stylesheets/styles.css' rel='stylesheet'>
+  <link type='text/css' media="(min-width: 401px)" href='public/stylesheets/desktop-styles.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkjnCKXG0rhi9sBnXIbFnQYDjcotUnwBw&libraries=places"></script>
   <link rel="stylesheet" href="public/font-awesome-4.7.0/css/font-awesome.min.css">

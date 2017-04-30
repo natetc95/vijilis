@@ -735,6 +735,18 @@ nav {
 	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
 }
 
+.searchbox{
+	width: 190px;
+	height: 16px;
+	background: white;
+	color: var(--dark-primary-color);
+	border: 1px solid var(--border-color);
+	border-radius: 2px 2px 2px 2px;
+	padding: 5px;
+	transition: 0.3s;
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+}
+
 .location label {
 	margin-top: 15px;
 }

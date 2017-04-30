@@ -442,6 +442,22 @@ nav {
 	margin-bottom: 15px;
 	padding: 10px;
 }
+#sr h2 {
+	position: relative;
+	left: 390px;
+}
+#sr div#th {
+	position: relative;
+	left: 275px;
+}
+#sr div.subreq {
+	position: relative;
+	left: 275px;
+}
+#sr div.subreq h2{
+	position: relative;
+	left:0px;
+}
 
 .contentIMpage {
 	width: 1000px;
@@ -599,10 +615,24 @@ nav {
 	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
 }
 
+.searchbox{
+	width: 250px;
+	height: 16px;
+	background: white;
+	color: var(--dark-primary-color);
+	border: 1px solid var(--border-color);
+	border-radius: 2px 2px 2px 2px;
+	padding: 5px;
+	transition: 0.3s;
+	box-shadow: inset 0px 2px 5px rgba(0,0,0,0.1);
+}
+
 .location label {
 	margin-top: 15px;
 }
 .location {
+	float: left;
+	margin-top: 80px;
 	margin-left: 25px;
 }
 
@@ -769,6 +799,9 @@ option .title {
 }
 
 #map {
+	position: relative;
+	left: 170px;
+	bottom: 10px;
     height: 310px;
     width: 310px;
 	border: 1px solid var(--dark-primary-color);
@@ -894,7 +927,7 @@ option .title {
 .resourceIconEdit:hover {
 	background: dodgerblue;
 	width: 72px;
-	transition: 0.3s; 	
+	transition: 0.3s;
 }
 
 .resourceImage {
@@ -1175,7 +1208,7 @@ xmp {
 	left: 50%;
 	margin-top: -64px;
 	margin-left: -16px;
-	color: white;	
+	color: white;
 }
 
 #loaderBackground {
@@ -1295,13 +1328,13 @@ xmp {
 }
 
 .arrow-left {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   margin-left: -10px;
   margin-top: 30px;
   border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent; 
-  border-right:10px solid white; 
+  border-bottom: 10px solid transparent;
+  border-right:10px solid white;
 }
 
 .close-information {
@@ -1358,7 +1391,7 @@ xmp {
 }
 
 .toast {
-	position: absolute;
+	position: fixed;
 	width: auto;
 	padding: 10px;
 	height: auto;
@@ -1380,7 +1413,7 @@ xmp {
 	border-radius: 24px;
 	border: 1px solid grey;
 	text-align: center;
-	margin: 0 auto; 
+	margin: 0 auto;
 }
 
 #center-box {
@@ -1489,7 +1522,7 @@ xmp {
 	height: 400px;
 	overflow-y: scroll;
 	background: grey;
-	width: 100%;
+	width: 94%;
 }
 
 .code-select-box.half {
