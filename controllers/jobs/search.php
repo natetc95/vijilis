@@ -35,7 +35,6 @@ function vendorData($mysqli, $str){
 
 
 
-
 if( isset($_POST['action']) ){
   switch($_POST['action']) {
       default:
