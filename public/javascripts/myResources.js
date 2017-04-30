@@ -343,7 +343,7 @@ var menuEvent = null;
 
 function openBoxMenu(uid, active) {
     closeBoxMenu();
-    var e = event.currentTarget;
+    var e = document.getElementById('r' + uid);
     if(e.innerHTML != '<i class="fa fa-times" aria-hidden="true"></i>') {
         var activeContent = (active == 0 ? '<li onClick="activate(' + uid + ', 1)" style="border: none"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;&nbsp;Make Active</li>' : '<li onClick="activate(' + uid + ', 0)" style="border: none"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Make Inactive</li>')
         var list = document.getElementsByClassName('resourceMenu');
@@ -355,10 +355,10 @@ function openBoxMenu(uid, active) {
         menu.setAttribute('id', 'resourceMenu');
         menu.innerHTML = '<ul>' +
                             '<li onClick="openEditor(' + uid + ')"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Edit</li>' +
-                            '<li onClick="deleteResource(' + uid + ');closeMenu();"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Delete</li>' +
+                            '<li onClick="deleteResource(' + uid + ');closeBoxMenu();"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;&nbsp;Delete</li>' +
                             activeContent +
                         '</ul>';
-        event.currentTarget.parentElement.appendChild(menu);
+        e.parentElement.appendChild(menu);
         $('#resourceMenu').slideDown('fast');
     } else {
         e.innerHTML = '<i class="fa fa-bars" aria-hidden="true"></i>';

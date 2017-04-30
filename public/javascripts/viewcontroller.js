@@ -37,14 +37,15 @@ var currPage = 'news';
 var wew = false;
 
 function test() {
+    console.log('menu open');
     if (!open) {
-        document.getElementById("sidebar-menu").style = "margin-left: 0px;"
+        document.getElementById('sidebar-menu').setAttribute('class', 'open');
         document.getElementById("burger").setAttribute("class", "fa fa-times");
         //document.getElementById("burger").style="display: none";
         createClicky();
         open = true;
     } else {
-        document.getElementById("sidebar-menu").style = "margin-left: -200px;"
+        document.getElementById('sidebar-menu').removeAttribute('class');
         document.getElementById("burger").setAttribute("class", "fa fa-bars");
         removeClicky();
         //document.getElementById("burger").style="display: inline";
@@ -98,7 +99,7 @@ function openMenu(type) {
     $("#" + type + "-under-menu").toggleClass('open');
 }
 
-function refresh(q='v') {
+function refresh(q) {
     $('#refresh').toggleClass('fa-spin');
     $('#content').innerHTML = "";
     contentLoader(currPage, false, q);
@@ -107,7 +108,7 @@ function refresh(q='v') {
     }, 1000);
 }
 
-function contentLoader(s, menu=true, q='v') {
+function contentLoader(s, menu, q) {
     window.scrollTo(0, 0);
     createLoader();
     currPage = s;
@@ -260,7 +261,7 @@ function addSub() {
     opensub(reqs);
 }
 
-function FOBBY(uid, menu=false) {
+function FOBBY(uid, menu) {
     currPage = 'resources/my_resources';
     var req = $.ajax('v/checkins/addFob.php', {
         method: 'POST',
@@ -428,7 +429,7 @@ window.onload = function() {
     clock();
 }
 
-function newToast(message, duration=3000) {
+function newToast(message) {
     var toast = document.createElement('div');
     toast.setAttribute('class', 'toast');
     toast.setAttribute('id', 'toast');
@@ -443,6 +444,6 @@ function newToast(message, duration=3000) {
         setTimeout(function() {
             document.body.removeChild(toast);
         }, 300);
-    }, duration);
+    }, 3000);
 
 }

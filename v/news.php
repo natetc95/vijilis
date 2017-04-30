@@ -12,13 +12,13 @@
         if(isset($uid) && isset($appr)) {
             $query->fetch();
             if ($appr == 1) {
-                echo("<script>contentLoader('profile/my_profile', false)</script>");
+                echo("<script>contentLoader('profile/my_profile', false, 'v')</script>");
             } else {
-                echo("<script>contentLoader('profile/profile_builder', false)</script>");
+                echo("<script>contentLoader('profile/profile_builder', false, 'v')</script>");
             }
         } else {
             create_vendor_profile($mysqli, $_SESSION['uid']);
-            echo("<script>contentLoader('profile/profile_builder', false)</script>");
+            echo("<script>contentLoader('profile/profile_builder', false, 'v')</script>");
         }
     }
 

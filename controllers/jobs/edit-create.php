@@ -1,7 +1,11 @@
 <?php
 
-    require('assign.php');
+    error_reporting(E_ALL);
+	ini_set("display_errors","On");
+
     require('../configurator.php');
+    require('assign.php');
+
     $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
 
     function createJob($mysqli, $parent, $type, $latlng, $desc, $spec, $i) {
@@ -19,7 +23,7 @@
                     $query->fetch();
                     $o['status'] = 'SUCC';
                     $o['code'] = $req;
-                    findVendorForJob($mysqli, $req, $latlng);
+                  findVendorForJob($mysqli, $req, $latlng);
                 }
             }
 
@@ -48,6 +52,7 @@
                     }
                     $o['status'] = 'SUCC';
                     $o['code'] = $req;
+                    $o['assign'] = findVendorForJob($mysqli, $req, $latlng);
                 }
             }
 

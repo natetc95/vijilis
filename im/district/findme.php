@@ -37,6 +37,7 @@
        <div>
             <input id="fJobs" type="checkbox" checked/>Jobs<br/>
             <input id="fActive" type="checkbox" checked/>Active Resources<br/>
+            <input id="fEngaged" type="checkbox" checked/>Engaged Resources<br/>
             <input id="fInactive" type="checkbox" checked/>Inactive Resources<br/>
             <input id="fDistrict" type="checkbox" checked/>My District<br/>
         </div>

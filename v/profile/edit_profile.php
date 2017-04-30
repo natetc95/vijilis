@@ -27,7 +27,7 @@
         <div id="save" class="resourceIconAdd" title="Save"style="margin-top: -32px;">
             <i class="fa fa-save" aria-hidden="true"></i>&nbsp;Save
         </div>
-        <div id="cancel" class="resourceIconDelete" title="Cancel" onClick="contentLoader('profile/my_profile', false)" style="margin-top: -32px; margin-right: 10px;">
+        <div id="cancel" class="resourceIconDelete" title="Cancel" onClick="contentLoader('profile/my_profile', false, 'v')" style="margin-top: -32px; margin-right: 10px;">
             <i class="fa fa-times" aria-hidden="true"></i>&nbsp;&nbsp;Cancel
         </div>
     </div>

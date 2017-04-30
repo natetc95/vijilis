@@ -61,7 +61,7 @@
 <div class="contentvhr">
     <div class="resourceTitle" style="width: 310px;margin-bottom: 10px">
         <h1 style="margin-top: 3px">Personal Information</h1>
-        <div class="resourceIconEdit" title="Edit" onClick="contentLoader('profile/edit_profile', false)" style="float: right; margin-top: -35px;">
+        <div class="resourceIconEdit" title="Edit" onClick="contentLoader('profile/edit_profile', false, 'v')" style="float: right; margin-top: -35px;">
             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;&nbsp;Edit
         </div>
     </div><hr/>
@@ -73,7 +73,7 @@
             <b>Telephone: </b><?=$telnum?><br/>
         </div>
         <div class="pi right" >
-            <div class="hoveroo" onClick="contentLoader('profile/edit_profile', false)"><p>Edit</p></div>
+            <div class="hoveroo" onClick="contentLoader('profile/edit_profile', false, 'v')"><p>Edit</p></div>
             <div class="imghider"><img id="img2reload" class="hoverimg" src="<?=$profimg?>" height='145' width='145'/></div>
         </div>
     </div>
@@ -81,7 +81,7 @@
 <div class="contentvhr">
     <div class="resourceTitle" style="width: 310px;margin-bottom: 10px">
         <h1 style="margin-top: 3px">Resource Data</h1>
-        <div class="resourceIconEdit" title="Edit" onClick="contentLoader('resources/my_resources', false)" style="float: right; margin-top: -35px;">
+        <div class="resourceIconEdit" title="Edit" onClick="contentLoader('resources/my_resources', false, 'v')" style="float: right; margin-top: -35px;">
             <i class="fa fa-chevron-right" aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true" style="margin-left: -5px;"></i></i></i>&nbsp;More
         </div>
     </div><hr/>
@@ -94,7 +94,7 @@
 <div class="contentvhr">
     <div class="resourceTitle" style="width: 310px;margin-bottom: 10px">
         <h1 style="margin-top: 3px">Requests Data</h1>
-        <div class="resourceIconEdit" title="Edit" onClick="contentLoader('resources/my_resources', false)" style="float: right; margin-top: -35px;">
+        <div class="resourceIconEdit" title="Edit" onClick="contentLoader('resources/my_resources', false, 'v')" style="float: right; margin-top: -35px;">
             <i class="fa fa-chevron-right" aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true" style="margin-left: -5px;"></i></i></i>&nbsp;More
         </div>
     </div><hr/>
@@ -106,7 +106,7 @@
 <div class="contentvhr">
     <div class="resourceTitle" style="width: 310px;margin-bottom: 10px">
         <h1 style="margin-top: 3px">Billing Information</h1>
-        <div class="resourceIconEdit" title="Edit" onClick="contentLoader('resources/my_resources', false)" style="float: right; margin-top: -35px;">
+        <div class="resourceIconEdit" title="Edit" onClick="contentLoader('resources/my_resources', false, 'v')" style="float: right; margin-top: -35px;">
             <i class="fa fa-chevron-right" aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true" style="margin-left: -5px;"></i></i></i>&nbsp;More
         </div>
     </div><hr/>
