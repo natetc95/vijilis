@@ -41,6 +41,7 @@
         <br/>
         <div class="description" onChange="selectBox('car')">
             <div class="breaker">
+                <input type='hidden' id='hid-res'/>
                 <h2>Incident Type</h2><br/>
                 <?php assembleSerBox(); ?>
                 <br/><br/><h2>Priority</h2><br/>

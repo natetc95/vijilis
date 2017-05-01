@@ -28,9 +28,10 @@
         return $miles;
     }
 
-    function findVendorForJob($mysqli, $jobNumber, $j) {
+    function findVendorForJob($mysqli, $jobNumber, $j, $resreq) {
         $o = array();
-        if($query = $mysqli->prepare('SELECT uid, vendor_uid, resourceTitle, resourceLocation FROM resource WHERE approved = 1 AND active = 1 AND engaged = 0 AND resourceWasDeleted = 0')) {
+        if($query = $mysqli->prepare('SELECT uid, vendor_uid, resourceTitle, resourceLocation FROM resource WHERE resourceType = ? AND approved = 1 AND active = 1 AND engaged = 0 AND resourceWasDeleted = 0')) {
+            $query->bind_param('i', $resreq);
             $query->execute();
             $query->bind_result($uid, $vid, $rti, $rlo);
             while($query->fetch()) {

@@ -1,0 +1,60 @@
+[
+    {
+        "code": "0",
+        "resource": "0",
+        "priority": "0"
+    },
+    {
+        "code": "1", 
+        "resource": "0",
+        "priority": "1"
+    },
+    {
+        "code": "2", 
+        "resource": "0",
+        "priority": "3"
+    },
+    {
+        "code": "3",
+        "resource": "0",
+        "priority": "0"
+    },
+    {
+        "code": "4",
+        "resource": "0",
+        "priority": "0"
+    },
+    {
+        "code": "5",
+        "resource": "0",
+        "priority": "0"
+    },
+    {
+        "code": "6",
+        "message": "Medical - Minor"
+    },
+    {
+        "code": "7",
+        "message": "Signage - Emergency"
+    },
+    {
+        "code": "8",
+        "message": "Signage - Cones"
+    },
+    {
+        "code": "9",
+        "message": "Signage - Lighted"
+    },
+    {
+        "code": "10",
+        "message": "AoG - Flood"
+    },
+    {
+        "code": "11",
+        "message": "AoG - Tornado"
+    },
+    {
+        "code": "12",
+        "message": "AoG - Hurricane"
+    }
+]

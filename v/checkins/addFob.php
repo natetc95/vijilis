@@ -48,7 +48,7 @@
     <hr/>
     <div><b>Date: </b><?php echo(date('D, m/d/Y H:i', $json['time']));?></div>
     <div><b>Latitude: </b></div><div id="latitude">&nbsp;<?=$json['lat']?></div>
-    <div><b>Longitude: </b></div><div id="longitude">&nbsp;<?=$json['lon']?></div>
+    <div><b>Longitude: </b></div><div id="longitude">&nbsp;<?=$json['lng']?></div>
 </div>
 <div class="contentvhr">
     <h1>Tag Information</h1>

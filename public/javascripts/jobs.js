@@ -96,7 +96,8 @@ function makeJob() {
       location: loc,
       type: list[0].querySelector('#service').value,
       desc: list[0].querySelector('#jobdesc').value,
-      spec: list[0].querySelector('#jobspec').value
+      spec: list[0].querySelector('#jobspec').value,
+      res: list[0].querySelector('#hid-res').value
     }, success: function(e) {
       nums.push(e.code);
       if (list.length > 1) {
@@ -106,13 +107,14 @@ function makeJob() {
             method: 'post',
             dataType: 'json',
             data: {
-              action: 'create',
-              location: loc,
-              parent: e.code,
-              type: list[i].querySelector('#service').value,
-              desc: list[i].querySelector('#jobdesc').value,
-              spec: list[i].querySelector('#jobspec').value,
-              i: i
+                action: 'create',
+                location: loc,
+                parent: e.code,
+                type: list[i].querySelector('#service').value,
+                desc: list[i].querySelector('#jobdesc').value,
+                spec: list[i].querySelector('#jobspec').value,
+                res: list[i].querySelector('#hid-res').value,
+                i: i
             }, success: function(be) {
               nums.push(be.code);
               if (parseInt(be.num) == list.length-1) {
@@ -231,3 +233,24 @@ function search() {
         }
     })
 }
+
+function addDefaults(which) {
+    if(document.getElementById('service') != undefined) {
+        document.getElementById('subreq'+which).querySelector('#service').addEventListener('change', function(event) {
+            $.ajax({
+                url: 'controllers/json/arrays.php',
+                method: 'post',
+                dataType: 'json',
+                data: {
+                    action: 'defaults',
+                    code: event.target.parentElement.querySelector('#service').value
+                }, success: function(e) {
+                    event.target.parentElement.querySelector('#priority').value = e.pri;
+                    event.target.parentElement.querySelector('#hid-res').value = e.res;
+                }
+            });
+        });
+    }
+}
+
+addDefaults(1);

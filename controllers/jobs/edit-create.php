@@ -5,7 +5,7 @@
 
     $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
 
-    function createJob($mysqli, $parent, $type, $latlng, $desc, $spec, $i) {
+    function createJob($mysqli, $parent, $type, $latlng, $desc, $spec, $resreq, $i) {
         $o = array('status' => 'FAIL', 'code' => '', 'num' => $i);
         $time = time();
         $latlng =json_encode($latlng);
@@ -20,7 +20,7 @@
                     $query->fetch();
                     $o['status'] = 'SUCC';
                     $o['code'] = $req;
-                  findVendorForJob($mysqli, $req, $latlng);
+                  findVendorForJob($mysqli, $req, $latlng, $resreq);
                 }
             }
 
@@ -28,7 +28,7 @@
         echo(json_encode($o));
     }
 
-    function createParent($mysqli, $type, $latlng, $desc, $spec) {
+    function createParent($mysqli, $type, $latlng, $desc, $spec, $resreq) {
         $o = array('status' => 'FAIL', 'code' => '');
         $time = time();
         $latlng = json_encode($latlng);
@@ -49,7 +49,7 @@
                     }
                     $o['status'] = 'SUCC';
                     $o['code'] = $req;
-                    $o['assign'] = findVendorForJob($mysqli, $req, $latlng);
+                    $o['assign'] = findVendorForJob($mysqli, $req, $latlng, $resreq);
                 }
             }
 
@@ -87,10 +87,10 @@
     if (isset($_POST['action'])) {
         switch($_POST['action']) {
             default:
-                createJob($mysqli, $_POST['parent'], $_POST['type'], $_POST['location'], $_POST['desc'], $_POST['spec'],  $_POST['i']);
+                createJob($mysqli, $_POST['parent'], $_POST['type'], $_POST['location'], $_POST['desc'], $_POST['spec'],  $_POST['res'],  $_POST['i']);
                 break;
             case 'create-parent':
-                createParent($mysqli, $_POST['type'], $_POST['location'], $_POST['desc'], $_POST['spec']);
+                createParent($mysqli, $_POST['type'], $_POST['location'], $_POST['desc'], $_POST['spec'],  $_POST['res']);
                 break;
             case 'edit':
                 editJob($mysqli, $_POST['uid'], $_POST['status'], $_POST['prio'], $_POST['service'], $_POST['spec'], $_POST['desc'], $_POST['time']);

@@ -168,6 +168,37 @@ function createIncidentManager() {
     }
 }
 
+function createAdmin() {
+    if(validateEmail() && validatePhone()) {
+        createLoader();
+        $.ajax({
+            url: 'controllers/admin/creation.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'createAdmin',
+                fname: document.getElementById('fname').value,
+                lname: document.getElementById('lname').value,
+                email: document.getElementById('email').value,
+                telnum: document.getElementById('telnu').value,
+                uname: document.getElementById('guser').value,
+                pword: document.getElementById('gpass').value
+            },
+            success: function(e) {
+                removeLoader();
+                contentLoader('news', false, 'a');
+                alerter('User #' + e.code + ' has been created!', 'User Created!');
+            },
+            failure: function(e) {
+                removeLoader();
+                console.log(e);
+            }
+        });
+    } else {
+        alerter("One or more entries in the form are invalid! Please check your values!", "Invalid Entries!");
+    }
+}
+
 function createDistrict() {
         createLoader();
         var bounds = document.getElementsByClassName('coords');

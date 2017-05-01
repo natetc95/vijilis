@@ -19,7 +19,7 @@
                     if(isset($uid)) {
                         $query->fetch();
                         chdir('../userfiles');
-                        mkdir('u' . $uid);
+                        mkdir('u' . $uid, 0777, true);
                     }
                 }
             }
@@ -40,7 +40,7 @@
                 if(isset($uid)) {
                     $query->fetch();
                     chdir('../userfiles/u' . $userid);
-                    mkdir('v' . $uid);
+                    mkdir('v' . $uid, 0777, true);
                 }
             }
         }

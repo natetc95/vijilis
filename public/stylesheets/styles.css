@@ -1562,7 +1562,7 @@ xmp {
 	color: black;
 }
 
-.resourceMenu {
+.resourceMenu, .filterMenu {
 	float: right;
 	height: 32px;
 	width: 32px;
@@ -1580,7 +1580,7 @@ xmp {
 	user-select: none;
 }
 
-.resourceMenu:hover {
+.resourceMenu:hover, .filterMenu:hover {
 	color: black;
 	transition: 0.3s;
 }
@@ -1632,4 +1632,35 @@ xmp {
     padding: 12px;
 	color: #6D6D6D;
 	cursor: text;
+}
+
+#jobMenu {
+	border-radius: 3px;
+	box-shadow: 1px 1px lightgrey;
+	padding: 5px;
+	user-select: none;
+	position: absolute;
+	height: 133px;
+	width: 150px;
+	background: white;
+	z-index: 1;
+	right: 0px;
+	top: 37px;
+	display: none;
+}
+
+#jobMenu ul li {
+	border-bottom: 1px solid lightgray;
+	text-decoration: none;
+	height: 24px;
+	padding: 5px;
+}
+
+#jobMenu ul li:hover {
+	font-weight: 700;
+}
+
+#jobMenu ul {
+	list-style: none;
+	padding: 0;
 }

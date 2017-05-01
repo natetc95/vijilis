@@ -69,7 +69,7 @@
   </div>
   <div id="request-under-menu" class="under-menu">
     <div class="under-menu-content">
-      <div class="under-menu-entry" onClick="contentLoader('requests/create_request', true, 'v')">
+      <div class="under-menu-entry" onClick="contentLoader('requests/my_requests', true, 'v')">
         <i class="fa fa-rss" aria-hidden="true"></i>My Open Jobs
       </div>
       <div class="under-menu-entry" onClick="contentLoader('requests/local_requests', true, 'v')">
