@@ -43,9 +43,9 @@
             <div class="breaker">
                 <input type='hidden' id='hid-res'/>
                 <h2>Incident Type</h2><br/>
-                <?php assembleSerBox(); ?>
+                <?php assembleSerBox(-1); ?>
                 <br/><br/><h2>Priority</h2><br/>
-                <?php assemblePBox(); ?>
+                <?php assemblePBox(-1); ?>
             </div>
             <div class="breaker">
                 <div class="description" >

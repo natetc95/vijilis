@@ -317,6 +317,8 @@ function removeLoader() {
 
 function confirmation(message, header, cb) {
 
+    window.scrollTo(0,0);
+
     message = message.replace(/(?:\r\n|\r|\n)/g, '<br/>');
     var output = false;
 

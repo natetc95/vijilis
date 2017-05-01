@@ -17,7 +17,7 @@
         $jlat = $json_j['lat'];
         $jlng = $json_j['lng'];
         $rlat = $json_r['lat'];
-        $rlng = $json_r['lon'];
+        $rlng = $json_r['lng'];
 
         $theta = $jlng - $rlng;
         $dist = sin(deg2rad($jlat)) * sin(deg2rad($rlat)) +  cos(deg2rad($jlat)) * cos(deg2rad($rlat)) * cos(deg2rad($theta));

@@ -27,7 +27,7 @@ function geoFindMe() {
   function success(position) {
     document.getElementById('latitude').innerHTML = '&nbsp' + position.coords.latitude;
     document.getElementById('longitude').innerHTML = '&nbsp' + position.coords.longitude;
-    var json = '{"lat": ' + position.coords.latitude + ', "lon": ' + position.coords.longitude + ', "time": ' + Math.floor(Date.now() / 1000) + '}';
+    var json = {"lat": position.coords.latitude, "lng": position.coords.longitude, "time": Math.floor(Date.now() / 1000)};
     $.ajax({
         url: 'controllers/checkin.php',
         type: 'POST',

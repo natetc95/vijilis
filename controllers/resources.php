@@ -150,6 +150,7 @@
                 $fileName = $_FILES['file']['name'];
                 $fileType = $_FILES['file']['type'];
                 $fileError = $_FILES['file']['error'];
+                echo getcwd();
                 echo $_FILES['file']['tmp_name']  . "\n";
 
                 if ($_FILES['file']['size'] != 0) {

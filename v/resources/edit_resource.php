@@ -168,18 +168,18 @@
     </center><br/>
     <b>Front of Vehicle (2MB):</b>
     <center>
-        <img src="<?=$img1?>" class="edimg"/>
+        <img src="<?=$img2?>" class="edimg"/>
         <input id="img2" class="resourceInputBox" type="file"></input>
     </center><br/>
     <b>Side of Vehicle (2MB):</b>
     <center>
-        <img src="<?=$img1?>" class="edimg"/>
+        <img src="<?=$img3?>" class="edimg"/>
         <input id="img3" class="resourceInputBox" type="file"></input>
     </center>
 <?php } elseif ($rType = '3') { ?>
     <b>Picture of Supply (2MB):</b>
     <center>
-        <img src="<?=$img1?>" class="edimg"/>
+        <img src="<?=$img2?>" class="edimg"/>
         <input id="img2" class="resourceInputBox" type="file"></input>
     </center>
 <?php } ?>

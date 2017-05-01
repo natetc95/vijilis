@@ -27,8 +27,8 @@
     // else if in htdocs (XAMPP) make it the folder the site is in
     // so for me, it would be /vijilis/vijilis/
 
-        $GLOBALS['ftr'] = '/vijilis/';
-        $GLOBALS['helpme'] = 'C:/xampp/htdocs/vijilis/vijilis/';
+        $GLOBALS['ftr'] = '/';
+        $GLOBALS['helpme'] = '/var/www/vijilis/';
 
     // TWILIO FILES
 

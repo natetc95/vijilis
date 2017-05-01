@@ -61,15 +61,15 @@
                             <i class="fa fa-bars" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <div style="margin-top: 40px; height: 150px;">
+                    <div style="margin-top: 40px; min-height: 150px;">
                         <div class="resourceImage">
                             <img width="150px;" height="100px" style="margin-left: -50px;" src="<?=$pic?>">
                         </div>
-                        <div class="resourceInfo">
+                        <div class="resourceInfo" style='overflow: auto; height: 150px; width: 195px'>
                             <b>Resource #: </b><?= $uid2 ?><br/>
                             <b>Resource Type: </b><?=resourceType($type)?><br/>
                             <b>Owner: </b><?= $_SESSION['name'] ?><br/>
-                            <b>Description: </b><xmp><?= $description ?></xmp>
+                            <b>Description: </b><?= $description ?>
                         </div>
                     </div>
                 </div>

@@ -16,7 +16,11 @@
         $query->fetch();
         if(isset($username)) {
             $query->fetch();
-            $location_time = json_decode($location, true)['time'];
+            if(isset(json_decode($location, true)['time'])) {
+                $location_time = json_decode($location, true)['time'];
+            } else {
+                $location_time = time();
+            }
         }
     }
 
@@ -58,9 +62,9 @@
         <option value='-1' selected>Filter by Resource</option>
         <?php foreach($resources as $res) { ?> <option value=<?=$res['uid']?>><?=$res['uid']?> - <?=$res['title']?></option> <?php } ?>
     </select>
-    <?php assembleSerBox() ?>
+    <?php assembleSerBox(-1) ?>
     <div style='height: 7px'/>
-    <?php assembleSBox() ?>
+    <?php assembleSBox(-1) ?>
     <div class="filterMenu" onClick='submitFilter()'>
         <i class="fa fa-filter" aria-hidden="true"></i>
     </div>

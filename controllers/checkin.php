@@ -84,7 +84,7 @@
     if(isset($_POST['action'])) {
         switch($_POST['action']) {
             case 'locate':
-                locateVendor($mysqli, $_POST['json']);
+                locateVendor($mysqli, json_encode($_POST['json']));
                 break;
             case 'fob':
                 checkin($mysqli, $_POST['hash'], $_POST['lat'], $_POST['lng'], time(), $_POST['pin']);

@@ -59,7 +59,7 @@ function deleteResource(uidOfResource) {
         document.body.removeChild(m);
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
-        refresh();
+        refresh('v');
         $(document).unbind('scroll'); 
         $('body').css({'overflow':'visible'});
     });
@@ -124,7 +124,7 @@ function addResource() {
                             addImage(e, 'img2');
                             addImage(e, 'img3');
                             setTimeout(function() {
-                                contentLoader("resources/my_resources", false);
+                                contentLoader("resources/my_resources", false, 'v');
                             }, 100);
                         } else {
                             console.log(e);
@@ -140,6 +140,7 @@ function addResource() {
 }
 
 function addImage(id, imgtype) {
+    console.log(imgtype);
     if($('#' + imgtype)[0].files[0] && $('#' + imgtype)[0].files[0].size <= 2097152) {
         var formData = new FormData();
         formData.append('file', $('#' + imgtype)[0].files[0]);
@@ -153,7 +154,7 @@ function addImage(id, imgtype) {
             processData: false,  // tell jQuery not to process the data
             contentType: false,  // tell jQuery not to set contentType
             success : function(data) {
-                // console.log(data);
+                //console.log(data);
             }
         });
     } else if ($('#' + imgtype)[0].files[0].size > 2097152) {
@@ -178,6 +179,7 @@ function openEditor(uid) {
 }
 
 function editResource(uid) {
+    window.scrollTo(0,0);
     $('body').css({'overflow':'hidden'});
     $(document).bind('scroll',function () { 
         window.scrollTo(0,document.body.scrollTop); 
@@ -282,7 +284,7 @@ function editResource(uid) {
                     success: function(e) {
                         if (e == "SUCC") {
                             console.log(e);
-                            contentLoader("resources/my_resources", false);
+                            contentLoader("resources/my_resources", false, 'v');
                         } else {
                             console.log("FAILURE: " + e);
                         }
@@ -295,7 +297,7 @@ function editResource(uid) {
         document.body.removeChild(m);
         var y = document.getElementById("promptDelete");
         document.body.removeChild(y);
-        refresh();
+        refresh('v');
         $(document).unbind('scroll'); 
         $('body').css({'overflow':'visible'});
     });
@@ -391,7 +393,7 @@ function activate(uid, yes) {
             do: (yes == 1 ? true : false)
         }
     }).done(function(e) {
-        refresh();
+        contentLoader("resources/my_resources", false, 'v');
         if (yes) {
             alerter('Resource #' + uid + ' has been activated.<br/>All others have been deactivated!', 'Activation Done');
         } else {
