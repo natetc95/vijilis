@@ -30,9 +30,28 @@
         $status = (isset($status) && $status != "-1") ? "$status" : NULL;
         $code = (isset($code) && $code != "-1") ? $code : NULL;
         $desc = (isset($desc) && $desc != "") ? '%' . $desc . '%' : NULL;
+        if(isset($im) && $im != "") {
+            if($query = $mysqli->prepare('SELECT uid FROM user WHERE username = ? LIMIT 1')) {
+                $query->bind_param('s', $im);
+                $query->execute();
+                $query->bind_result($imuid);
+                $query->fetch();
+                if(isset($imuid)) {
+                    $query->fetch();
+                    $im = $imuid;
+                } elseif ($imuid == False) {
+                    $im = NULL;
+                }
+            } else {
+                $im == NULL;
+            }
+        } else {
+            $im=NULL;
+        }
+        $res = (isset($res) && $res != "") ? $res : NULL;
         $huh = NULL;
         if($query = $mysqli->prepare($search)) {
-            $query->bind_param('iiiiisii', $uid, $parent, $ctime, $code, $status, $desc, $huh, $huh);
+            $query->bind_param('iiiiisii', $uid, $parent, $ctime, $code, $status, $desc, $im, $res);
             $query->execute();
             $query->bind_result($uid, $ss, $sd, $vid, $ct);
             while($query->fetch()) {

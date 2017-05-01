@@ -89,19 +89,19 @@
     <h1>Information</h1>
     <div class="interiorvhr">
         <b>Status</b><br/>
-        <?php assembleSBox($status);?><br/><div style='height: 33px;'/>
+        <?php assembleSBox($status);?><br/><div style='height: 10px;'/>
         <b>Priority</b><br/>
-        <?php assemblePBox($priority);?><br/><div style='height: 33px;'/>
+        <?php assemblePBox($priority);?><br/><div style='height: 10px;'/>
         <b>Service</b><br/>
         <?php assembleSerBox($code);?><br/>
     </div>
     <div class="interiorvhr">
         <b>Special Instructions:</b><br/>
-        <textarea id='spec' class='wew' rows='8'><?=$spec?></textarea>
+        <textarea id='spec' class='wew' rows='12'><?=$spec?></textarea>
     </div>
     <div class="interiorvhr">
         <b>Description</b><br/>
-        <textarea id='desc' class='wew' rows='8'><?=$desc?></textarea>
+        <textarea id='desc' class='wew' rows='12'><?=$desc?></textarea>
     </div>
 </div>
 <div class="contentvhr">
@@ -115,7 +115,7 @@
                 $query->execute();
                 $query->bind_result($r, $d, $s);
                 while($query->fetch()) {
-                    if (isset($vendor) && $vendor = $r) {
+                    if (isset($vendor) && $vendor == $r) {
                         echo('  <li>R#'. $r . ' - Approximately ' . sprintf('%.2f',$d) . ' miles away.&nbsp;&nbsp;<i class="fa fa-check" style="color: green" aria-hidden="true"></i></li>');
                     } else {
                         if($s == 1) {

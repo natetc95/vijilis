@@ -215,6 +215,23 @@ function opensub(s) {
 
 var reqs = 1;
 
+function makeBox(type) {
+    var ret = '';
+    $.ajax({
+        url: 'controllers/json/assembly.php',
+        method: 'post',
+        dataType: 'html',
+        async: false,
+        data: {
+            type: type,
+            value: -1
+        }, success: function(e) {
+            ret = e;
+        }
+    });
+    return ret;
+}
+
 function addSub() {
     reqs++;
     var newTab = document.createElement("a");
@@ -232,26 +249,11 @@ function addSub() {
     newBox.innerHTML = `<br/>
         <div class="description" onChange="selectBox('car')">
             <div class="breaker">
+                <input type='hidden' id='hid-res'/>
                 <h2>Incident Type</h2><br/>
-                <select class="wew" id="jobtype">
-                    <option selected hidden> -- Choose One -- </option>
-                    <option value='0'>Car Crash</option>
-                    <option value='1'>Debris Cleanup</option>
-                </select>
+                ` + makeBox('service') + `
                 <br/><br/><h2>Priority</h2><br/>
-                <select class="wew" id="priorityinp">
-                    <option selected hidden> -- Choose One -- </option>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                    <option value='6'>6</option>
-                    <option value='7'>7</option>
-                    <option value='8'>8</option>
-                    <option value='9'>9</option>
-                    <option value='10'>10</option>
-                </select>
+                ` + makeBox('priority') + `
             </div>
             <div class="breaker">
                 <div class="description" >
@@ -267,10 +269,19 @@ function addSub() {
             </div>
             <br/>
       <div style="margin-top:10px;margin-bottom:10px;">
-        <center><button onClick="removeLinkedJob()">Remove Linked Job</button></center>
+        <center><button onClick="removeSub(` + reqs + `)">Remove Linked Job</button></center>
       </div>`;
     document.getElementById("sr").appendChild(newBox);
     opensub(reqs);
+    addDefaults(reqs);
+}
+
+function removeSub(res) {
+    if(document.getElementById('subreq' + res) != undefined) {
+        document.getElementById('subreq' + res).parentElement.removeChild(document.getElementById('subreq' + res));
+        document.getElementById('tab' + res).parentElement.removeChild(document.getElementById('tab' + res));
+    }
+    opensub(1);
 }
 
 function FOBBY(uid, menu) {

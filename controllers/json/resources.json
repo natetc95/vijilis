@@ -1,0 +1,26 @@
+[
+    {
+        "code": "0",
+        "message": "Tow Truck"
+    },
+    {
+        "code": "1",
+        "message": "Ambulance"
+    },
+    {
+        "code": "2",
+        "message": "Debris Team"
+    },
+    {
+        "code": "3",
+        "message": "Crane"
+    },
+    {
+        "code": "4",
+        "message": "Food Stuffs"
+    },
+    {
+        "code": "5",
+        "message": "Sandbags"
+    }
+]

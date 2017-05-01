@@ -45,5 +45,5 @@
 </div>
 <div class="contentvhr">
     <button style="float: left" onClick="contentLoader('news', false, 'a')">Cancel</button>
-    <button style="float: right" onClick="createIncidentManager()">Save</button>
+    <button style="float: right" onClick="createAdmin()">Save</button>
 </div>

@@ -301,12 +301,20 @@ function editResource(uid) {
     });
 }
 
+if(document.getElementById('type') != undefined) {
+    document.getElementById('type').addEventListener('change', function() {
+        vecHandler();
+    });
+}
+
 function vecHandler() {
     var value = parseInt(document.getElementById("type").value, 10);
     yearMaker();
     $( function() {
         $( "#expiration" ).datepicker();
     } );
+    value = parseInt(value);
+    console.log(value);
     if (value > -1 && value < 3) {
         document.getElementById("vec_info").setAttribute("class", "resourceAddtInfo open");
     } else {

@@ -1,6 +1,9 @@
 <base href="../"/>
 
-<?php require('controllers/sessionHandler.php'); ?>
+<?php 
+    require('controllers/sessionHandler.php'); 
+    require('controllers/json/assembly.php');
+?>
 
 <script src="public/javascripts/myResources.js"></script>
 <div class="contentvhr">
@@ -18,15 +21,7 @@
     <h2>Title:</h2><br/>
     <center><input id="title" class="resourceInputBox" type="text"></input></center><br/>
     <h2>Type of Resource:</h2><br/>
-    <center><select id="type" class="resourceInputBox resourceSelectBox" onChange="vecHandler()">
-        <option value=-1 disabled selected="selected">Select One</option>
-        <optgroup label="Vehicles">
-            <option value=0>Tow Truck</option>
-            <option value=1>&nbsp;Ambulance</option>
-            <option value=2>&nbsp;Snow Plow</option>
-        <optgroup label="Supplies">
-            <option value=3>&nbsp;Food Stuffs</option>
-    </select></center><br/>
+    <center><?php assembleRBox(-1); ?></center><br/>
 
     <!--VEHICLE INFORMATION BOX-->
 
