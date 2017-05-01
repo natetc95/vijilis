@@ -83,7 +83,7 @@
         }
 ?>
 
-<div class="contentvhr q r<?=$rid?>">
+<div class="contentvhr q r<?=$rid?> s<?=$ss?> c<?=$sc?>">
         <div style='position: relative;'>
         <div class="resourceTitle">
             <h1>Job#<?=$job?>

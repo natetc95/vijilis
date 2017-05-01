@@ -41,7 +41,7 @@
   <div id="clock"></div>
   <div id="sidebar-menu">
     <div id="sidebar-content">
-      <div class="sidebar-entry" onclick="openMenu('request')">
+      <div class="sidebar-entry" onclick="contentLoader('requests/my_requests', true, 'v')">
         <i id="request-icon" class="fa fa-handshake-o" aria-hidden="true"></i>Jobs
       </div>
       <div class="sidebar-entry" onclick="openMenu('profile')">
@@ -64,19 +64,6 @@
       </div>
       <div class="sidebar-entry no-border" onClick="Logout()">
         <i class="fa fa-sign-out" aria-hidden="true"></i>Log Out
-      </div>
-    </div>
-  </div>
-  <div id="request-under-menu" class="under-menu">
-    <div class="under-menu-content">
-      <div class="under-menu-entry" onClick="contentLoader('requests/my_requests', true, 'v')">
-        <i class="fa fa-rss" aria-hidden="true"></i>My Open Jobs
-      </div>
-      <div class="under-menu-entry" onClick="contentLoader('requests/local_requests', true, 'v')">
-        <i class="fa fa-newspaper-o" aria-hidden="true"></i>In My Area
-      </div>
-      <div class="under-menu-entry" onClick="contentLoader('requests/lookup_request', true, 'v')">
-        <i class="fa fa-search" aria-hidden="true"></i>Find A Job
       </div>
     </div>
   </div>
