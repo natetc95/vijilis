@@ -8,7 +8,11 @@
     require('controllers/sessionHandler.php');
     $mysqli = new mysqli($DB_HOST, $DB_UNME, $DB_PWRD, $DB_NAME);
 
-    if ($query = $mysqli->prepare('SELECT username, fname, lname, uid FROM user WHERE acttype = 1')) {
+    // if ($query = $mysqli->prepare('SELECT username, fname, lname, uid FROM user WHERE acttype = 1')) {
+    if( $query = $mysqli->prepare('SELECT user.username, user.fname, user.lname, user.uid
+                                      FROM user
+                                      INNER JOIN vendor
+                                      ON vendor.user_uid = user.uid') ){
         $query->execute();
         $query->bind_result($u, $f, $l, $u2);
 
