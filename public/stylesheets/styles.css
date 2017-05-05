@@ -1505,7 +1505,7 @@ xmp {
 }
 
 #filter-box.open {
-	height: 198px;
+	height: 243px;
 	transition: 0.1s;
 }
 
@@ -1540,14 +1540,26 @@ xmp {
 	z-index: 150;
 }
 
-.center-box {
+#entry {
+	width: 90%;
+	padding: 13px;
+	font-size: 24px;
+	height: 24px;
+	border-radius: 24px;
+	border: 1px solid grey;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#center-box {
 	position: absolute;
-	right: 170px;
+	right: 175px;
 	top: 54px;
 	height: 25px;
 	width: 25px;
 	background: white;
 	padding: 5px;
+    margin-right: 10px;
 	cursor: pointer;
 	border-radius: 3px;
 	font-weight: 700;
@@ -1558,7 +1570,7 @@ xmp {
 	text-align: center;
 }
 
-.center-box:hover {
+#center-box:hover {
 	color: black;
 }
 

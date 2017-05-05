@@ -25,6 +25,7 @@
     </div>
     <?php 
     session_start();
+    require('controllers/json/assembly.php');
     if(($_SESSION['acct'] & 4) == 4) {?>
     <script src="public/javascripts/maps/admin.js"></script>
     <div id='districttool' class="center-box" style='right: 210px' title="Points for Admin!" onclick="adminPoints()">
@@ -40,6 +41,7 @@
             <input id="fEngaged" type="checkbox" checked/>Engaged Resources<br/>
             <input id="fInactive" type="checkbox" checked/>Inactive Resources<br/>
             <input id="fDistrict" type="checkbox" checked/>My District<br/>
+        <?php assembleRbox(-1); ?>
         </div>
         <center><button style="margin-top: 5px" onClick="getAllData()">Apply</button></center>
     </div>

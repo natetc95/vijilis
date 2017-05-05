@@ -231,7 +231,8 @@ function getDBData(type) {
         method: 'post',
         dataType: 'json',
         data: {
-            action: type
+            action: type,
+            res: document.getElementById('type').value
         }
     }).done(function(e) {
         var pos = '';
