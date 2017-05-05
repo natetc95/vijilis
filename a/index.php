@@ -44,17 +44,8 @@
       <div class="sidebar-entry" onclick="openMenu('billing')">
         <i class="fa fa-check" aria-hidden="true"></i>Approvals
       </div>
-      <div class="sidebar-entry">
-        <i class="fa fa-line-chart" aria-hidden="true"></i>Analytics
-      </div>
       <div class="sidebar-entry" onclick="contentLoader('js/testing',true,'a')">
         <i class="fa fa-flask" aria-hidden="true"></i>JS Testing
-      </div>
-      <div class="sidebar-entry">
-        <i class="fa fa-cogs" aria-hidden="true"></i>Preferences
-      </div>
-      <div class="sidebar-entry">
-        <i class="fa fa-question" aria-hidden="true"></i>About
       </div>
       <div class="sidebar-entry" onClick="window.location='portal.php'">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>Portals
@@ -76,7 +67,10 @@
         <i class="fa fa-user-secret" aria-hidden="true"></i>Create Admin
       </div>
       <div class="under-menu-entry" onClick="contentLoader('accounts/d', true, 'a')" style="padding-right: 0; float: left; width: 173px;">
-        <i class="fa fa-map-o" aria-hidden="true"></i>Create District
+        <i class="fa fa-map-o" aria-hidden="true"></i>Create Polygon
+      </div>
+      <div class="under-menu-entry" onClick="contentLoader('accounts/fobs', true, 'a')" style="padding-right: 0; float: left; width: 173px;">
+        <i class="fa fa-tag" aria-hidden="true"></i>Create Fob
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 <script src="public/javascripts/admin/registration.js"/>
 <div class="contentvhr">
-    <h1><i class="fa fa-map-o" aria-hidden="true"></i>&nbsp;Create a District</h1><hr/>
-    <p style="margin: 0;">&nbsp;A district describes the strict coordinate bounded area which can be serviced. i.e. The service area of one dispatch office.</p>
+    <h1><i class="fa fa-map-o" aria-hidden="true"></i>&nbsp;Create a Polygon</h1><hr/>
+    <p style="margin: 0;">&nbsp;A polygon describes the strict coordinate bounded area which can be serviced. i.e. The service area of one dispatch office.</p>
 </div>
 <div class="contentvhr">
     <div class="interiorcontainer">
